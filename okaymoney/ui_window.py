@@ -14,4 +14,4 @@ class UIWindow(QMainWindow):
 
     def __init__(self):
         super().__init__()
-        uic.loadUi('ui/login.ui')
+        uic.loadUi('ui/login.ui', self)
