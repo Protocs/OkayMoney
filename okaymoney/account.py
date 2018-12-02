@@ -11,9 +11,19 @@ class Account:
         """
         self.name = name
         self.money = money
-        self._transactions = TransactionList()
+        self.transactions = TransactionList()
 
     def add_transaction(self, tr):
-        """Добавляет транзакцию в историю и изменяет баланс."""
-        self._transactions.append(tr)
+        """Добавляет транзакцию в историю и изменяет баланс.
+
+        >>> from okaymoney.transaction import Transaction
+        >>> tr = Transaction('Покупки', -200)
+        >>> acc = Account('Наличные', 300)
+        >>> acc.add_transaction(tr)
+        >>> acc.money
+        100
+        >>> acc.transactions
+        {0: <Transaction object at ...>}
+        """
+        self.transactions.append(tr)
         self.money += tr.delta
