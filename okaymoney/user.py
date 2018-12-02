@@ -13,4 +13,8 @@ class User:
         self.balance = Decimal(balance)
         self._accounts = []
 
+        # Категории доходов и расходов
+        self.income_categories = []
+        self.spend_categories = []
+
         self.SAVE_PATH = name + '.okm'
