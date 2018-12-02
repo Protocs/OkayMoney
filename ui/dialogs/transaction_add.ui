@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>370</width>
-    <height>294</height>
+    <height>320</height>
    </rect>
   </property>
   <property name="font">
@@ -32,7 +32,7 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>10</x>
-     <y>260</y>
+     <y>280</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -60,6 +60,9 @@ color: rgb(255, 255, 255);</string>
      <bold>false</bold>
     </font>
    </property>
+   <property name="contextMenuPolicy">
+    <enum>Qt::DefaultContextMenu</enum>
+   </property>
    <property name="layoutDirection">
     <enum>Qt::LeftToRight</enum>
    </property>
@@ -68,6 +71,9 @@ color: rgb(255, 255, 255);</string>
    </property>
    <property name="text">
     <string>0</string>
+   </property>
+   <property name="echoMode">
+    <enum>QLineEdit::Normal</enum>
    </property>
    <property name="alignment">
     <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -197,6 +203,34 @@ color: rgb(255, 26, 26);</string>
     <string>Доход</string>
    </property>
   </widget>
+  <widget class="QLabel" name="label_3">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>260</y>
+     <width>41</width>
+     <height>16</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <pointsize>12</pointsize>
+    </font>
+   </property>
+   <property name="text">
+    <string>Дата</string>
+   </property>
+  </widget>
+  <widget class="QDateEdit" name="dateEdit">
+   <property name="geometry">
+    <rect>
+     <x>10</x>
+     <y>280</y>
+     <width>110</width>
+     <height>22</height>
+    </rect>
+   </property>
+  </widget>
   <zorder>buttonBox</zorder>
   <zorder>lineEdit</zorder>
   <zorder>label</zorder>
@@ -205,6 +239,8 @@ color: rgb(255, 26, 26);</string>
   <zorder>radioButton</zorder>
   <zorder>radioButton_2</zorder>
   <zorder>comboBox</zorder>
+  <zorder>label_3</zorder>
+  <zorder>dateEdit</zorder>
  </widget>
  <resources/>
  <connections>
