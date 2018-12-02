@@ -1,5 +1,5 @@
 import pickle
-from . import messagebox
+from .ui import messagebox
 
 
 def save(acc):

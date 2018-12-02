@@ -2,7 +2,7 @@ import sys
 
 from PyQt5.QtWidgets import QApplication
 
-from okaymoney.login import LoginWindow
+from okaymoney.ui.login import LoginWindow
 
 # Класс окна, появляющегося при запуске программы.
 FIRST_WINDOW = LoginWindow
