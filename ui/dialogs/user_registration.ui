@@ -9,12 +9,12 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>291</width>
-    <height>162</height>
+    <width>356</width>
+    <height>149</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Новый пользователь</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(55, 55, 55);
@@ -23,8 +23,8 @@ color: rgb(255, 255, 255);</string>
   <widget class="QDialogButtonBox" name="buttonBox">
    <property name="geometry">
     <rect>
-     <x>-70</x>
-     <y>120</y>
+     <x>-80</x>
+     <y>110</y>
      <width>341</width>
      <height>32</height>
     </rect>
@@ -36,13 +36,13 @@ color: rgb(255, 255, 255);</string>
     <set>QDialogButtonBox::Cancel|QDialogButtonBox::Ok</set>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit">
+  <widget class="QLineEdit" name="name">
    <property name="geometry">
     <rect>
      <x>20</x>
      <y>30</y>
-     <width>113</width>
-     <height>20</height>
+     <width>151</width>
+     <height>21</height>
     </rect>
    </property>
   </widget>
@@ -67,9 +67,9 @@ color: rgb(255, 255, 255);</string>
   <widget class="QLabel" name="label_2">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>180</x>
      <y>10</y>
-     <width>51</width>
+     <width>71</width>
      <height>21</height>
     </rect>
    </property>
@@ -82,13 +82,13 @@ color: rgb(255, 255, 255);</string>
     <string>Пароль</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_2">
+  <widget class="QLineEdit" name="password">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>180</x>
      <y>30</y>
-     <width>113</width>
-     <height>20</height>
+     <width>161</width>
+     <height>21</height>
     </rect>
    </property>
    <property name="cursor">
@@ -105,21 +105,21 @@ color: rgb(255, 255, 255);</string>
    <property name="geometry">
     <rect>
      <x>20</x>
-     <y>80</y>
-     <width>101</width>
+     <y>70</y>
+     <width>151</width>
      <height>21</height>
     </rect>
    </property>
    <property name="text">
-    <string>Пароль хош?</string>
+    <string>Защитить паролем</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>180</x>
      <y>60</y>
-     <width>111</width>
+     <width>161</width>
      <height>21</height>
     </rect>
    </property>
@@ -132,12 +132,12 @@ color: rgb(255, 255, 255);</string>
     <string>Повторить пароль</string>
    </property>
   </widget>
-  <widget class="QLineEdit" name="lineEdit_3">
+  <widget class="QLineEdit" name="repeat_password">
    <property name="geometry">
     <rect>
-     <x>160</x>
+     <x>180</x>
      <y>80</y>
-     <width>113</width>
+     <width>161</width>
      <height>20</height>
     </rect>
    </property>
