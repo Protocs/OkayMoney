@@ -13,7 +13,7 @@ def save(acc):
     True
     """
     try:
-        with open(acc.SAVE_PATH, 'w') as f:
+        with open(acc.SAVE_PATH, 'wb') as f:
             pickle.dump(acc, f, pickle.HIGHEST_PROTOCOL)
     except OSError as e:
         messagebox.error(f'Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})')
@@ -29,7 +29,7 @@ def load(path):
     <User object at ...>
     """
     try:
-        with open(path) as f:
+        with open(path, 'rb') as f:
             return pickle.load(f)
     except OSError as e:
         messagebox.error(f'Невозможно открыть файл профиля: {path}\n({e})')
