@@ -1,7 +1,7 @@
 from .ui_dialog import UIDialog
 
 
-class TransactionAddDialog(UIDialog):
+class UserRegistrationDialog(UIDialog):
     """Диалог регистрации нового пользователя.
 
     *Файл интерфейса:* ``ui/dialogs/user_registration.ui``
