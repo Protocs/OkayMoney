@@ -42,7 +42,7 @@ class LoginWindow(UIWindow):
             repeated_password = self.add_user_dialog.repeat_password.text()
             # Создание аккаунта с паролем не реализовано.
         if name:
-            if name in [user for user in self.users]:
+            if name in self.users:
                 error('Пользователь с таким именем уже существует', self.add_user_dialog)
                 return
             acc = User(name, 0)
@@ -59,7 +59,6 @@ class LoginWindow(UIWindow):
         for file in os.listdir():
             if '.okm' in file:
                 user = load(file)
-                print(self.users, user.name)
                 if user.name not in self.users:
                     button = UserLoginButton()
                     button.name.setText(user.name)
