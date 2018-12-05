@@ -32,10 +32,10 @@
    <widget class="QPushButton" name="add_account">
     <property name="geometry">
      <rect>
-      <x>709</x>
-      <y>570</y>
-      <width>181</width>
-      <height>23</height>
+      <x>689</x>
+      <y>562</y>
+      <width>201</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="styleSheet">
