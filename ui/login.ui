@@ -56,10 +56,24 @@
     </property>
     <layout class="QHBoxLayout" name="login_buttons_layout"/>
    </widget>
+   <widget class="QPushButton" name="show_more_users_btn">
+    <property name="geometry">
+     <rect>
+      <x>350</x>
+      <y>405</y>
+      <width>200</width>
+      <height>28</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: rgb(255, 255, 255)</string>
+    </property>
+    <property name="text">
+     <string>Показать всех пользователей</string>
+    </property>
+   </widget>
   </widget>
  </widget>
- <resources>
-  <include location="newResource.qrc"/>
- </resources>
+ <resources/>
  <connections/>
 </ui>
