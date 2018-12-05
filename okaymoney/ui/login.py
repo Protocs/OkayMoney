@@ -1,5 +1,6 @@
 from .ui_window import UIWindow
 from .dialogs.user_registration import UserRegistrationDialog
+from .dialogs.more_users import MoreUsersDialog
 from okaymoney.user import User
 from okaymoney.user_save_load import save, load
 from .messagebox import error
@@ -18,29 +19,35 @@ class LoginWindow(UIWindow):
     def __init__(self):
         super().__init__()
         self.add_account.clicked.connect(self.show_add_user_dialog)
-        self.users = []
-        self.show_users()
+        self.show_more_users_btn.clicked.connect(self.show_more_users_dialog)
+        self.users = [file[:file.find('.okm')] for file in os.listdir() if '.okm' in file]
+        if len(self.users) <= 5:
+            self.show_more_users_btn.hide()
+        if len(self.users) > 0:
+            for user in self.users[:5]:
+                button = UserLoginButton()
+                button.name.setText(user)
+                self.login_buttons_layout.addWidget(button)
 
     def show_add_user_dialog(self):
         self.add_user_dialog = UserRegistrationDialog()
-        self.add_user_dialog.checkBox.stateChanged.connect(self.change_state)
-        self.add_user_dialog.password.setEnabled(False)
-        self.add_user_dialog.repeat_password.setEnabled(False)
         self.add_user_dialog.ok_button.clicked.connect(self.add_user)
         self.add_user_dialog.cancel_button.clicked.connect(self.close_dialog)
-        self.add_user_dialog.exec_()
+        self.add_user_dialog.exec()
 
-    def change_state(self):
-        checked = self.sender().isChecked()
-        self.add_user_dialog.password.setEnabled(checked)
-        self.add_user_dialog.repeat_password.setEnabled(checked)
+    def show_more_users_dialog(self):
+        self.more_users_dialog = MoreUsersDialog()
+        for user in self.users:
+            self.more_users_dialog.listWidget.addItem(user)
+        self.more_users_dialog.choose_user_btn.clicked.connect(self.choose_user)
+        self.more_users_dialog.listWidget.itemDoubleClicked.connect(self.choose_user)
+        self.more_users_dialog.exec()
+
+    def choose_user(self):
+        selected = self.more_users_dialog.listWidget.currentItem()
 
     def add_user(self):
         name = self.add_user_dialog.name.text()
-        if self.add_user_dialog.checkBox.isChecked():
-            password = self.add_user_dialog.password.text()
-            repeated_password = self.add_user_dialog.repeat_password.text()
-            # Создание аккаунта с паролем не реализовано.
         if name:
             if name in self.users:
                 error('Пользователь с таким именем уже существует', self.add_user_dialog)
@@ -48,19 +55,16 @@ class LoginWindow(UIWindow):
             acc = User(name, 0)
             save(acc)
             self.add_user_dialog.hide()
-            self.show_users()
+            self.users.append(name)
+            if len(self.users) >= 6:
+                self.show_more_users_btn.show()
+            else:
+                button = UserLoginButton()
+                button.name.setText(name)
+                self.login_buttons_layout.addWidget(button)
+
         else:
             error('Введите имя пользователя', self.add_user_dialog)
 
     def close_dialog(self):
         self.add_user_dialog.hide()
-
-    def show_users(self):
-        for file in os.listdir():
-            if '.okm' in file:
-                user = load(file)
-                if user.name not in self.users:
-                    button = UserLoginButton()
-                    button.name.setText(user.name)
-                    self.login_buttons_layout.addWidget(button)
-                    self.users.append(user.name)
