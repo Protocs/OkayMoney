@@ -59,9 +59,9 @@
    <widget class="QPushButton" name="show_more_users_btn">
     <property name="geometry">
      <rect>
-      <x>350</x>
+      <x>340</x>
       <y>405</y>
-      <width>200</width>
+      <width>220</width>
       <height>28</height>
      </rect>
     </property>
