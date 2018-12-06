@@ -1,5 +1,6 @@
 from PyQt5.QtWidgets import QWidget
 from PyQt5 import uic
+from PyQt5.QtCore import Qt
 
 
 class UIWidget(QWidget):
@@ -14,6 +15,6 @@ class UIWidget(QWidget):
             ...
     """
 
-    def __init__(self, *args, **kwargs):
-        super().__init__(*args, **kwargs)
+    def __init__(self, parent=None, flags=Qt.WindowFlags()):
+        super().__init__(parent, flags)
         uic.loadUi(self.ui_path, self)
