@@ -27,10 +27,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="pie_place" native="true">
     <property name="geometry">
      <rect>
-      <x>350</x>
-      <y>140</y>
-      <width>331</width>
-      <height>261</height>
+      <x>260</x>
+      <y>60</y>
+      <width>501</width>
+      <height>421</height>
      </rect>
     </property>
    </widget>
@@ -63,7 +63,7 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -92,7 +92,7 @@ padding-right:10px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -121,7 +121,7 @@ padding-right:10px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -187,7 +187,7 @@ padding-right:10px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -222,7 +222,7 @@ DropShadow {
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
@@ -251,7 +251,7 @@ padding-left:10px;</string>
        </property>
        <property name="font">
         <font>
-         <pointsize>20</pointsize>
+         <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
