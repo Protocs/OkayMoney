@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>785</width>
-    <height>494</height>
+    <height>474</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -28,6 +28,16 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout"/>
    </widget>
+   <widget class="QWidget" name="pie_place" native="true">
+    <property name="geometry">
+     <rect>
+      <x>170</x>
+      <y>0</y>
+      <width>411</width>
+      <height>451</height>
+     </rect>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -35,11 +45,10 @@
      <x>0</x>
      <y>0</y>
      <width>785</width>
-     <height>18</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
-  <widget class="QStatusBar" name="statusbar"/>
  </widget>
  <resources/>
  <connections/>
