@@ -25,9 +25,7 @@ class LoginWindow(UIWindow):
             self.show_more_users_btn.hide()
         if len(self.users) > 0:
             for user in self.users[:5]:
-                button = UserLoginButton(self)
-                button.name.setText(user)
-                self.login_buttons_layout.addWidget(button)
+                self.show_user(user)
 
     def show_add_user_dialog(self):
         self.add_user_dialog = UserRegistrationDialog()
@@ -45,8 +43,6 @@ class LoginWindow(UIWindow):
 
     def choose_user(self):
         selected = self.more_users_dialog.listWidget.currentItem()
-        print(selected)
-        print(dir(selected))
 
     def add_user(self):
         name = self.add_user_dialog.name.text()
@@ -61,12 +57,16 @@ class LoginWindow(UIWindow):
             if len(self.users) >= 6:
                 self.show_more_users_btn.show()
             else:
-                button = UserLoginButton(self)
-                button.name.setText(name)
-                self.login_buttons_layout.addWidget(button)
+                self.show_user(name)
 
         else:
             error('Введите имя пользователя', self.add_user_dialog)
 
     def close_dialog(self):
         self.add_user_dialog.hide()
+
+    def show_user(self, user):
+        button = UserLoginButton(self)
+        button.name.setText(user)
+        button.name.setToolTip(user)
+        self.login_buttons_layout.addWidget(button)
