@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>170</width>
-    <height>212</height>
+    <width>150</width>
+    <height>197</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>170</width>
-    <height>212</height>
+    <width>150</width>
+    <height>100</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>170</width>
-    <height>212</height>
+    <width>150</width>
+    <height>197</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -28,6 +28,18 @@
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QGraphicsView" name="icon">
+     <property name="minimumSize">
+      <size>
+       <width>128</width>
+       <height>128</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>128</width>
+       <height>128</height>
+      </size>
+     </property>
      <property name="styleSheet">
       <string notr="true"/>
      </property>
