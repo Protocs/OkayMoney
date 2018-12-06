@@ -6,9 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>792</width>
-    <height>451</height>
+    <width>1019</width>
+    <height>655</height>
    </rect>
+  </property>
+  <property name="font">
+   <font>
+    <weight>75</weight>
+    <bold>true</bold>
+   </font>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
@@ -21,45 +27,26 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="pie_place" native="true">
     <property name="geometry">
      <rect>
-      <x>170</x>
-      <y>0</y>
-      <width>411</width>
-      <height>401</height>
+      <x>350</x>
+      <y>140</y>
+      <width>331</width>
+      <height>261</height>
      </rect>
     </property>
-    <widget class="QPushButton" name="pushButton_9">
-     <property name="geometry">
-      <rect>
-       <x>160</x>
-       <y>370</y>
-       <width>121</width>
-       <height>20</height>
-      </rect>
-     </property>
-     <property name="font">
-      <font>
-       <pointsize>18</pointsize>
-       <underline>true</underline>
-      </font>
-     </property>
-     <property name="text">
-      <string>Все категории</string>
-     </property>
-     <property name="flat">
-      <bool>true</bool>
-     </property>
-    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>650</x>
+      <x>780</x>
       <y>10</y>
-      <width>131</width>
-      <height>101</height>
+      <width>231</width>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
+     <property name="spacing">
+      <number>7</number>
+     </property>
      <item>
       <widget class="QPushButton" name="pushButton_6">
        <property name="minimumSize">
@@ -70,13 +57,19 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>129</width>
-         <height>24</height>
+         <width>400</width>
+         <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align:right;
-padding-right:5px;</string>
+background-color: rgb(136, 136, 136);
+padding-right:10px;</string>
        </property>
        <property name="text">
         <string>Все счета</string>
@@ -93,13 +86,19 @@ padding-right:5px;</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>129</width>
-         <height>24</height>
+         <width>400</width>
+         <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align:right;
-padding-right:5px;</string>
+background-color: rgb(136, 136, 136);
+padding-right:10px;</string>
        </property>
        <property name="text">
         <string>Счет1</string>
@@ -116,16 +115,152 @@ padding-right:5px;</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>129</width>
-         <height>24</height>
+         <width>400</width>
+         <height>30</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align:right;
-padding-right:5px;</string>
+background-color: rgb(136, 136, 136);
+padding-right:10px;</string>
        </property>
        <property name="text">
         <string>Счет2</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QPushButton" name="pushButton_9">
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>510</y>
+      <width>181</width>
+      <height>41</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>20</pointsize>
+      <underline>true</underline>
+     </font>
+    </property>
+    <property name="text">
+     <string>Все категории</string>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>231</width>
+      <height>141</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_4">
+     <property name="spacing">
+      <number>7</number>
+     </property>
+     <item>
+      <widget class="QPushButton" name="pushButton_10">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:left;
+background-color: rgb(136, 136, 136);
+padding-left:10px;
+DropShadow {
+        verticalOffset: 3
+        radius: 8.0
+        samples: 17
+        color: &quot;#80000000&quot;
+    }</string>
+       </property>
+       <property name="text">
+        <string>Показывать все</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_11">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:left;
+background-color: rgb(136, 136, 136);
+padding-left:10px;</string>
+       </property>
+       <property name="text">
+        <string>Только доходы</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_12">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>24</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:left;
+background-color: rgb(136, 136, 136);
+padding-left:10px;</string>
+       </property>
+       <property name="text">
+        <string>Только расходы</string>
        </property>
       </widget>
      </item>
@@ -135,9 +270,9 @@ padding-right:5px;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>410</y>
-      <width>771</width>
-      <height>31</height>
+      <y>593</y>
+      <width>1001</width>
+      <height>51</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_3">
@@ -147,36 +282,40 @@ padding-right:5px;</string>
         <number>0</number>
        </property>
        <item>
-        <widget class="QLabel" name="label_2">
-         <property name="maximumSize">
-          <size>
-           <width>191</width>
-           <height>27</height>
-          </size>
+        <widget class="QLabel" name="label">
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(136, 136, 136);
-padding-left:5px;</string>
+padding-left:10px;</string>
          </property>
          <property name="text">
-          <string>Доходы за месяц</string>
+          <string>Доходы за месяц:</string>
          </property>
         </widget>
        </item>
        <item>
-        <widget class="QLabel" name="label">
-         <property name="maximumSize">
-          <size>
-           <width>190</width>
-           <height>27</height>
-          </size>
+        <widget class="QLabel" name="label_2">
+         <property name="font">
+          <font>
+           <family>MS Shell Dlg 2</family>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <italic>false</italic>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(136, 136, 136);
-padding-right:5px;</string>
+padding-right:10px;
+color: rgb(102, 187, 106);
+</string>
          </property>
          <property name="text">
-          <string>12 345 678 руб</string>
+          <string>12 345 67 руб</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -192,35 +331,36 @@ padding-right:5px;</string>
        </property>
        <item>
         <widget class="QLabel" name="label_3">
-         <property name="maximumSize">
-          <size>
-           <width>190</width>
-           <height>27</height>
-          </size>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(136, 136, 136);
-padding-left:5px;</string>
+padding-left:10px;</string>
          </property>
          <property name="text">
-          <string>Расходы за месяц</string>
+          <string>Расходы за месяц:</string>
          </property>
         </widget>
        </item>
        <item>
         <widget class="QLabel" name="label_4">
-         <property name="maximumSize">
-          <size>
-           <width>190</width>
-           <height>27</height>
-          </size>
+         <property name="font">
+          <font>
+           <pointsize>16</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
          </property>
          <property name="styleSheet">
           <string notr="true">background-color: rgb(136, 136, 136);
-padding-right:5px;</string>
+padding-right:10px;
+color: rgb(198, 40, 40);</string>
          </property>
          <property name="text">
-          <string>12 345 678 руб</string>
+          <string>12 345 67 руб</string>
          </property>
          <property name="alignment">
           <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -231,94 +371,13 @@ padding-right:5px;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>141</width>
-      <height>101</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2">
-     <item>
-      <widget class="QPushButton" name="pushButton_3">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>139</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:left;
-padding-left:5px;</string>
-       </property>
-       <property name="text">
-        <string>Показывать все</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>139</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:left;
-padding-left:5px;</string>
-       </property>
-       <property name="text">
-        <string>Только доходы</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>139</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:left;
-padding-left:5px;</string>
-       </property>
-       <property name="text">
-        <string>Только расходы</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
-   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>792</width>
+     <width>1019</width>
      <height>18</height>
     </rect>
    </property>
