@@ -3,10 +3,10 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
 
-class PieChart(QWidget):
-    """Круговая диаграмма."""
+class PieChart:
+    """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
-    def __init__(self):
+    def __init__(self, widget):
         super().__init__()
 
         figure, self.axes = plt.subplots()
@@ -15,7 +15,7 @@ class PieChart(QWidget):
         self.canvas = FigureCanvasQTAgg(figure)
         layout = QVBoxLayout()
         layout.addWidget(self.canvas)
-        self.setLayout(layout)
+        widget.setLayout(layout)
 
     def update_chart(self, data):
         """Создает или обновляет диаграмму."""
@@ -34,8 +34,9 @@ if __name__ == '__main__':
     from PyQt5.QtWidgets import QApplication
 
     app = QApplication(sys.argv)
-    pc = PieChart()
+    w = QWidget()
+    pc = PieChart(w)
     plt.title('Test')
     pc.update_chart([('Покупки', 100), ('Зарплата', 200)])
-    pc.show()
+    w.show()
     exit(app.exec())
