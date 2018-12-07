@@ -48,5 +48,5 @@ class LoginWindow(UIWindow):
         self.fill_users()
 
     def show_more_users_dialog(self):
-        self.more_users_dialog = MoreUsersDialog()
+        self.more_users_dialog = MoreUsersDialog(self)
         self.more_users_dialog.exec()

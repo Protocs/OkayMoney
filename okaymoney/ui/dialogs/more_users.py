@@ -1,5 +1,7 @@
+from ..main import MainWindow
 from ...user import get_user_names_in_current_dir
 from .ui_dialog import UIDialog
+from ... import user_save_load
 
 
 class MoreUsersDialog(UIDialog):
@@ -10,8 +12,10 @@ class MoreUsersDialog(UIDialog):
 
     ui_path = 'ui/dialogs/more_users_dialog.ui'
 
-    def __init__(self):
+    def __init__(self, login_window):
         super().__init__()
+
+        self.login_window = login_window
 
         for user in get_user_names_in_current_dir():
             self.listWidget.addItem(user)
@@ -20,5 +24,8 @@ class MoreUsersDialog(UIDialog):
         self.listWidget.itemDoubleClicked.connect(self.choose_user)
 
     def choose_user(self):
-        print(self.more_users_dialog.listWidget.currentItem())
-        # TODO
+        username = self.listWidget.currentItem().text()
+        self.main = MainWindow(user_save_load.load(username + '.okm'))
+        self.main.show()
+        self.close()
+        self.login_window.close()
