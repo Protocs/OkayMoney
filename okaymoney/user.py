@@ -4,14 +4,14 @@ import os
 class User:
     """Класс пользователя, который содержит всю информацию о пользователе."""
 
-    def __init__(self, name, avatar_path):
+    def __init__(self, name, avatar):
         """
         :param name: имя пользователя.
-        :param avatar_path: путь до аватарки.
+        :param avatar: аватарка в виде массива байтов.
         """
         self.name = name
         self.accounts = []
-        self.avatar_path = avatar_path
+        self.avatar = avatar
 
         # Категории доходов и расходов
         self.income_categories = []

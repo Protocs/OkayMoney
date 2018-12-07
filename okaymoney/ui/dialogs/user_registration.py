@@ -29,9 +29,9 @@ class UserRegistrationDialog(UIDialog):
             if name in get_user_names_in_current_dir():
                 error('Пользователь с таким именем уже существует', self)
                 return
-
-            acc = User(name, self.avatar)
-            save(acc)
+            with open(self.avatar, 'rb') as avatar:
+                acc = User(name, avatar.read())
+                save(acc)
 
             self.close()
         else:

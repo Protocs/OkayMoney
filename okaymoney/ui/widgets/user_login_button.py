@@ -1,5 +1,6 @@
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
+from PyQt5.Qt import QByteArray
 
 from ...user_save_load import load
 from ..main import MainWindow
@@ -22,8 +23,9 @@ class UserLoginButton(UIWidget):
 
         scene = QGraphicsScene()
         self.icon.setScene(scene)
-        pix_item = QGraphicsPixmapItem(QPixmap(self.user.avatar_path))
-        scene.addItem(pix_item)
+        pixmap = QPixmap()
+        pixmap.loadFromData(QByteArray(self.user.avatar))
+        scene.addItem(QGraphicsPixmapItem(pixmap))
 
         self.login_window = login_window
 
