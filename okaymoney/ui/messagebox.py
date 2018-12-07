@@ -7,5 +7,6 @@ def error(msg, parent=None):
     """Показывает окно с сообщением об ошибке ``msg`` над окном/виджетом ``parent``."""
     box = QMessageBox(parent)
     box.setText(msg)
+    box.setWindowTitle('Ошибка')
     box.setIcon(QMessageBox.Critical)
     box.exec()
