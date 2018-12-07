@@ -43,7 +43,7 @@ class UserRegistrationDialog(UIDialog):
             image = Image.open(filename[0])
             if image.size[0] == 128 and image.size[1] == 128:
                 self.avatar = filename[0]
-                self.add_user_dialog.label_2.setText(filename[0].split('/')[-1])
+                self.add_user_dialog.avatar_name.setText(filename[0].split('/')[-1])
             else:
                 raise Exception
         except Exception as e:
