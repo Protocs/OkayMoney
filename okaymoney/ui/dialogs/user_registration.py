@@ -38,13 +38,14 @@ class UserRegistrationDialog(UIDialog):
             error('Введите имя пользователя', self)
 
     def add_avatar(self):
-        try:
-            filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
-            image = Image.open(filename[0])
-            if image.size[0] == 128 and image.size[1] == 128:
-                self.avatar = filename[0]
-                self.avatar_name.setText(filename[0].split('/')[-1])
-            else:
-                raise Exception
-        except:
-            error('Ошибка, попробуйте загрузить картинку снова.', self)
+        filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
+        if filename[0]:
+            try:
+                image = Image.open(filename[0])
+                if image.size[0] == 128 and image.size[1] == 128:
+                    self.avatar = filename[0]
+                    self.avatar_name.setText(filename[0].split('/')[-1])
+                else:
+                    raise Exception
+            except:
+                error('Ошибка, попробуйте загрузить картинку снова.', self)
