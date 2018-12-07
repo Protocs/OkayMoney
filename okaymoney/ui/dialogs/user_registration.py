@@ -27,7 +27,7 @@ class UserRegistrationDialog(UIDialog):
         name = self.name.text()
         if name:
             if name in get_user_names_in_current_dir():
-                error('Пользователь с таким именем уже существует', self.add_user_dialog)
+                error('Пользователь с таким именем уже существует', self)
                 return
 
             acc = User(name, self.avatar)
@@ -35,17 +35,16 @@ class UserRegistrationDialog(UIDialog):
 
             self.close()
         else:
-            error('Введите имя пользователя', self.add_user_dialog)
+            error('Введите имя пользователя', self)
 
     def add_avatar(self):
-        filename = QFileDialog.getOpenFileName(self.add_user_dialog, 'Выбрать аватар')
         try:
+            filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
             image = Image.open(filename[0])
             if image.size[0] == 128 and image.size[1] == 128:
                 self.avatar = filename[0]
-                self.add_user_dialog.avatar_name.setText(filename[0].split('/')[-1])
+                self.avatar_name.setText(filename[0].split('/')[-1])
             else:
                 raise Exception
-        except Exception as e:
-            print(e)
+        except:
             error('Ошибка, попробуйте загрузить картинку снова.', self)
