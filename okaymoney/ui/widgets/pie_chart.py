@@ -3,6 +3,9 @@ from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QWidget, QVBoxLayout
 
 
+BACKGROUND_GRAY = str(55 / 255)
+
+
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
@@ -11,6 +14,7 @@ class PieChart:
 
         figure, self.axes = plt.subplots()
         self.axes.axis('equal')  # Фиксируем пропорции, чтобы рисовался круг, а не овал
+        figure.set_facecolor(BACKGROUND_GRAY)
 
         self.canvas = FigureCanvasQTAgg(figure)
         layout = QVBoxLayout()

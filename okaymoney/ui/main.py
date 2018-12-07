@@ -18,5 +18,6 @@ class MainWindow(UIWindow):
         self.user = user
 
         pie_chart = PieChart(self.pie_place)
-        plt.title('Test')
+        title = plt.title('Test')
+        plt.setp(title, color='w')
         pie_chart.update_chart([('Покупки', 100), ('Зарплата', 200)])
