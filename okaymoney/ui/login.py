@@ -22,7 +22,6 @@ class LoginWindow(UIWindow):
 
         self.avatar = None
 
-        self.users = get_user_names_in_current_dir()
         self.fill_users()
 
     def clear_login_buttons_layout(self):
@@ -34,9 +33,11 @@ class LoginWindow(UIWindow):
         """Перезаполняет окно кнопками пользователей."""
         self.clear_login_buttons_layout()
 
-        self.show_more_users_btn.setVisible(len(self.users) > 5)
+        users = get_user_names_in_current_dir()
 
-        for user in get_user_names_in_current_dir()[:5]:
+        self.show_more_users_btn.setVisible(len(users) > 5)
+
+        for user in users[:5]:
             button = UserLoginButton(self, user)
             button.name.setText(user)
             self.login_buttons_layout.addWidget(button)
