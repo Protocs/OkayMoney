@@ -27,10 +27,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="pie_place" native="true">
     <property name="geometry">
      <rect>
-      <x>260</x>
+      <x>200</x>
       <y>60</y>
-      <width>501</width>
-      <height>421</height>
+      <width>611</width>
+      <height>471</height>
      </rect>
     </property>
    </widget>
@@ -163,7 +163,7 @@ padding-right:10px;</string>
      <rect>
       <x>10</x>
       <y>40</y>
-      <width>171</width>
+      <width>192</width>
       <height>141</height>
      </rect>
     </property>
@@ -287,7 +287,7 @@ padding-left:10px;</string>
      <set>Qt::AlignCenter</set>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -399,7 +399,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1019</width>
-     <height>18</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
