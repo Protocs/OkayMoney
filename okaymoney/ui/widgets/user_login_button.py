@@ -20,6 +20,7 @@ class UserLoginButton(UIWidget):
 
         self.user = load(path + '.okm')
         self.name.setText(self.user.name)
+        self.name.setToolTip(self.user.name)
 
         scene = QGraphicsScene()
         self.icon.setScene(scene)
