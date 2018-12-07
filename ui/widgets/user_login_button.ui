@@ -6,20 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>168</width>
-    <height>207</height>
+    <width>152</width>
+    <height>199</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>168</width>
-    <height>207</height>
+    <width>100</width>
+    <height>100</height>
    </size>
   </property>
   <property name="maximumSize">
    <size>
-    <width>168</width>
-    <height>207</height>
+    <width>152</width>
+    <height>199</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -30,14 +30,14 @@
     <widget class="QGraphicsView" name="icon">
      <property name="minimumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>130</width>
+       <height>130</height>
       </size>
      </property>
      <property name="maximumSize">
       <size>
-       <width>150</width>
-       <height>150</height>
+       <width>130</width>
+       <height>130</height>
       </size>
      </property>
      <property name="cursor" stdset="0">
