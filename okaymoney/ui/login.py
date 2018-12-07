@@ -39,7 +39,6 @@ class LoginWindow(UIWindow):
 
         for user in users[:5]:
             button = UserLoginButton(self, user)
-            button.name.setText(user)
             self.login_buttons_layout.addWidget(button)
 
     def show_add_user_dialog(self):
