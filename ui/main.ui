@@ -37,15 +37,15 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>840</x>
+      <x>820</x>
       <y>50</y>
-      <width>161</width>
+      <width>194</width>
       <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_3">
      <property name="spacing">
-      <number>7</number>
+      <number>0</number>
      </property>
      <item>
       <widget class="QPushButton" name="AllBills">
@@ -67,9 +67,9 @@ color: rgb(255, 255, 255);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align:right;
+        <string notr="true">text-align: center;
 background-color: rgb(136, 136, 136);
-padding-right:10px;</string>
+</string>
        </property>
        <property name="text">
         <string>Все счета</string>
@@ -77,7 +77,7 @@ padding-right:10px;</string>
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="Bill1">
+      <widget class="QPushButton" name="AddBill">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -96,41 +96,12 @@ padding-right:10px;</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align:right;
+        <string notr="true">text-align:center;
 background-color: rgb(136, 136, 136);
-padding-right:10px;</string>
+</string>
        </property>
        <property name="text">
-        <string>Счет1</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QPushButton" name="Bill2">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>35</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:right;
-background-color: rgb(136, 136, 136);
-padding-right:10px;</string>
-       </property>
-       <property name="text">
-        <string>Счет2</string>
+        <string>Добавить счет</string>
        </property>
       </widget>
      </item>
