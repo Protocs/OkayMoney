@@ -6,6 +6,9 @@ class Transaction:
         :param category: категория транзакции.
         :param delta: изменение баланса. Положительное число - доход, отрицательное - расход.
         """
+        if not delta:
+            raise ValueError('бесполезная транзакция: дельта == 0')
+
         self.category = category
         self.delta = delta
         self.date = date
