@@ -79,18 +79,18 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="add_avatar_btn">
        <property name="minimumSize">
         <size>
-         <width>174</width>
-         <height>28</height>
+         <width>0</width>
+         <height>0</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>174</width>
-         <height>28</height>
+         <width>16777215</width>
+         <height>16777215</height>
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">margin-left: 10px</string>
+        <string notr="true"/>
        </property>
        <property name="text">
         <string>Загрузить аватар...</string>
