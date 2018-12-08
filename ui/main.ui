@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1019</width>
-    <height>655</height>
+    <height>670</height>
    </rect>
   </property>
   <property name="font">
@@ -37,8 +37,8 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>850</x>
-      <y>40</y>
+      <x>840</x>
+      <y>50</y>
       <width>161</width>
       <height>141</height>
      </rect>
@@ -52,7 +52,7 @@ color: rgb(255, 255, 255);</string>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>24</height>
+         <height>35</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -81,7 +81,7 @@ padding-right:10px;</string>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>24</height>
+         <height>35</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -110,7 +110,7 @@ padding-right:10px;</string>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>24</height>
+         <height>35</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -136,88 +136,31 @@ padding-right:10px;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="AllCategories">
-    <property name="geometry">
-     <rect>
-      <x>420</x>
-      <y>530</y>
-      <width>181</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>20</pointsize>
-      <underline>true</underline>
-     </font>
-    </property>
-    <property name="text">
-     <string>Все категории</string>
-    </property>
-    <property name="flat">
-     <bool>true</bool>
-    </property>
-   </widget>
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>40</y>
-      <width>192</width>
-      <height>141</height>
+      <x>20</x>
+      <y>50</y>
+      <width>131</width>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <property name="spacing">
-      <number>7</number>
+      <number>0</number>
      </property>
-     <item>
-      <widget class="QPushButton" name="ShowAll">
-       <property name="minimumSize">
-        <size>
-         <width>0</width>
-         <height>24</height>
-        </size>
-       </property>
-       <property name="maximumSize">
-        <size>
-         <width>400</width>
-         <height>30</height>
-        </size>
-       </property>
-       <property name="font">
-        <font>
-         <pointsize>16</pointsize>
-        </font>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">text-align:left;
-background-color: rgb(136, 136, 136);
-padding-left:10px;
-DropShadow {
-        verticalOffset: 3
-        radius: 8.0
-        samples: 17
-        color: &quot;#80000000&quot;
-    }</string>
-       </property>
-       <property name="text">
-        <string>Показывать все</string>
-       </property>
-      </widget>
-     </item>
      <item>
       <widget class="QPushButton" name="OnlyIncomes">
        <property name="minimumSize">
         <size>
-         <width>0</width>
-         <height>24</height>
+         <width>50</width>
+         <height>35</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>400</width>
-         <height>30</height>
+         <width>120</width>
+         <height>35</height>
         </size>
        </property>
        <property name="font">
@@ -231,7 +174,7 @@ background-color: rgb(136, 136, 136);
 padding-left:10px;</string>
        </property>
        <property name="text">
-        <string>Только доходы</string>
+        <string>Доходы</string>
        </property>
       </widget>
      </item>
@@ -240,12 +183,12 @@ padding-left:10px;</string>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>24</height>
+         <height>35</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>400</width>
+         <width>120</width>
          <height>30</height>
         </size>
        </property>
@@ -260,32 +203,11 @@ background-color: rgb(136, 136, 136);
 padding-left:10px;</string>
        </property>
        <property name="text">
-        <string>Только расходы</string>
+        <string>Расходы</string>
        </property>
       </widget>
      </item>
     </layout>
-   </widget>
-   <widget class="QLabel" name="label">
-    <property name="geometry">
-     <rect>
-      <x>430</x>
-      <y>10</y>
-      <width>151</width>
-      <height>41</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <pointsize>22</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>Все счета</string>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
@@ -399,7 +321,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1019</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
