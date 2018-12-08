@@ -4,8 +4,8 @@ class TransactionList(dict):
     Имеет вид словаря, где ключи - id, а значения - транзакции.
     """
 
-    def __init__(self):
-        super().__init__()
+    def __init__(self, d=None):
+        super().__init__(d if d is not None else {})
 
         # id последней транзакции
         self.last_id = -1
