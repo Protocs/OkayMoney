@@ -3,6 +3,7 @@ from .dialogs.user_registration import UserRegistrationDialog
 from .dialogs.more_users import MoreUsersDialog
 from ..user import get_user_names_in_current_dir
 from .widgets.user_login_button import UserLoginButton
+from .widgets.greeting import GreetingWidget
 
 
 # noinspection PyAttributeOutsideInit
@@ -34,6 +35,9 @@ class LoginWindow(UIWindow):
         self.clear_login_buttons_layout()
 
         users = get_user_names_in_current_dir()
+
+        if not len(users):
+            self.login_buttons_layout.addWidget(GreetingWidget())
 
         self.show_more_users_btn.setVisible(len(users) > 5)
 
