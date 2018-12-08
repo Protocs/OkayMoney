@@ -1,6 +1,3 @@
-from .transaction_list import TransactionList
-
-
 class Account:
     """Отдельный счёт со своим балансом, к примеру, банковский счёт, счёт на карточке, наличные..."""
 
@@ -11,7 +8,7 @@ class Account:
         """
         self.name = name
         self.money = money
-        self.transactions = TransactionList()
+        self.transactions = []
 
     def add_transaction(self, tr):
         """Добавляет транзакцию в историю и изменяет баланс.
