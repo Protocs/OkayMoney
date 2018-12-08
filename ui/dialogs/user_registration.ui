@@ -48,6 +48,9 @@ color: rgb(255, 255, 255);</string>
        <property name="text">
         <string>(размер аватарки должен быть 128x128)</string>
        </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
       </widget>
      </item>
      <item row="0" column="0">
@@ -79,8 +82,8 @@ color: rgb(255, 255, 255);</string>
       <widget class="QPushButton" name="add_avatar_btn">
        <property name="minimumSize">
         <size>
-         <width>0</width>
-         <height>0</height>
+         <width>193</width>
+         <height>18</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -129,6 +132,12 @@ color: rgb(255, 255, 255);</string>
      </item>
      <item>
       <widget class="QPushButton" name="ok_button">
+       <property name="minimumSize">
+        <size>
+         <width>93</width>
+         <height>28</height>
+        </size>
+       </property>
        <property name="text">
         <string>OK</string>
        </property>
@@ -136,6 +145,12 @@ color: rgb(255, 255, 255);</string>
      </item>
      <item>
       <widget class="QPushButton" name="cancel_button">
+       <property name="minimumSize">
+        <size>
+         <width>93</width>
+         <height>28</height>
+        </size>
+       </property>
        <property name="text">
         <string>Отмена</string>
        </property>
