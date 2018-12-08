@@ -40,7 +40,7 @@ color: rgb(255, 255, 255);</string>
       <x>820</x>
       <y>50</y>
       <width>194</width>
-      <height>141</height>
+      <height>111</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="bills_layout">
@@ -72,7 +72,7 @@ background-color: rgb(136, 136, 136);
 </string>
        </property>
        <property name="text">
-        <string>Все счета</string>
+        <string>Фильтр счетов</string>
        </property>
       </widget>
      </item>
