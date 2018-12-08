@@ -13,10 +13,11 @@ class NewBillDialog(UIDialog):
 
     ui_path = 'ui/dialogs/new_bill.ui'
 
-    def __init__(self, user):
+    def __init__(self, user, checked_accounts):
         super().__init__()
 
         self.user = user
+        self.checked_accounts = checked_accounts
         self.add_bill_button.clicked.connect(self.add_bill)
 
     def add_bill(self):
@@ -27,7 +28,9 @@ class NewBillDialog(UIDialog):
             if not name:
                 raise Exception
 
-            self.user.accounts.append(Account(name, balance))
+            account = Account(name, balance)
+            self.user.accounts.append(account)
+            self.checked_accounts.append(account)
             save(self.user)
 
             self.close()
