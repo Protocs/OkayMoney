@@ -43,7 +43,7 @@ color: rgb(255, 255, 255);</string>
       <height>141</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
+    <layout class="QVBoxLayout" name="bills_layout">
      <property name="spacing">
       <number>0</number>
      </property>
