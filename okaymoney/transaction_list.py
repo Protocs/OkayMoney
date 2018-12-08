@@ -26,3 +26,34 @@ class TransactionList(dict):
         """
         new_id = self._next_id()
         self[new_id] = tr
+
+    def merge(self):
+        """
+        Объединяет транзакции одинаковых категорий в большие, по одной на категорию.
+        Используется в :class:`~okaymoney.widgets.PieChart`.
+
+        :return: транзакции в формате для :class:`~okaymoney.widgets.PieChart`.
+        """
+        categories = {t.category for t in self}
+        big_transactions = []
+
+        for c in categories:
+            transactions_of_category = (t for t in self if t.category == c)
+            deltas = (t.delta for t in transactions_of_category)
+            big_transactions.append((c, sum(deltas)))
+
+        return big_transactions
+
+    def filter(self, income_or_spend=None, *, categories=None):
+        """Возвращает отфильтрованный :class:`TransactionList`."""
+        def income_or_spend_key(t):
+            if income_or_spend is None:
+                return True
+            return t.type == income_or_spend
+
+        def category_key(t):
+            if categories is None:
+                return True
+            return t.category in categories
+
+        return TransactionList({k: v for (k, v) in self.values() if income_or_spend_key(v) and category_key(v)})
