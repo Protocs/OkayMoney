@@ -12,3 +12,15 @@ def shorten(text, max_length):
         if max_length < 3:
             return '...'
         return text[:max_length - 3] + '...'
+
+
+INCOME = 'i'
+SPEND = 's'
+
+
+def mix_dicts(dicts):
+    """Сливает словари из итератора в один и возвращает его."""
+    big = next(dicts).copy()
+    for d in dicts:
+        big.update(d)
+    return big
