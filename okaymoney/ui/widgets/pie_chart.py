@@ -10,13 +10,12 @@ BACKGROUND_GRAY = str(55 / 255)
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
-    def __init__(self, widget):
+    def __init__(self, widget, checked_accounts):
         super().__init__()
 
-        self._transaction_type = None
-        self.transaction_type = INCOME
-
         self.titles = {INCOME: 'Доходы', SPEND: 'Расходы'}
+
+        self.checked_accounts = checked_accounts
 
         figure, self.axes = plt.subplots()
         self.axes.axis('equal')  # Фиксируем пропорции, чтобы рисовался круг, а не овал
@@ -26,6 +25,9 @@ class PieChart:
         layout = QVBoxLayout()
         layout.addWidget(self.canvas)
         widget.setLayout(layout)
+
+        self._transaction_type = None
+        self.transaction_type = INCOME
 
     @property
     def transaction_type(self):

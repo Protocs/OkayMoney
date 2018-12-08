@@ -21,7 +21,7 @@ class MainWindow(UIWindow):
         self.AddBill.clicked.connect(self.show_add_bill_dialog)
         self.AllBills.clicked.connect(self.show_bills_filter_dialog)
 
-        PieChart(self.pie_place)
+        PieChart(self.pie_place, self.checked_accounts)
 
     def show_add_bill_dialog(self):
         self.add_bill_dialog = NewBillDialog(self.user)
