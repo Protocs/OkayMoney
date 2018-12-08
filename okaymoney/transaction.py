@@ -1,3 +1,6 @@
+from .util import INCOME, SPEND
+
+
 class Transaction:
     """Доход или расход."""
 
@@ -13,3 +16,15 @@ class Transaction:
         self.delta = delta
         self.date = date
         self.note = note
+
+    @property
+    def type(self):
+        """Тип транзакции: доход или расход."""
+        return INCOME if self.delta > 0 else SPEND
+
+    def to_pie_data(self):
+        """
+        Переводит транзакцию в формат ``(категория, abs(дельта))``
+        для использования в :class:`~okaymoney.widgets.PieChart`.
+        """
+        return self.category, abs(self.delta)
