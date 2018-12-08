@@ -1,5 +1,3 @@
-import matplotlib.pyplot as plt
-
 from .ui_window import UIWindow
 from .widgets.pie_chart import PieChart
 
@@ -17,7 +15,4 @@ class MainWindow(UIWindow):
 
         self.user = user
 
-        pie_chart = PieChart(self.pie_place)
-        title = plt.title('Test')
-        plt.setp(title, color='w')
-        pie_chart.update_chart([('Покупки', 100), ('Зарплата', 200)])
+        PieChart(self.pie_place)
