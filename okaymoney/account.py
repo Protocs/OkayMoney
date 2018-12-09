@@ -8,6 +8,7 @@ class Account:
         """
         self.name = name
         self.money = money
+        self.checked = True
         self.transactions = []
 
     def add_transaction(self, tr):

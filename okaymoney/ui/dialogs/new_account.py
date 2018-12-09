@@ -13,11 +13,10 @@ class NewAccountDialog(UIDialog):
 
     ui_path = 'ui/dialogs/new_account.ui'
 
-    def __init__(self, user, checked_accounts):
+    def __init__(self, user):
         super().__init__()
 
         self.user = user
-        self.checked_accounts = checked_accounts
         self.add_account_button.clicked.connect(self.add_account)
 
     def add_account(self):
@@ -30,7 +29,6 @@ class NewAccountDialog(UIDialog):
 
             account = Account(name, balance)
             self.user.accounts.append(account)
-            self.checked_accounts.append(account)
             save(self.user)
 
             self.close()
