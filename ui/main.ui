@@ -38,7 +38,7 @@ color: rgb(255, 255, 255);</string>
     <property name="geometry">
      <rect>
       <x>820</x>
-      <y>50</y>
+      <y>0</y>
       <width>194</width>
       <height>111</height>
      </rect>
@@ -63,6 +63,7 @@ color: rgb(255, 255, 255);</string>
        </property>
        <property name="font">
         <font>
+         <family>Gotham Pro Medium</family>
          <pointsize>16</pointsize>
         </font>
        </property>
@@ -92,6 +93,7 @@ background-color: rgb(136, 136, 136);
        </property>
        <property name="font">
         <font>
+         <family>Gotham Pro Medium</family>
          <pointsize>16</pointsize>
         </font>
        </property>
@@ -110,8 +112,8 @@ background-color: rgb(136, 136, 136);
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>50</y>
+      <x>10</x>
+      <y>10</y>
       <width>131</width>
       <height>101</height>
      </rect>
@@ -136,13 +138,14 @@ background-color: rgb(136, 136, 136);
        </property>
        <property name="font">
         <font>
+         <family>Gotham Pro Medium</family>
          <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align:left;
-background-color: rgb(136, 136, 136);
-padding-left:10px;</string>
+padding-left:10px;
+background-color: rgb(129, 129, 129);</string>
        </property>
        <property name="text">
         <string>Доходы</string>
@@ -165,13 +168,15 @@ padding-left:10px;</string>
        </property>
        <property name="font">
         <font>
+         <family>Gotham Pro Medium</family>
          <pointsize>16</pointsize>
         </font>
        </property>
        <property name="styleSheet">
         <string notr="true">text-align:left;
 background-color: rgb(136, 136, 136);
-padding-left:10px;</string>
+padding-left:10px;
+background-color: rgb(129, 129, 129);</string>
        </property>
        <property name="text">
         <string>Расходы</string>
@@ -199,6 +204,7 @@ padding-left:10px;</string>
         <widget class="QLabel" name="MonthlyIncome">
          <property name="font">
           <font>
+           <family>Gotham Pro Medium</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -215,7 +221,7 @@ padding-left:5px;</string>
         <widget class="QLabel" name="MonthlyIncomeMoney">
          <property name="font">
           <font>
-           <family>MS Shell Dlg 2</family>
+           <family>Gotham Pro Medium</family>
            <pointsize>16</pointsize>
            <weight>50</weight>
            <italic>false</italic>
@@ -247,6 +253,7 @@ color: rgb(102, 187, 106);
         <widget class="QLabel" name="MonthlyExpenses">
          <property name="font">
           <font>
+           <family>Gotham Pro Medium</family>
            <pointsize>16</pointsize>
           </font>
          </property>
@@ -263,6 +270,7 @@ padding-left:5px;</string>
         <widget class="QLabel" name="MonthlyExpensesMoney">
          <property name="font">
           <font>
+           <family>Gotham Pro Medium</family>
            <pointsize>16</pointsize>
            <weight>50</weight>
            <bold>false</bold>
@@ -292,7 +300,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1019</width>
-     <height>26</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
