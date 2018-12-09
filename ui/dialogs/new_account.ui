@@ -29,7 +29,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Новый счет</string>
   </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(55, 55, 55);
