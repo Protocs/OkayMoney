@@ -22,6 +22,11 @@
     <height>600</height>
    </size>
   </property>
+  <property name="font">
+   <font>
+    <pointsize>10</pointsize>
+   </font>
+  </property>
   <property name="windowTitle">
    <string>OkayMoney</string>
   </property>
@@ -32,11 +37,17 @@
    <widget class="QPushButton" name="add_account">
     <property name="geometry">
      <rect>
-      <x>689</x>
-      <y>562</y>
-      <width>201</width>
-      <height>31</height>
+      <x>579</x>
+      <y>552</y>
+      <width>311</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gotham Pro Medium</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255);</string>
@@ -59,11 +70,17 @@
    <widget class="QPushButton" name="show_more_users_btn">
     <property name="geometry">
      <rect>
-      <x>340</x>
-      <y>405</y>
-      <width>220</width>
-      <height>28</height>
+      <x>310</x>
+      <y>400</y>
+      <width>291</width>
+      <height>41</height>
      </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gotham Pro Medium</family>
+      <pointsize>9</pointsize>
+     </font>
     </property>
     <property name="styleSheet">
      <string notr="true">color: rgb(255, 255, 255)</string>
