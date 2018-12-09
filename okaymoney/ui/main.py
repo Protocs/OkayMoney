@@ -20,7 +20,7 @@ class MainWindow(UIWindow):
         self.add_account_btn.clicked.connect(self.show_add_account_dialog)
         self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
 
-        # PieChart(self.pie_place, [account for account in self.user.accounts if account.checked])
+        PieChart(self.pie_place, [account for account in self.user.accounts if account.checked])
 
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
