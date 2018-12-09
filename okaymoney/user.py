@@ -14,8 +14,8 @@ class User:
         self.avatar = avatar
 
         # Категории доходов и расходов
-        self.income_categories = []
-        self.spend_categories = []
+        self.income_categories = ['Заработная плата', 'Денежный перевод']
+        self.spend_categories = ['Продукты', 'Одежда', 'ЖКХ', 'Развлечения', 'Транспорт']
 
         self.SAVE_PATH = name + '.okm'
 
