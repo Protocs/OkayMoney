@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1019</width>
+    <width>1061</width>
     <height>670</height>
    </rect>
   </property>
@@ -39,8 +39,8 @@ color: rgb(255, 255, 255);</string>
      <rect>
       <x>820</x>
       <y>0</y>
-      <width>194</width>
-      <height>111</height>
+      <width>234</width>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="accounts_layout">
@@ -107,13 +107,43 @@ background-color: rgb(136, 136, 136);
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QPushButton" name="new_transaction_btn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gotham Pro Medium</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);
+</string>
+       </property>
+       <property name="text">
+        <string>Новая транзакция</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget_3">
     <property name="geometry">
      <rect>
-      <x>10</x>
-      <y>10</y>
+      <x>20</x>
+      <y>20</y>
       <width>131</width>
       <height>101</height>
      </rect>
@@ -299,7 +329,7 @@ color: rgb(198, 40, 40);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1019</width>
+     <width>1061</width>
      <height>26</height>
     </rect>
    </property>
