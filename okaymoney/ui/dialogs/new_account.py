@@ -5,23 +5,23 @@ from ...account import Account
 from ...user_save_load import save
 
 
-class NewBillDialog(UIDialog):
+class NewAccountDialog(UIDialog):
     """Диалог добавления нового счета.
 
-    *Файл интерфейса:* ``ui/dialogs/new_bill.ui``
+    *Файл интерфейса:* ``ui/dialogs/new_account.ui``
     """
 
-    ui_path = 'ui/dialogs/new_bill.ui'
+    ui_path = 'ui/dialogs/new_account.ui'
 
     def __init__(self, user, checked_accounts):
         super().__init__()
 
         self.user = user
         self.checked_accounts = checked_accounts
-        self.add_bill_button.clicked.connect(self.add_bill)
+        self.add_account_button.clicked.connect(self.add_account)
 
-    def add_bill(self):
-        name = self.name_bill.text()
+    def add_account(self):
+        name = self.name_account.text()
         balance = self.start_balance.text()
         try:
             balance = Decimal(balance)

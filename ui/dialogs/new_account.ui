@@ -69,7 +69,7 @@ color: white</string>
      <item>
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
-        <widget class="QLineEdit" name="name_bill"/>
+        <widget class="QLineEdit" name="name_account"/>
        </item>
        <item>
         <widget class="QLineEdit" name="start_balance"/>
@@ -79,7 +79,7 @@ color: white</string>
     </layout>
    </item>
    <item>
-    <widget class="QPushButton" name="add_bill_button">
+    <widget class="QPushButton" name="add_account_button">
      <property name="sizePolicy">
       <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
        <horstretch>0</horstretch>

@@ -22,10 +22,10 @@ color: rgb(255, 255, 255);</string>
     <number>10</number>
    </property>
    <item>
-    <widget class="QListWidget" name="bills_list"/>
+    <widget class="QListWidget" name="accounts_list"/>
    </item>
    <item>
-    <widget class="QPushButton" name="choose_bills_btn">
+    <widget class="QPushButton" name="choose_accounts_btn">
      <property name="text">
       <string>Выбрать</string>
      </property>
