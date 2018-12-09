@@ -19,7 +19,7 @@ class UserLoginButton(UIWidget):
     def __init__(self, login_window, path):
         super().__init__()
 
-        self.user = load(path + '.okm')
+        self.user = load(path + '.okm', login_window)
         self.name.setText(shorten(self.user.name, 10))
         self.name.setToolTip(self.user.name)
 

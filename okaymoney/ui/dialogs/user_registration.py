@@ -31,7 +31,7 @@ class UserRegistrationDialog(UIDialog):
                 return
             with open(self.avatar, 'rb') as avatar:
                 acc = User(name, avatar.read())
-                save(acc)
+                save(acc, self)
 
             self.close()
         else:

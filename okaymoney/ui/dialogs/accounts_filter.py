@@ -30,5 +30,5 @@ class AccountsFilterDialog(UIDialog):
         for account in self.user.accounts:
             account.checked = account.name in [checkbox.text() for checkbox in self.checkboxes
                                                if checkbox.isChecked()]
-        save(self.user)
+        save(self.user, self)
         self.close()

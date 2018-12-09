@@ -29,7 +29,7 @@ class NewAccountDialog(UIDialog):
 
             account = Account(name, balance)
             self.user.accounts.append(account)
-            save(self.user)
+            save(self.user, self)
 
             self.close()
 
