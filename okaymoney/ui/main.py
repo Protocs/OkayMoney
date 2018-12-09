@@ -2,6 +2,7 @@ from .ui_window import UIWindow
 from .widgets.pie_chart import PieChart
 from .dialogs.new_account import NewAccountDialog
 from .dialogs.accounts_filter import AccountsFilterDialog
+from .dialogs.transaction_add import TransactionAddDialog
 
 
 class MainWindow(UIWindow):
@@ -19,6 +20,7 @@ class MainWindow(UIWindow):
 
         self.add_account_btn.clicked.connect(self.show_add_account_dialog)
         self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
+        self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
 
         PieChart(self.pie_place, [account for account in self.user.accounts if account.checked])
 
@@ -29,3 +31,7 @@ class MainWindow(UIWindow):
     def show_accounts_filter_dialog(self):
         self.accounts_filter_dialog = AccountsFilterDialog(self.user)
         self.accounts_filter_dialog.exec()
+
+    def show_add_transaction_dialog(self):
+        self.add_transaction_dialog = TransactionAddDialog(self.user)
+        self.add_transaction_dialog.exec()
