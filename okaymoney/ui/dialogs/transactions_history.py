@@ -31,9 +31,12 @@ class TransactionsHistoryDialog(UIDialog):
 
     def change_transactions(self):
         self.account = \
-        [acc for acc in self.user.accounts if acc.name == self.accounts_box.currentText()][0]
+            [acc for acc in self.user.accounts if acc.name == self.accounts_box.currentText()][0]
         self.transactions = [acc.transactions for acc in self.user.accounts
                              if self.account.name == acc.name][0]
+        if not self.transactions:
+            self.change_btn.setEnabled(False)
+            self.delete_btn.setEnabled(False)
         self.history_transactions.clear()
         for transaction in self.transactions:
             self.history_transactions.addItem(
