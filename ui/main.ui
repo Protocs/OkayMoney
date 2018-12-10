@@ -250,7 +250,7 @@ background-color: rgb(129, 129, 129);</string>
      <rect>
       <x>10</x>
       <y>593</y>
-      <width>1001</width>
+      <width>1081</width>
       <height>51</height>
      </rect>
     </property>
@@ -360,7 +360,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1102</width>
-     <height>26</height>
+     <height>20</height>
     </rect>
    </property>
   </widget>
