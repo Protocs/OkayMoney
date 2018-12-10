@@ -55,12 +55,12 @@ class MainWindow(UIWindow):
     def show_accounts_filter_dialog(self):
         self.accounts_filter_dialog = AccountsFilterDialog(self.user)
         self.accounts_filter_dialog.exec()
-        self.pie_chart.upd()
+        self.__update()
 
     def show_add_transaction_dialog(self):
         self.add_transaction_dialog = TransactionAddDialog(self.user)
         self.add_transaction_dialog.exec()
-        self.pie_chart.upd()
+        self.__update()
 
     def show_transactions_history_dialog(self):
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
