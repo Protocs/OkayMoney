@@ -1,3 +1,5 @@
+from decimal import Decimal
+
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QVBoxLayout
@@ -62,5 +64,13 @@ class PieChart:
         self.canvas.draw()
 
     def upd(self):
-        self.update_chart([t.to_pie_data() for t in sum((a.transactions for a in self.checked_accounts), [])
-                           if t.type == self.transaction_type])
+        all_transactions = sum((a.transactions for a in self.checked_accounts), [])
+        transactions_of_type = (t for t in all_transactions if t.type == self.transaction_type)
+        pie_data = (t.to_pie_data() for t in transactions_of_type)
+
+        merged_pie_data = {}
+        for category, delta in pie_data:
+            merged_pie_data[category] = merged_pie_data.get(category, Decimal()) + delta
+
+        # print(list(merged_pie_data.values()))
+        self.update_chart(merged_pie_data.items())

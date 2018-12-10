@@ -28,3 +28,10 @@ class Transaction:
         для использования в :class:`~okaymoney.widgets.PieChart`.
         """
         return self.category, abs(self.delta)
+
+    def __add__(self, other):
+        """Сливает транзакции в одну."""
+        if self.category != other.category:
+            raise ValueError('невозможно слить транзакции разных категорий')
+
+        return Transaction(self.category, self.delta + other.delta, None, None)
