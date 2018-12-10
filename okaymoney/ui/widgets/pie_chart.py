@@ -1,6 +1,6 @@
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
-from PyQt5.QtWidgets import QWidget, QVBoxLayout
+from PyQt5.QtWidgets import QVBoxLayout
 
 from ...util import INCOME, SPEND
 
@@ -55,7 +55,8 @@ class PieChart:
 
         self.axes.clear()
         self.set_title(self.titles[self.transaction_type])
-        self.axes.pie(values, labels=labels, explode=explode, startangle=90, labeldistance=0.5)
+        patches, texts = self.axes.pie(values, explode=explode, startangle=90)
+        self.axes.legend(patches, labels, loc='best', fontsize=8)
         self.canvas.draw()
 
     def upd(self):
