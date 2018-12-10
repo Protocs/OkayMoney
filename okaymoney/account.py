@@ -25,3 +25,11 @@ class Account:
         """
         self.transactions.append(tr)
         self.money += tr.delta
+        self.transactions.sort(key=lambda e: e.date)
+
+    def remove_transaction(self, tr):
+        if tr not in self.transactions:
+            raise IndexError('Транзакции не существует')
+        self.transactions.remove(tr)
+        self.money -= tr.delta
+        self.transactions.sort(key=lambda e: e.date)

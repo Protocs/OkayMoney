@@ -49,8 +49,7 @@ class TransactionAddDialog(UIDialog):
                 transaction_sum *= 1 if transaction_sum > 0 else -1
                 transaction = Transaction(category, transaction_sum, date, note)
             account = [account for account in self.user.accounts if account.name == account_name][0]
-            account.transactions.append(transaction)
-            account.transactions.sort(key=lambda e: e.date)
+            account.add_transaction(transaction)
             save(self.user, self)
             self.close()
         except Exception:
