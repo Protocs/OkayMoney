@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1061</width>
+    <width>1102</width>
     <height>670</height>
    </rect>
   </property>
@@ -37,10 +37,10 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>820</x>
+      <x>830</x>
       <y>0</y>
-      <width>234</width>
-      <height>141</height>
+      <width>262</width>
+      <height>171</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="accounts_layout">
@@ -104,6 +104,36 @@ background-color: rgb(136, 136, 136);
        </property>
        <property name="text">
         <string>Добавить счет</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="transactions_history_btn">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>400</width>
+         <height>30</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gotham Pro Medium</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);
+</string>
+       </property>
+       <property name="text">
+        <string>История транзакций</string>
        </property>
       </widget>
      </item>
@@ -329,7 +359,7 @@ color: rgb(198, 40, 40);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1061</width>
+     <width>1102</width>
      <height>26</height>
     </rect>
    </property>
