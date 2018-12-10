@@ -26,6 +26,16 @@ class MainWindow(UIWindow):
 
         self.pie_chart = PieChart(self.pie_place, self.user)
 
+        self.__update()
+
+    def __update(self):
+        self.pie_chart.upd()
+        self._update_monthly()
+
+    def _update_monthly(self):
+        self.MonthlyIncomeMoney.setText(str(self.user.monthly_income) + ' ₽')
+        self.MonthlyExpensesMoney.setText(str(self.user.monthly_spend) + ' ₽')
+
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
         self.add_account_dialog.exec()
