@@ -47,5 +47,5 @@ class UserRegistrationDialog(UIDialog):
                     self.avatar_name.setText(filename[0].split('/')[-1])
                 else:
                     raise Exception
-            except:
+            except Exception:
                 error('Ошибка, попробуйте загрузить картинку снова.', self)
