@@ -28,7 +28,7 @@
 color: white;</string>
      </property>
      <property name="text">
-      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Добро пожаловать в &lt;/span&gt;&lt;span style=&quot; font-size:10pt; font-weight:600;&quot;&gt;OkayMoney&lt;/span&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;OkayMoney - это современный сервис для контроля ваших финансов.&lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+      <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Добро пожаловать в OkayMoney!&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;OkayMoney - это сервис для контроля ваших финансов. Используя наше приложение, Вы сможете легко следить за своими расходами и доходами.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot; font-size:10pt;&quot;&gt;Для начала работы создайте новый аккаунт, нажав на кнопку &amp;quot;Добавить новый аккаунт&amp;quot; &lt;/span&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
      </property>
      <property name="alignment">
       <set>Qt::AlignCenter</set>
