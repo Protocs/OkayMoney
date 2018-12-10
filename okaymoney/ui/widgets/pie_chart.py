@@ -9,6 +9,7 @@ from ...util import INCOME, SPEND
 BACKGROUND_GRAY = str(55 / 255)
 INCOME_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50']
 SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3', '#db0dca']
+MAX_EXPLODE = 0.03
 
 
 class PieChart:
@@ -51,11 +52,16 @@ class PieChart:
     def checked_accounts(self):
         return [account for account in self.user.accounts if account.checked]
 
+    # noinspection PyMethodMayBeStatic
+    def calculate_explodes(self, data):
+        sum_ = float(sum(data))
+        return [MAX_EXPLODE - MAX_EXPLODE * float(d) / sum_ for d in data]
+
     def update_chart(self, data):
         """Создает или обновляет диаграмму."""
         labels = [d[0] + '\n' + str(d[1]) + ' ₽' for d in data]
         values = [d[1] for d in data]
-        explode = [0.03 for _ in range(len(data))]
+        explode = self.calculate_explodes(values)
 
         self.axes.clear()
         self.set_title(self.titles[self.transaction_type])
