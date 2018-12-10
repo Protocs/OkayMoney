@@ -10,7 +10,7 @@ BACKGROUND_GRAY = str(55 / 255)
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
-    COLORS = []
+    COLORS = ['#eb3b5a', '#4b7bec', '#a55eea', '#fed330', '#20bf6b', '#fa8231', '#0fb9b1']
 
     def __init__(self, widget, user):
         super().__init__()
