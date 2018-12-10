@@ -39,8 +39,7 @@ class PieChart:
 
         title = plt.title(self.titles[self.transaction_type])
         plt.setp(title, color='w')
-        self.update_chart([t.to_pie_data() for t in sum((a.transactions for a in self.checked_accounts), [])
-                           if t.type == self.transaction_type])
+        self.upd()
 
     def update_chart(self, data):
         """Создает или обновляет диаграмму."""
@@ -48,5 +47,10 @@ class PieChart:
         values = [d[1] for d in data]
         explode = [0.01 for _ in range(len(data))]
 
+        self.axes.clear()
         self.axes.pie(values, labels=labels, explode=explode, startangle=90, labeldistance=0.5)
         self.canvas.draw()
+
+    def upd(self):
+        self.update_chart([t.to_pie_data() for t in sum((a.transactions for a in self.checked_accounts), [])
+                           if t.type == self.transaction_type])
