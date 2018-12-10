@@ -1,6 +1,6 @@
 from .ui_dialog import UIDialog
 from ...util import INCOME
-from .transaction_add import TransactionAddDialog
+from .change_transaction import TransactionChangeDialog
 from ...user_save_load import save
 
 
@@ -42,6 +42,8 @@ class TransactionsHistoryDialog(UIDialog):
         self.change_btn.setEnabled(False)
         self.delete_btn.setEnabled(False)
 
+        self.details.setText("")
+
     def show_details(self):
         self.change_btn.setEnabled(True)
         self.delete_btn.setEnabled(True)
@@ -57,4 +59,9 @@ class TransactionsHistoryDialog(UIDialog):
         save(self.user, self)
 
     def show_transaction_change_dialog(self):
-        ...
+        self.transactions_change_dialog = \
+            TransactionChangeDialog(self.user,
+                                    self.transactions[self.history_transactions.currentRow()],
+                                    self.account)
+        self.transactions_change_dialog.exec()
+        self.change_transactions()

@@ -23,7 +23,7 @@ class TransactionAddDialog(UIDialog):
         self.spend_radio.setChecked(True)
         self.categories_box.addItems(self.user.spend_categories)
         self.accounts_box.addItems([account.name for account in self.user.accounts])
-        self.ok_btn.clicked.connect(self.add_transaction)
+        self.ok_btn.clicked.connect(self.get_transaction)
         self.cancel_btn.clicked.connect(self.close)
         self.date.setDate(QDate(datetime.now().year, datetime.now().month, datetime.now().day))
 
@@ -35,7 +35,7 @@ class TransactionAddDialog(UIDialog):
         self.categories_box.addItems(self.user.spend_categories if self.spend_radio.isChecked()
                                      else self.user.income_categories)
 
-    def add_transaction(self):
+    def get_transaction(self):
         try:
             transaction_sum = Decimal(self.transaction_sum.text())
             date = self.date.date()
@@ -48,9 +48,13 @@ class TransactionAddDialog(UIDialog):
             else:
                 transaction_sum *= 1 if transaction_sum > 0 else -1
                 transaction = Transaction(category, transaction_sum, date, note)
-            account = [account for account in self.user.accounts if account.name == account_name][0]
-            account.add_transaction(transaction)
-            save(self.user, self)
-            self.close()
-        except Exception:
+            account = [acc for acc in self.user.accounts if acc.name == account_name][0]
+            self.add_transaction(transaction, account)
+        except Exception as e:
+            print(e)
             error('Ошибка, попробуйте еще раз.', self)
+
+    def add_transaction(self, tr, acc):
+        acc.add_transaction(tr)
+        save(self.user, self)
+        self.close()
