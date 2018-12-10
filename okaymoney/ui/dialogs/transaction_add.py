@@ -1,8 +1,10 @@
-from .ui_dialog import UIDialog
 from datetime import datetime
-from PyQt5.QtCore import QDate
-from ...transaction import Transaction
 from decimal import Decimal
+
+from PyQt5.QtCore import QDate
+
+from .ui_dialog import UIDialog
+from ...transaction import Transaction
 from ..messagebox import error
 from ...user_save_load import save
 
@@ -21,11 +23,14 @@ class TransactionAddDialog(UIDialog):
         self.user = user
 
         self.spend_radio.setChecked(True)
+
         self.categories_box.addItems(self.user.spend_categories)
         self.accounts_box.addItems([account.name for account in self.user.accounts])
+
+        self.date.setDate(QDate(datetime.now().year, datetime.now().month, datetime.now().day))
+
         self.ok_btn.clicked.connect(self.get_transaction)
         self.cancel_btn.clicked.connect(self.close)
-        self.date.setDate(QDate(datetime.now().year, datetime.now().month, datetime.now().day))
 
         self.spend_radio.clicked.connect(self.change_categories)
         self.income_radio.clicked.connect(self.change_categories)
@@ -42,12 +47,10 @@ class TransactionAddDialog(UIDialog):
             note = self.note_text.toPlainText()
             category = self.categories_box.currentText()
             account_name = self.accounts_box.currentText()
-            if self.spend_radio.isChecked():
-                transaction_sum *= -1 if transaction_sum > 0 else 1
-                transaction = Transaction(category, transaction_sum, date, note)
-            else:
-                transaction_sum *= 1 if transaction_sum > 0 else -1
-                transaction = Transaction(category, transaction_sum, date, note)
+
+            transaction_sum = -abs(transaction_sum) if self.spend_radio.isChecked() else abs(transaction_sum)
+            transaction = Transaction(category, transaction_sum, date, note)
+
             account = [acc for acc in self.user.accounts if acc.name == account_name][0]
             self.add_transaction(transaction, account)
         except Exception as e:
