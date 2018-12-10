@@ -1,3 +1,4 @@
+from ..util import INCOME, SPEND
 from .ui_window import UIWindow
 from .widgets.pie_chart import PieChart
 from .dialogs.new_account import NewAccountDialog
@@ -26,7 +27,18 @@ class MainWindow(UIWindow):
 
         self.pie_chart = PieChart(self.pie_place, self.user)
 
+        self.OnlyIncomes.clicked.connect(self.show_incomes)
+        self.OnlyExpenses.clicked.connect(self.show_expenses)
+
         self.__update()
+
+    def show_incomes(self):
+        self.pie_chart.transaction_type = INCOME
+        self.pie_chart.upd()
+
+    def show_expenses(self):
+        self.pie_chart.transaction_type = SPEND
+        self.pie_chart.upd()
 
     def __update(self):
         self.pie_chart.upd()
