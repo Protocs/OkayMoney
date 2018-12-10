@@ -29,6 +29,11 @@ class PieChart:
         self._transaction_type = None
         self.transaction_type = INCOME
 
+    # noinspection PyMethodMayBeStatic
+    def set_title(self, text):
+        title = plt.title(text)
+        plt.setp(title, color='w')
+
     @property
     def transaction_type(self):
         return self._transaction_type
@@ -36,9 +41,6 @@ class PieChart:
     @transaction_type.setter
     def transaction_type(self, tp):
         self._transaction_type = tp
-
-        title = plt.title(self.titles[self.transaction_type])
-        plt.setp(title, color='w')
         self.upd()
 
     @property
@@ -52,6 +54,7 @@ class PieChart:
         explode = [0.01 for _ in range(len(data))]
 
         self.axes.clear()
+        self.set_title(self.titles[self.transaction_type])
         self.axes.pie(values, labels=labels, explode=explode, startangle=90, labeldistance=0.5)
         self.canvas.draw()
 
