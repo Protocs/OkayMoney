@@ -10,12 +10,12 @@ BACKGROUND_GRAY = str(55 / 255)
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
-    def __init__(self, widget, checked_accounts):
+    def __init__(self, widget, user):
         super().__init__()
 
-        self.titles = {INCOME: 'Доходы', SPEND: 'Расходы'}
+        self.user = user
 
-        self.checked_accounts = checked_accounts
+        self.titles = {INCOME: 'Доходы', SPEND: 'Расходы'}
 
         figure, self.axes = plt.subplots()
         self.axes.axis('equal')  # Фиксируем пропорции, чтобы рисовался круг, а не овал
@@ -40,6 +40,10 @@ class PieChart:
         title = plt.title(self.titles[self.transaction_type])
         plt.setp(title, color='w')
         self.upd()
+
+    @property
+    def checked_accounts(self):
+        return [account for account in self.user.accounts if account.checked]
 
     def update_chart(self, data):
         """Создает или обновляет диаграмму."""
