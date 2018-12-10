@@ -50,18 +50,3 @@ class PieChart:
 
         self.axes.pie(values, labels=labels, explode=explode, startangle=90, labeldistance=0.5)
         self.canvas.draw()
-
-
-if __name__ == '__main__':
-    # Пример использования
-
-    import sys
-    from PyQt5.QtWidgets import QApplication
-
-    app = QApplication(sys.argv)
-    w = QWidget()
-    pc = PieChart(w)
-    plt.title('Test')
-    pc.update_chart([('Покупки', 100), ('Зарплата', 200)])
-    w.show()
-    exit(app.exec())
