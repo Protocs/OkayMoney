@@ -33,8 +33,6 @@ class SettingsDialog(UIDialog):
             lambda x: self.delete_spend_category_btn.setEnabled(True))
         self.income_categories.itemClicked.connect(
             lambda x: self.delete_income_category_btn.setEnabled(True))
-        self.spend_categories.currentTextChanged.connect(self.change_item)
-        self.income_categories.currentTextChanged.connect(self.change_item)
         self.delete_spend_category_btn.clicked.connect(self.get_categories)
         self.delete_income_category_btn.clicked.connect(self.get_categories)
         self.add_spend_category_btn.clicked.connect(self.get_categories)
@@ -88,9 +86,6 @@ class SettingsDialog(UIDialog):
             self.delete_category(self.income_categories_list, self.income_categories,
                                  self.fill_income_categories)
 
-    def change_item(self):
-        pass
-
     def add_category(self, categories, categories_list, del_button, fill_function):
         spend_item = categories.item(len(categories_list) - 1)
         if categories.isPersistentEditorOpen(spend_item):
@@ -109,7 +104,9 @@ class SettingsDialog(UIDialog):
         fill_function()
 
     def apply_changes(self):
+        remove(self.user, self)
         self.user.name = self.user_name.text()
+        self.user.SAVE_PATH = self.user.name + '.okm'
         self.user.avatar = self.avatar
 
         self.spend_categories_list[-1] = self.spend_categories.item(
