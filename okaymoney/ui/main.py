@@ -1,4 +1,5 @@
 from ..util import INCOME, SPEND
+from .messagebox import information
 from .ui_window import UIWindow
 from .widgets.pie_chart import PieChart
 from .dialogs.new_account import NewAccountDialog
@@ -59,16 +60,26 @@ class MainWindow(UIWindow):
         self.add_account_dialog.exec()
 
     def show_accounts_filter_dialog(self):
+        if not self.user.accounts:
+            information("У вас еще нет ни одного счета.", self)
+            return
         self.accounts_filter_dialog = AccountsFilterDialog(self.user)
         self.accounts_filter_dialog.exec()
         self.__update()
 
     def show_add_transaction_dialog(self):
+        if not self.user.accounts:
+            information("У вас еще нет ни одного счета, на который можно было бы "
+                        "добавить транзакцию.", self)
+            return
         self.add_transaction_dialog = TransactionAddDialog(self.user)
         self.add_transaction_dialog.exec()
         self.__update()
 
     def show_transactions_history_dialog(self):
+        if not any([acc.transactions for acc in self.user.accounts]):
+            information("У вас еще не совершено ни одной транзакции!", self)
+            return
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
         self.transactions_history_dialog.exec()
         self.__update()
