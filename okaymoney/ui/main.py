@@ -5,6 +5,7 @@ from .dialogs.new_account import NewAccountDialog
 from .dialogs.accounts_filter import AccountsFilterDialog
 from .dialogs.transaction_add import TransactionAddDialog
 from .dialogs.transactions_history import TransactionsHistoryDialog
+from .dialogs.settings import SettingsDialog
 
 
 class MainWindow(UIWindow):
@@ -24,6 +25,7 @@ class MainWindow(UIWindow):
         self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
         self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
         self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
+        self.settings_btn.clicked.connect(self.show_settings_dialog)
 
         self.pie_chart = PieChart(self.pie_place, self.user)
 
@@ -66,3 +68,7 @@ class MainWindow(UIWindow):
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
         self.transactions_history_dialog.exec()
         self.__update()
+
+    def show_settings_dialog(self):
+        self.settings_dialog = SettingsDialog(self.user)
+        self.settings_dialog.exec()
