@@ -203,8 +203,7 @@ background-color: rgb(136, 136, 136);
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align:left;
-padding-left:10px;
+        <string notr="true">text-align:center;
 background-color: rgb(129, 129, 129);</string>
        </property>
        <property name="text">
@@ -233,10 +232,8 @@ background-color: rgb(129, 129, 129);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true">text-align:left;
-background-color: rgb(136, 136, 136);
-padding-left:10px;
-background-color: rgb(129, 129, 129);</string>
+        <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
        </property>
        <property name="text">
         <string>Расходы</string>
@@ -381,8 +378,7 @@ color: rgb(198, 40, 40);</string>
      </font>
     </property>
     <property name="styleSheet">
-     <string notr="true">text-align:left;
-padding-left:10px;
+     <string notr="true">text-align:center;
 background-color: rgb(129, 129, 129);</string>
     </property>
     <property name="text">
