@@ -65,3 +65,4 @@ class MainWindow(UIWindow):
     def show_transactions_history_dialog(self):
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
         self.transactions_history_dialog.exec()
+        self.__update()
