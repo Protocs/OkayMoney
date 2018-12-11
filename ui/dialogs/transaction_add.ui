@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>474</width>
+    <width>662</width>
     <height>378</height>
    </rect>
   </property>
@@ -83,6 +83,12 @@ color: rgb(255, 255, 255);</string>
         <layout class="QHBoxLayout" name="horizontalLayout_2">
          <item>
           <widget class="QComboBox" name="categories_box">
+           <property name="minimumSize">
+            <size>
+             <width>275</width>
+             <height>20</height>
+            </size>
+           </property>
            <property name="styleSheet">
             <string notr="true">color: rgb(255, 255, 255);</string>
            </property>
