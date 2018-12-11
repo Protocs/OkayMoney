@@ -37,9 +37,9 @@ def load(path, obj):
     except pickle.PickleError as e:
         messagebox.error(f'Ошибка загрузки профиля: {path}\n({e})', obj)
 
-def remove(obj):
+def remove(user, obj):
     """Удаляет файл пользователя obj"""
     try:
-        os.remove(obj.SAVE_PATH)
+        os.remove(user.SAVE_PATH)
     except Exception as e:
         messagebox.error(f'Невозможно удалить файл по пути: {obj.SAVE_PATH}\n({e})', obj)
