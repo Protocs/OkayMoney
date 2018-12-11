@@ -19,33 +19,44 @@ class UserRegistrationDialog(UIDialog):
         super().__init__()
         self.avatar = 'ui/default.png'
 
-        self.ok_button.clicked.connect(self.create_user)
+        self.ok_button.clicked.connect(self.get_user_name)
         self.cancel_button.clicked.connect(self.close)
-        self.add_avatar_btn.clicked.connect(self.add_avatar)
+        self.add_avatar_btn.clicked.connect(self.get_avatar_path)
 
-    def create_user(self):
+    def get_user_name(self):
         name = self.name.text()
-        if name:
-            if name in get_user_names_in_current_dir():
-                error('Пользователь с таким именем уже существует', self)
-                return
-            with open(self.avatar, 'rb') as avatar:
-                acc = User(name, avatar.read())
-                save(acc, self)
+        create_user(self, name, self.avatar)
 
-            self.close()
-        else:
-            error('Введите имя пользователя', self)
-
-    def add_avatar(self):
+    def get_avatar_path(self):
         filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
         if filename[0]:
-            try:
-                image = Image.open(filename[0])
-                if image.size[0] == 128 and image.size[1] == 128:
-                    self.avatar = filename[0]
-                    self.avatar_name.setText(filename[0].split('/')[-1])
-                else:
-                    raise Exception
-            except Exception:
-                error('Ошибка, попробуйте загрузить картинку снова.', self)
+            add_avatar(self, filename[0], self.avatar_name)
+
+def create_user(obj, name, avatar_path):
+    """Создает пользователя name с аватаркой по пути avatar_path в родительском виджете obj"""
+    if name:
+        if name in get_user_names_in_current_dir():
+            error('Пользователь с таким именем уже существует', obj)
+            return
+        with open(avatar_path, 'rb') as avatar:
+            acc = User(name, avatar.read())
+            save(acc, obj)
+
+        obj.close()
+    else:
+        error('Введите имя пользователя', obj)
+
+def add_avatar(obj, avatar_path, avatar_name_widget):
+    """
+    Добавляет объекту obj атрибут avatar, содержащий путь
+    до аватарки и меняет текст виджета avatar_name_widget на имя аватарки.
+    """
+    try:
+        image = Image.open(avatar_path)
+        if image.size[0] == 128 and image.size[1] == 128:
+            obj.avatar = avatar_path
+            avatar_name_widget.setText(avatar_path.split('/')[-1])
+        else:
+            raise Exception
+    except Exception:
+        error('Ошибка, попробуйте загрузить картинку снова.', obj)
