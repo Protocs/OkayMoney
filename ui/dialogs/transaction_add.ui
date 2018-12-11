@@ -268,7 +268,7 @@ p, li { white-space: pre-wrap; }
           <string notr="true"/>
          </property>
          <property name="text">
-          <string>Ок</string>
+          <string>Добавить</string>
          </property>
         </widget>
        </item>
