@@ -27,7 +27,7 @@ color: rgb(255, 255, 255);</string>
    <item>
     <widget class="QPushButton" name="choose_accounts_btn">
      <property name="text">
-      <string>Выбрать</string>
+      <string>Применить</string>
      </property>
     </widget>
    </item>
