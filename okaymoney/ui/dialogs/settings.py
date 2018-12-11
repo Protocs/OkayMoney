@@ -2,10 +2,11 @@ from .ui_dialog import UIDialog
 from .user_registration import add_avatar
 from PyQt5.QtWidgets import QFileDialog, QListWidgetItem
 from ...user_save_load import remove, save
+from ..messagebox import error
 
 
 class SettingsDialog(UIDialog):
-    """Диалог регистрации нового пользователя.
+    """Диалог настроек.
 
     *Файл интерфейса:* ``ui/dialogs/settings.ui``
     """
@@ -87,11 +88,15 @@ class SettingsDialog(UIDialog):
                                  self.fill_income_categories)
 
     def add_category(self, categories, categories_list, del_button, fill_function):
-        spend_item = categories.item(len(categories_list) - 1)
-        if categories.isPersistentEditorOpen(spend_item):
-            categories.closePersistentEditor(spend_item)
-            categories_list[-1] = spend_item.text()
-            fill_function()
+        if categories_list:
+            spend_item = categories.item(len(categories_list) - 1)
+            if not spend_item.text():
+                error("Нельзя добавлять пустые категории.", self)
+                return
+            if categories.isPersistentEditorOpen(spend_item):
+                categories.closePersistentEditor(spend_item)
+                categories_list[-1] = spend_item.text()
+                fill_function()
         item = QListWidgetItem()
         categories.addItem(item)
         categories.openPersistentEditor(item)
@@ -104,16 +109,29 @@ class SettingsDialog(UIDialog):
         fill_function()
 
     def apply_changes(self):
-        remove(self.user, self)
-        self.user.name = self.user_name.text()
-        self.user.SAVE_PATH = self.user.name + '.okm'
-        self.user.avatar = self.avatar
+        try:
+            last_spend_item = self.spend_categories.item(len(self.spend_categories_list) - 1)
+            last_income_item = self.income_categories.item(len(self.income_categories_list) - 1)
+            if (last_spend_item and not last_spend_item.text()) \
+                    or (last_income_item and not last_income_item.text()):
+                error("Нельзя добавлять пустые категории!", self)
+                return
 
-        self.spend_categories_list[-1] = self.spend_categories.item(
-            len(self.spend_categories_list) - 1).text()
-        self.income_categories_list[-1] = self.income_categories.item(
-            len(self.income_categories_list) - 1).text()
-        self.user.income_categories = self.income_categories_list
-        self.user.spend_categories = self.spend_categories_list
-        save(self.user, self)
-        self.close()
+            remove(self.user, self)
+
+            self.user.name = self.user_name.text()
+            self.user.SAVE_PATH = self.user.name + '.okm'
+            self.user.avatar = self.avatar
+
+            if self.spend_categories_list:
+                self.spend_categories_list[-1] = last_spend_item.text()
+            if self.income_categories_list:
+                self.income_categories_list[-1] = last_income_item.text()
+            self.user.income_categories = self.income_categories_list
+            self.user.spend_categories = self.spend_categories_list
+
+            save(self.user, self)
+
+            self.close()
+        except Exception as e:
+            print(e)
