@@ -173,7 +173,7 @@ background-color: rgb(136, 136, 136);
     <property name="geometry">
      <rect>
       <x>20</x>
-      <y>20</y>
+      <y>130</y>
       <width>131</width>
       <height>101</height>
      </rect>
@@ -353,6 +353,42 @@ color: rgb(198, 40, 40);</string>
      </item>
     </layout>
    </widget>
+   <widget class="QPushButton" name="settings_btn">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>150</width>
+      <height>35</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>150</width>
+      <height>35</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>160</width>
+      <height>35</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Gotham Pro Medium</family>
+      <pointsize>16</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">text-align:left;
+padding-left:10px;
+background-color: rgb(129, 129, 129);</string>
+    </property>
+    <property name="text">
+     <string>Настройки</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
    <property name="geometry">
@@ -360,7 +396,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1102</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
