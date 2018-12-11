@@ -7,12 +7,12 @@ from PyQt5.QtWidgets import QVBoxLayout
 from ...util import INCOME, SPEND
 
 BACKGROUND_GRAY = str(55 / 255)
-COLORS = ['#eb3b5a', '#4b7bec', '#a55eea', '#fed330', '#20bf6b', '#fa8231', '#0fb9b1']
+INCOME_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50']
+SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3', '#db0dca']
 
 
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
-
 
     def __init__(self, widget, user):
         super().__init__()
@@ -55,11 +55,17 @@ class PieChart:
         """Создает или обновляет диаграмму."""
         labels = [d[0] + '\n' + str(d[1]) + ' ₽' for d in data]
         values = [d[1] for d in data]
-        explode = [0.01 for _ in range(len(data))]
+        explode = [0.03 for _ in range(len(data))]
 
         self.axes.clear()
         self.set_title(self.titles[self.transaction_type])
-        patches, texts = self.axes.pie(values, explode=explode, startangle=90, colors=COLORS)
+        if self.transaction_type == INCOME:
+            patches, texts = self.axes.pie(values, explode=explode, startangle=90,
+                                           colors=INCOME_COLORS)
+        else:
+            patches, texts = self.axes.pie(values, explode=explode, startangle=90,
+                                           colors=SPEND_COLORS)
+
         self.axes.legend(patches, labels, loc='best', fontsize=8)
         self.canvas.draw()
 
