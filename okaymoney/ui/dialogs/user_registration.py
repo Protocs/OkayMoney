@@ -17,7 +17,8 @@ class UserRegistrationDialog(UIDialog):
 
     def __init__(self):
         super().__init__()
-        self.avatar = 'ui/default.png'
+        with open('ui/default.png', 'rb') as default:
+            self.avatar = default.read()
 
         self.ok_button.clicked.connect(self.get_user_name)
         self.cancel_button.clicked.connect(self.close)
@@ -32,15 +33,14 @@ class UserRegistrationDialog(UIDialog):
         if filename[0]:
             add_avatar(self, filename[0], self.avatar_name)
 
-def create_user(obj, name, avatar_path):
-    """Создает пользователя name с аватаркой по пути avatar_path в родительском виджете obj"""
+def create_user(obj, name, avatar):
+    """Создает пользователя name с аватаркой avatar в родительском виджете obj"""
     if name:
         if name in get_user_names_in_current_dir():
             error('Пользователь с таким именем уже существует', obj)
             return
-        with open(avatar_path, 'rb') as avatar:
-            acc = User(name, avatar.read())
-            save(acc, obj)
+        acc = User(name, avatar)
+        save(acc, obj)
 
         obj.close()
     else:
@@ -48,13 +48,14 @@ def create_user(obj, name, avatar_path):
 
 def add_avatar(obj, avatar_path, avatar_name_widget):
     """
-    Добавляет объекту obj атрибут avatar, содержащий путь
-    до аватарки и меняет текст виджета avatar_name_widget на имя аватарки.
+    Добавляет объекту obj атрибут avatar, содержащий аватарку в виде массива байтов
+    и меняет текст виджета avatar_name_widget на имя аватарки.
     """
     try:
         image = Image.open(avatar_path)
         if image.size[0] == 128 and image.size[1] == 128:
-            obj.avatar = avatar_path
+            with open(avatar_path, 'rb') as avatar:
+                obj.avatar = avatar.read()
             avatar_name_widget.setText(avatar_path.split('/')[-1])
         else:
             raise Exception
