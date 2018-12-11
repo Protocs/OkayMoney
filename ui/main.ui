@@ -278,11 +278,11 @@ padding-left:5px;</string>
         <widget class="QLabel" name="MonthlyIncomeMoney">
          <property name="font">
           <font>
-           <family>Gotham Pro Medium</family>
+           <family>MS Shell Dlg 2</family>
            <pointsize>16</pointsize>
-           <weight>50</weight>
+           <weight>75</weight>
            <italic>false</italic>
-           <bold>false</bold>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
@@ -327,10 +327,10 @@ padding-left:5px;</string>
         <widget class="QLabel" name="MonthlyExpensesMoney">
          <property name="font">
           <font>
-           <family>Gotham Pro Medium</family>
+           <family>MS Shell Dlg 2</family>
            <pointsize>16</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
+           <weight>75</weight>
+           <bold>true</bold>
           </font>
          </property>
          <property name="styleSheet">
