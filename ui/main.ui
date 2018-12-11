@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1102</width>
+    <width>1009</width>
     <height>670</height>
    </rect>
   </property>
@@ -27,9 +27,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="pie_place" native="true">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>290</x>
       <y>60</y>
-      <width>611</width>
+      <width>431</width>
       <height>471</height>
      </rect>
     </property>
@@ -37,9 +37,9 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>830</x>
-      <y>0</y>
-      <width>262</width>
+      <x>761</x>
+      <y>80</y>
+      <width>241</width>
       <height>171</height>
      </rect>
     </property>
@@ -173,15 +173,44 @@ background-color: rgb(136, 136, 136);
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>210</y>
-      <width>131</width>
-      <height>101</height>
+      <y>80</y>
+      <width>152</width>
+      <height>141</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
      <property name="spacing">
       <number>0</number>
      </property>
+     <item>
+      <widget class="QPushButton" name="settings_btn">
+       <property name="minimumSize">
+        <size>
+         <width>150</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="maximumSize">
+        <size>
+         <width>160</width>
+         <height>35</height>
+        </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Gotham Pro Medium</family>
+         <pointsize>16</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">text-align:center;
+background-color: rgb(129, 129, 129);</string>
+       </property>
+       <property name="text">
+        <string>Настройки</string>
+       </property>
+      </widget>
+     </item>
      <item>
       <widget class="QPushButton" name="OnlyIncomes">
        <property name="minimumSize">
@@ -247,7 +276,7 @@ background-color: rgb(136, 136, 136);</string>
      <rect>
       <x>10</x>
       <y>593</y>
-      <width>1081</width>
+      <width>991</width>
       <height>51</height>
      </rect>
     </property>
@@ -350,42 +379,7 @@ color: rgb(198, 40, 40);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QPushButton" name="settings_btn">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>90</y>
-      <width>150</width>
-      <height>35</height>
-     </rect>
-    </property>
-    <property name="minimumSize">
-     <size>
-      <width>150</width>
-      <height>35</height>
-     </size>
-    </property>
-    <property name="maximumSize">
-     <size>
-      <width>160</width>
-      <height>35</height>
-     </size>
-    </property>
-    <property name="font">
-     <font>
-      <family>Gotham Pro Medium</family>
-      <pointsize>16</pointsize>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">text-align:center;
-background-color: rgb(129, 129, 129);</string>
-    </property>
-    <property name="text">
-     <string>Настройки</string>
-    </property>
-   </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -435,8 +429,8 @@ background-color: rgb(129, 129, 129);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1102</width>
-     <height>26</height>
+     <width>1009</width>
+     <height>18</height>
     </rect>
    </property>
   </widget>
