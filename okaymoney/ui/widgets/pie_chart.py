@@ -7,12 +7,12 @@ from PyQt5.QtWidgets import QVBoxLayout
 from ...util import INCOME, SPEND
 
 BACKGROUND_GRAY = str(55 / 255)
+COLORS = ['#eb3b5a', '#4b7bec', '#a55eea', '#fed330', '#20bf6b', '#fa8231', '#0fb9b1']
 
 
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
 
-    COLORS = ['#eb3b5a', '#4b7bec', '#a55eea', '#fed330', '#20bf6b', '#fa8231', '#0fb9b1']
 
     def __init__(self, widget, user):
         super().__init__()
@@ -59,7 +59,7 @@ class PieChart:
 
         self.axes.clear()
         self.set_title(self.titles[self.transaction_type])
-        patches, texts = self.axes.pie(values, explode=explode, startangle=90, colors=self.COLORS)
+        patches, texts = self.axes.pie(values, explode=explode, startangle=90, colors=COLORS)
         self.axes.legend(patches, labels, loc='best', fontsize=8)
         self.canvas.draw()
 
