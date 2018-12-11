@@ -6,7 +6,9 @@ from .dialogs.accounts_filter import AccountsFilterDialog
 from .dialogs.transaction_add import TransactionAddDialog
 from .dialogs.transactions_history import TransactionsHistoryDialog
 from .dialogs.settings import SettingsDialog
-
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import QByteArray
+from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
 
 class MainWindow(UIWindow):
     """Основное окно приложения.
@@ -26,6 +28,8 @@ class MainWindow(UIWindow):
         self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
         self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
         self.settings_btn.clicked.connect(self.show_settings_dialog)
+
+        self.update_user()
 
         self.pie_chart = PieChart(self.pie_place, self.user)
 
@@ -72,3 +76,12 @@ class MainWindow(UIWindow):
     def show_settings_dialog(self):
         self.settings_dialog = SettingsDialog(self.user)
         self.settings_dialog.exec()
+        self.update_user()
+
+    def update_user(self):
+        scene = QGraphicsScene()
+        self.icon.setScene(scene)
+        image = QImage()
+        image.loadFromData(QByteArray(self.user.avatar))
+        scene.addItem(QGraphicsPixmapItem(QPixmap().fromImage(image.scaled(48, 48))))
+        self.username.setText(self.user.name)
