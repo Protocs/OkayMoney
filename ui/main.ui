@@ -456,7 +456,7 @@ color: rgb(198, 40, 40);</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>780</x>
@@ -492,6 +492,18 @@ color: rgb(198, 40, 40);</string>
          <family>Gotham Pro Medium</family>
          <pointsize>11</pointsize>
         </font>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::NoFrame</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Sunken</enum>
+       </property>
+       <property name="defaultDropAction">
+        <enum>Qt::CopyAction</enum>
+       </property>
+       <property name="selectionMode">
+        <enum>QAbstractItemView::NoSelection</enum>
        </property>
       </widget>
      </item>

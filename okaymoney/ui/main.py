@@ -9,7 +9,8 @@ from .dialogs.transactions_history import TransactionsHistoryDialog
 from .dialogs.settings import SettingsDialog
 from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QByteArray
-from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
+from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QListWidgetItem
+from ..util import shorten
 
 
 class MainWindow(UIWindow):
@@ -46,9 +47,10 @@ class MainWindow(UIWindow):
 
     def fill_accounts(self):
         self.accounts_list.clear()
-        self.accounts_list.addItems(
-            ["{}\t\t\t{} ₽".format(acc.name, str(acc.money)) for acc in self.user.accounts])
-
+        for acc in self.user.accounts:
+            item = QListWidgetItem("{}\t{} ₽".format(shorten(acc.name, 13), str(acc.money)))
+            item.setToolTip(acc.name)
+            self.accounts_list.addItem(item)
 
     def show_incomes(self):
         self.pie_chart.transaction_type = INCOME
