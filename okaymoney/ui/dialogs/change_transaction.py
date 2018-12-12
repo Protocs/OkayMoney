@@ -35,7 +35,7 @@ class TransactionChangeDialog(TransactionAddDialog):
                 self.transaction.category))
 
     def add_transaction(self, tr, acc):
-        self.account.remove_transaction(self.transaction)
-        acc.add_transaction(tr)
+        self.account.remove_transaction(self.transaction, self.user.negative_balance_information)
+        acc.add_transaction(tr, self.user.negative_balance_information)
         save(self.user, self)
         self.close()

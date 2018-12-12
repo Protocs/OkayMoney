@@ -54,7 +54,8 @@ class TransactionsHistoryDialog(UIDialog):
             + ("\n\nОписание:\n{}".format(transaction.note) if transaction.note else ""))
 
     def delete_transaction(self):
-        self.account.remove_transaction(self.transactions[self.history_transactions.currentRow()])
+        self.account.remove_transaction(self.transactions[self.history_transactions.currentRow()],
+                                        self.user.negative_balance_information)
         self.change_transactions()
         save(self.user, self)
 

@@ -58,6 +58,6 @@ class TransactionAddDialog(UIDialog):
             error('Ошибка, попробуйте еще раз.', self)
 
     def add_transaction(self, tr, acc):
-        acc.add_transaction(tr)
+        acc.add_transaction(tr, self.user.negative_balance_information)
         save(self.user, self)
         self.close()

@@ -14,7 +14,7 @@ class Account:
         self.checked = True
         self.transactions = []
 
-    def add_transaction(self, tr):
+    def add_transaction(self, tr, negative_balance_information):
         """Добавляет транзакцию в историю и изменяет баланс.
 
         >>> from okaymoney.transaction import Transaction
@@ -26,7 +26,7 @@ class Account:
         >>> acc.transactions
         {0: <Transaction object at ...>}
         """
-        if self.money + tr.delta < 0:
+        if self.money + tr.delta < 0 and negative_balance_information:
             confirm_dialog = ConfirmActionDialog(
                 "После добавления этой транзакции баланс на счете станет отрицательным.")
             if not confirm_dialog.exec():
@@ -35,10 +35,10 @@ class Account:
         self.money += tr.delta
         self.transactions.sort(key=lambda e: e.date, reverse=True)
 
-    def remove_transaction(self, tr):
+    def remove_transaction(self, tr, negative_balance_information):
         if tr not in self.transactions:
             raise ValueError('Транзакции не существует')
-        if self.money - tr.delta < 0:
+        if self.money - tr.delta < 0 and negative_balance_information:
             confirm_dialog = ConfirmActionDialog(
                 "После удаления этой транзакции баланс на счете станет отрицательным.")
             if not confirm_dialog.exec():
