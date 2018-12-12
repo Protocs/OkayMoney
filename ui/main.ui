@@ -37,13 +37,13 @@ color: rgb(255, 255, 255);</string>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>761</x>
-      <y>80</y>
-      <width>300</width>
-      <height>171</height>
+      <x>779</x>
+      <y>0</y>
+      <width>311</width>
+      <height>191</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="accounts_layout">
+    <layout class="QVBoxLayout" name="main_operations_layout">
      <property name="spacing">
       <number>0</number>
      </property>
@@ -52,7 +52,7 @@ color: rgb(255, 255, 255);</string>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>35</height>
+         <height>40</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -82,7 +82,7 @@ background-color: rgb(136, 136, 136);
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>35</height>
+         <height>40</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -112,7 +112,7 @@ background-color: rgb(136, 136, 136);
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>35</height>
+         <height>40</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -142,7 +142,7 @@ background-color: rgb(136, 136, 136);
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>35</height>
+         <height>40</height>
         </size>
        </property>
        <property name="maximumSize">
@@ -174,8 +174,8 @@ background-color: rgb(136, 136, 136);
      <rect>
       <x>10</x>
       <y>120</y>
-      <width>131</width>
-      <height>91</height>
+      <width>151</width>
+      <height>101</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -184,15 +184,21 @@ background-color: rgb(136, 136, 136);
      </property>
      <item>
       <widget class="QPushButton" name="OnlyIncomes">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
-         <width>50</width>
-         <height>35</height>
+         <width>100</width>
+         <height>40</height>
         </size>
        </property>
        <property name="maximumSize">
         <size>
-         <width>120</width>
+         <width>150</width>
          <height>35</height>
         </size>
        </property>
@@ -221,8 +227,8 @@ background-color: rgb(129, 129, 129);</string>
        </property>
        <property name="maximumSize">
         <size>
-         <width>120</width>
-         <height>30</height>
+         <width>150</width>
+         <height>40</height>
         </size>
        </property>
        <property name="font">
@@ -355,11 +361,14 @@ color: rgb(198, 40, 40);</string>
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>271</width>
+      <width>162</width>
       <height>89</height>
      </rect>
     </property>
     <layout class="QHBoxLayout" name="horizontalLayout_4">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetFixedSize</enum>
+     </property>
      <item>
       <widget class="QLabel" name="logout_btn">
        <property name="minimumSize">
@@ -442,6 +451,47 @@ color: rgb(198, 40, 40);</string>
        </property>
        <property name="alignment">
         <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="">
+    <property name="geometry">
+     <rect>
+      <x>780</x>
+      <y>200</y>
+      <width>301</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <property name="sizeConstraint">
+      <enum>QLayout::SetDefaultConstraint</enum>
+     </property>
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="font">
+        <font>
+         <family>Gotham Pro Medium</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Мои счета</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QListWidget" name="accounts_list">
+       <property name="font">
+        <font>
+         <family>Gotham Pro Medium</family>
+         <pointsize>11</pointsize>
+        </font>
        </property>
       </widget>
      </item>

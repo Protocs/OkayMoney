@@ -11,6 +11,7 @@ from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QByteArray
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
 
+
 class MainWindow(UIWindow):
     """Основное окно приложения.
 
@@ -39,7 +40,15 @@ class MainWindow(UIWindow):
         self.OnlyIncomes.clicked.connect(self.show_incomes)
         self.OnlyExpenses.clicked.connect(self.show_expenses)
 
+        self.fill_accounts()
+
         self.__update()
+
+    def fill_accounts(self):
+        self.accounts_list.clear()
+        self.accounts_list.addItems(
+            ["{}\t\t\t{} ₽".format(acc.name, str(acc.money)) for acc in self.user.accounts])
+
 
     def show_incomes(self):
         self.pie_chart.transaction_type = INCOME
@@ -60,6 +69,7 @@ class MainWindow(UIWindow):
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
         self.add_account_dialog.exec()
+        self.fill_accounts()
 
     def show_accounts_filter_dialog(self):
         if not self.user.accounts:
@@ -77,6 +87,7 @@ class MainWindow(UIWindow):
         self.add_transaction_dialog = TransactionAddDialog(self.user)
         self.add_transaction_dialog.exec()
         self.__update()
+        self.fill_accounts()
 
     def show_transactions_history_dialog(self):
         if not any([acc.transactions for acc in self.user.accounts]):
@@ -85,6 +96,7 @@ class MainWindow(UIWindow):
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
         self.transactions_history_dialog.exec()
         self.__update()
+        self.fill_accounts()
 
     def show_settings_dialog(self, event):
         self.settings_dialog = SettingsDialog(self.user, self.login_window, self)
@@ -102,3 +114,4 @@ class MainWindow(UIWindow):
     def logout(self, event):
         self.close()
         self.login_window.show()
+        self.login_window.fill_users()
