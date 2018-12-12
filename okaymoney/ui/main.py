@@ -20,29 +20,26 @@ class MainWindow(UIWindow):
     ui_path = 'ui/main.ui'
 
     def __init__(self, user, login_window):
-        try:
-            super().__init__()
+        super().__init__()
 
-            self.user = user
-            self.login_window = login_window
+        self.user = user
+        self.login_window = login_window
 
-            self.add_account_btn.clicked.connect(self.show_add_account_dialog)
-            self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
-            self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
-            self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
-            self.settings_btn.mousePressEvent = self.show_settings_dialog
-            self.logout_btn.mousePressEvent = self.logout
+        self.add_account_btn.clicked.connect(self.show_add_account_dialog)
+        self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
+        self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
+        self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
+        self.settings_btn.mousePressEvent = self.show_settings_dialog
+        self.logout_btn.mousePressEvent = self.logout
 
-            self.update_user()
+        self.update_user()
 
-            self.pie_chart = PieChart(self.pie_place, self.user)
+        self.pie_chart = PieChart(self.pie_place, self.user)
 
-            self.OnlyIncomes.clicked.connect(self.show_incomes)
-            self.OnlyExpenses.clicked.connect(self.show_expenses)
+        self.OnlyIncomes.clicked.connect(self.show_incomes)
+        self.OnlyExpenses.clicked.connect(self.show_expenses)
 
-            self.__update()
-        except Exception as e:
-            print(e)
+        self.__update()
 
     def show_incomes(self):
         self.pie_chart.transaction_type = INCOME
@@ -90,7 +87,7 @@ class MainWindow(UIWindow):
         self.__update()
 
     def show_settings_dialog(self, event):
-        self.settings_dialog = SettingsDialog(self.user)
+        self.settings_dialog = SettingsDialog(self.user, self.login_window, self)
         self.settings_dialog.exec()
         self.update_user()
 

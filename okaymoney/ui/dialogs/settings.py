@@ -13,10 +13,12 @@ class SettingsDialog(UIDialog):
 
     ui_path = 'ui/dialogs/settings.ui'
 
-    def __init__(self, user):
+    def __init__(self, user, login_window, main_window):
         super().__init__()
 
         self.user = user
+        self.login_window = login_window
+        self.main_window = main_window
         self.avatar = self.user.avatar
         self.spend_categories_list = self.user.spend_categories.copy()
         self.income_categories_list = self.user.income_categories.copy()
@@ -56,10 +58,11 @@ class SettingsDialog(UIDialog):
             add_avatar(self, filename[0], self.choose_avatar)
 
     def delete_user(self):
-        remove(self.user)
+        remove(self.user, self)
         self.close()
         self.main_window.close()
-        # Открытие окна логина не реализовано.
+        self.login_window.show()
+        self.login_window.fill_users()
 
     def fill_spend_categories(self):
         self.spend_categories.clear()
