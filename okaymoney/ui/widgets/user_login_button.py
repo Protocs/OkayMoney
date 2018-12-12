@@ -34,6 +34,6 @@ class UserLoginButton(UIWidget):
         self.icon.mousePressEvent = self.name.mousePressEvent = self.mousePressEvent
 
     def mousePressEvent(self, event):
-        self.main = MainWindow(self.user)
+        self.main = MainWindow(self.user, self.login_window)
         self.main.show()
         self.login_window.close()

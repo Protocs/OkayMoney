@@ -19,25 +19,30 @@ class MainWindow(UIWindow):
 
     ui_path = 'ui/main.ui'
 
-    def __init__(self, user):
-        super().__init__()
+    def __init__(self, user, login_window):
+        try:
+            super().__init__()
 
-        self.user = user
+            self.user = user
+            self.login_window = login_window
 
-        self.add_account_btn.clicked.connect(self.show_add_account_dialog)
-        self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
-        self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
-        self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
-        self.settings_btn.clicked.connect(self.show_settings_dialog)
+            self.add_account_btn.clicked.connect(self.show_add_account_dialog)
+            self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
+            self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
+            self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
+            self.settings_btn.mousePressEvent = self.show_settings_dialog
+            self.logout_btn.mousePressEvent = self.logout
 
-        self.update_user()
+            self.update_user()
 
-        self.pie_chart = PieChart(self.pie_place, self.user)
+            self.pie_chart = PieChart(self.pie_place, self.user)
 
-        self.OnlyIncomes.clicked.connect(self.show_incomes)
-        self.OnlyExpenses.clicked.connect(self.show_expenses)
+            self.OnlyIncomes.clicked.connect(self.show_incomes)
+            self.OnlyExpenses.clicked.connect(self.show_expenses)
 
-        self.__update()
+            self.__update()
+        except Exception as e:
+            print(e)
 
     def show_incomes(self):
         self.pie_chart.transaction_type = INCOME
@@ -84,7 +89,7 @@ class MainWindow(UIWindow):
         self.transactions_history_dialog.exec()
         self.__update()
 
-    def show_settings_dialog(self):
+    def show_settings_dialog(self, event):
         self.settings_dialog = SettingsDialog(self.user)
         self.settings_dialog.exec()
         self.update_user()
@@ -96,3 +101,7 @@ class MainWindow(UIWindow):
         image.loadFromData(QByteArray(self.user.avatar))
         scene.addItem(QGraphicsPixmapItem(QPixmap().fromImage(image.scaled(48, 48))))
         self.username.setText(self.user.name)
+
+    def logout(self, event):
+        self.close()
+        self.login_window.show()
