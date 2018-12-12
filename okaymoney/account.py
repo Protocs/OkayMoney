@@ -1,3 +1,6 @@
+from .ui.dialogs.confirm import ConfirmActionDialog
+
+
 class Account:
     """Отдельный счёт со своим балансом, к примеру, банковский счёт, счёт на карточке, наличные..."""
 
@@ -23,13 +26,23 @@ class Account:
         >>> acc.transactions
         {0: <Transaction object at ...>}
         """
+        if self.money + tr.delta < 0:
+            confirm_dialog = ConfirmActionDialog(
+                "После добавления этой транзакции баланс на счете станет отрицательным.")
+            if not confirm_dialog.exec():
+                return
         self.transactions.append(tr)
         self.money += tr.delta
         self.transactions.sort(key=lambda e: e.date, reverse=True)
 
     def remove_transaction(self, tr):
         if tr not in self.transactions:
-            raise IndexError('Транзакции не существует')
+            raise ValueError('Транзакции не существует')
+        if self.money - tr.delta < 0:
+            confirm_dialog = ConfirmActionDialog(
+                "После удаления этой транзакции баланс на счете станет отрицательным.")
+            if not confirm_dialog.exec():
+                return
         self.transactions.remove(tr)
         self.money -= tr.delta
         self.transactions.sort(key=lambda e: e.date, reverse=True)
