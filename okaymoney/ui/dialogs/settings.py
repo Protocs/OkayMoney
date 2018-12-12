@@ -4,6 +4,8 @@ from PyQt5.QtWidgets import QFileDialog, QListWidgetItem
 from ...user_save_load import remove, save
 from ..messagebox import error
 from ..widgets.pie_chart import SPEND_COLORS
+from .confirm import ConfirmActionDialog
+
 
 class SettingsDialog(UIDialog):
     """Диалог настроек.
@@ -58,11 +60,15 @@ class SettingsDialog(UIDialog):
             add_avatar(self, filename[0], self.choose_avatar)
 
     def delete_user(self):
-        remove(self.user, self)
-        self.close()
-        self.main_window.close()
-        self.login_window.show()
-        self.login_window.fill_users()
+        self.confirm_dialog = ConfirmActionDialog(
+            f'Вы действительно хотите удалить аккаунт пользователя '
+            f'"{self.user.name}"?\nВсе данные будут стерты без возможности восстановления!')
+        if self.confirm_dialog.exec():
+            remove(self.user, self)
+            self.close()
+            self.main_window.close()
+            self.login_window.show()
+            self.login_window.fill_users()
 
     def fill_spend_categories(self):
         self.spend_categories.clear()
@@ -115,29 +121,26 @@ class SettingsDialog(UIDialog):
         fill_function()
 
     def apply_changes(self):
-        try:
-            last_spend_item = self.spend_categories.item(len(self.spend_categories_list) - 1)
-            last_income_item = self.income_categories.item(len(self.income_categories_list) - 1)
-            if (last_spend_item and not last_spend_item.text()) \
-                    or (last_income_item and not last_income_item.text()):
-                error("Нельзя добавлять пустые категории!", self)
-                return
+        last_spend_item = self.spend_categories.item(len(self.spend_categories_list) - 1)
+        last_income_item = self.income_categories.item(len(self.income_categories_list) - 1)
+        if (last_spend_item and not last_spend_item.text()) \
+                or (last_income_item and not last_income_item.text()):
+            error("Нельзя добавлять пустые категории!", self)
+            return
 
-            remove(self.user, self)
+        remove(self.user, self)
 
-            self.user.name = self.user_name.text()
-            self.user.SAVE_PATH = self.user.name + '.okm'
-            self.user.avatar = self.avatar
+        self.user.name = self.user_name.text()
+        self.user.SAVE_PATH = self.user.name + '.okm'
+        self.user.avatar = self.avatar
 
-            if self.spend_categories_list:
-                self.spend_categories_list[-1] = last_spend_item.text()
-            if self.income_categories_list:
-                self.income_categories_list[-1] = last_income_item.text()
-            self.user.income_categories = self.income_categories_list
-            self.user.spend_categories = self.spend_categories_list
+        if self.spend_categories_list:
+            self.spend_categories_list[-1] = last_spend_item.text()
+        if self.income_categories_list:
+            self.income_categories_list[-1] = last_income_item.text()
+        self.user.income_categories = self.income_categories_list
+        self.user.spend_categories = self.spend_categories_list
 
-            save(self.user, self)
+        save(self.user, self)
 
-            self.close()
-        except Exception as e:
-            print(e)
+        self.close()
