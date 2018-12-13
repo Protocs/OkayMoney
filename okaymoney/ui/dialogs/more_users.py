@@ -25,7 +25,7 @@ class MoreUsersDialog(UIDialog):
 
     def choose_user(self):
         username = self.listWidget.currentItem().text()
-        self.main = MainWindow(user_save_load.load(username + '.okm', self))
+        self.main = MainWindow(user_save_load.load(username + '.okm', self), self.login_window)
         self.main.show()
         self.close()
         self.login_window.close()
