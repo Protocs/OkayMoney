@@ -37,8 +37,8 @@ class TransactionsHistoryDialog(UIDialog):
         self.history_transactions.clear()
         for transaction in self.transactions:
             self.history_transactions.addItem(
-                "{}{}\t{}".format('+' if transaction.type == INCOME else '',
-                                  str(transaction.delta), transaction.date.toString()))
+                "{}{}\t{}".format('+' if transaction.type == INCOME else '', str(transaction.delta),
+                                  transaction.date.toString("ddd dd MMM yyyy")))
         self.change_btn.setEnabled(False)
         self.delete_btn.setEnabled(False)
 
