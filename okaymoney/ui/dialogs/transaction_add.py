@@ -7,6 +7,7 @@ from .ui_dialog import UIDialog
 from ...transaction import Transaction
 from ..messagebox import error
 from ...user_save_load import save
+from ...util import SPEND
 
 
 class TransactionAddDialog(UIDialog):
@@ -56,14 +57,14 @@ class TransactionAddDialog(UIDialog):
 
             account = [acc for acc in self.user.accounts if acc.name == account_name][0]
             self.add_transaction(transaction, account)
-        except Exception as e:
-            print(e)
+        except Exception:
             error('Ошибка, попробуйте еще раз.', self)
 
     def add_transaction(self, tr, acc):
-        try:
-            acc.add_transaction(tr, self.user.negative_balance_information)
-            save(self.user, self)
-            self.close()
-        except Exception as e:
-            print(e)
+        if len(str(tr.delta + acc.money)[1:] if tr.type == SPEND else str(
+                tr.delta + acc.money)) > 15:
+            error("Баланс на вашем счету не должен содержать в себе более 15 цифр.", self)
+            return
+        acc.add_transaction(tr, self.user.negative_balance_information)
+        save(self.user, self)
+        self.close()

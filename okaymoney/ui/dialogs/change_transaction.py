@@ -1,6 +1,7 @@
 from ...user_save_load import save
 from .transaction_add import TransactionAddDialog
-from ...util import INCOME
+from ...util import INCOME, SPEND
+from ..messagebox import error
 
 
 class TransactionChangeDialog(TransactionAddDialog):
@@ -36,6 +37,10 @@ class TransactionChangeDialog(TransactionAddDialog):
         self.ok_btn.setText("Изменить")
 
     def add_transaction(self, tr, acc):
+        if len(str(tr.delta + acc.money)[1:] if tr.type == SPEND else str(
+                tr.delta + acc.money)) > 15:
+            error("Баланс на вашем счету не должен содержать в себе более 15 цифр.", self)
+            return
         self.account.remove_transaction(self.transaction, False)
         acc.add_transaction(tr, self.user.negative_balance_information)
         save(self.user, self)
