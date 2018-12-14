@@ -22,10 +22,22 @@ color: rgb(255, 255, 255);</string>
     <number>10</number>
    </property>
    <item>
-    <widget class="QListWidget" name="accounts_list"/>
+    <widget class="QListWidget" name="accounts_list">
+     <property name="font">
+      <font>
+       <family>Gotham Pro Medium</family>
+       <pointsize>9</pointsize>
+      </font>
+     </property>
+    </widget>
    </item>
    <item>
     <widget class="QPushButton" name="choose_accounts_btn">
+     <property name="font">
+      <font>
+       <family>Gotham Pro Medium</family>
+      </font>
+     </property>
      <property name="text">
       <string>Применить</string>
      </property>
