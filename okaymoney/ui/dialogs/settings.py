@@ -3,7 +3,6 @@ from .user_registration import add_avatar
 from PyQt5.QtWidgets import QFileDialog, QListWidgetItem
 from ...user_save_load import remove, save
 from ..messagebox import error
-from ..widgets.pie_chart import SPEND_COLORS
 from .confirm import ConfirmActionDialog
 
 
@@ -112,14 +111,14 @@ class SettingsDialog(UIDialog):
                 categories_list[-1] = spend_item.text()
                 fill_function()
         item = QListWidgetItem()
-        if len(categories_list) <= len(SPEND_COLORS):
+        if len(categories_list) < 10:
             categories.addItem(item)
             categories.openPersistentEditor(item)
             categories.setCurrentItem(item)
             categories_list.append("")
             del_button.setEnabled(True)
         else:
-            error(f"Максимальное допустимое количество категорий - {len(SPEND_COLORS)}", self)
+            error("Максимальное допустимое количество категорий - 10", self)
 
     def delete_category(self, categories_list, categories, fill_function):
         categories_list.pop(categories.currentRow())
