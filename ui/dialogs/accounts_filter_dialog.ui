@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>Фильтр счетов</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../icon.png</normaloff>../../icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(55, 55, 55);
 color: rgb(255, 255, 255);</string>
@@ -21,6 +25,18 @@ color: rgb(255, 255, 255);</string>
    <property name="spacing">
     <number>10</number>
    </property>
+   <item>
+    <widget class="QPushButton" name="select_all_btn">
+     <property name="font">
+      <font>
+       <family>Gotham Pro Medium</family>
+      </font>
+     </property>
+     <property name="text">
+      <string>Выделить всё</string>
+     </property>
+    </widget>
+   </item>
    <item>
     <widget class="QListWidget" name="accounts_list">
      <property name="font">

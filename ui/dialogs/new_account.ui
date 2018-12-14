@@ -31,6 +31,10 @@
   <property name="windowTitle">
    <string>Новый счет</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../icon.png</normaloff>../../icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(55, 55, 55);
 color: white</string>

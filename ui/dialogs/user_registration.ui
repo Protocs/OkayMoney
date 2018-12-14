@@ -28,6 +28,10 @@
   <property name="windowTitle">
    <string>Новый пользователь</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>../../icon.png</normaloff>../../icon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">background-color: rgb(55, 55, 55);
 color: rgb(255, 255, 255);</string>
