@@ -115,7 +115,8 @@ class MainWindow(UIWindow):
         image = QImage()
         image.loadFromData(QByteArray(self.user.avatar))
         scene.addItem(QGraphicsPixmapItem(QPixmap().fromImage(image.scaled(48, 48))))
-        self.username.setText(self.user.name)
+        self.username.setText(shorten(self.user.name, 20))
+        self.username.setToolTip(self.user.name)
 
     def logout(self, event):
         self.close()
