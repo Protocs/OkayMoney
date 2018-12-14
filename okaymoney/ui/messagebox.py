@@ -11,6 +11,7 @@ def error(msg, parent=None):
     box.setIcon(QMessageBox.Critical)
     box.exec()
 
+
 def information(msg, parent=None):
     """Показывает окно с информацией ``msg`` над окном/виджетом ``parent``."""
     box = QMessageBox(parent)

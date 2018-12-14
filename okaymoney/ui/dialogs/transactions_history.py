@@ -56,7 +56,7 @@ class TransactionsHistoryDialog(UIDialog):
 
     def delete_transaction(self):
         if self.account.remove_transaction(self.transactions[self.history_transactions.currentRow()],
-                                        self.user.negative_balance_information):
+                                           self.user.negative_balance_information):
             self.change_transactions()
             save(self.user, self)
             self.main_window.pie_chart.upd()

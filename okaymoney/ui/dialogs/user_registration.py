@@ -33,6 +33,7 @@ class UserRegistrationDialog(UIDialog):
         if filename[0]:
             add_avatar(self, filename[0], self.avatar_name)
 
+
 def create_user(obj, name, avatar):
     """Создает пользователя name с аватаркой avatar в родительском виджете obj"""
     if name:
@@ -45,6 +46,7 @@ def create_user(obj, name, avatar):
         obj.close()
     else:
         error('Введите имя пользователя', obj)
+
 
 def add_avatar(obj, avatar_path, avatar_name_widget):
     """

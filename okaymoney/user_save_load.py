@@ -37,6 +37,7 @@ def load(path, obj):
     except pickle.PickleError as e:
         messagebox.error(f'Ошибка загрузки профиля: {path}\n({e})', obj)
 
+
 def remove(acc, obj):
     """Удаляет файл пользователя acc"""
     try:

@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QListWidgetItem, QCheckBox
 from ...user_save_load import save
 from PyQt5.Qt import QFont
 
+
 class AccountsFilterDialog(UIDialog):
     """Диалог фильтра счетов.
 

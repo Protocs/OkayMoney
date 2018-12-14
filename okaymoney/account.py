@@ -1,6 +1,7 @@
 from .ui.dialogs.confirm import ConfirmActionDialog
 from .util import SPEND
 
+
 class Account:
     """Отдельный счёт со своим балансом, к примеру, банковский счёт, счёт на карточке, наличные..."""
 

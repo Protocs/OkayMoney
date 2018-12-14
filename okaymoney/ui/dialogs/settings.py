@@ -6,6 +6,7 @@ from ..messagebox import error
 from .confirm import ConfirmActionDialog
 from .new_category import NewCategoryDialog
 
+
 class SettingsDialog(UIDialog):
     """Диалог настроек.
 
