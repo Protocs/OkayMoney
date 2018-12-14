@@ -15,6 +15,7 @@ class AccountsFilterDialog(UIDialog):
         super().__init__()
 
         self.choose_accounts_btn.clicked.connect(self.choose_accounts)
+        self.select_all_btn.clicked.connect(self.select_all)
         self.checkboxes = []
         self.user = user
 
@@ -33,3 +34,7 @@ class AccountsFilterDialog(UIDialog):
                                                for checkbox in self.checkboxes if checkbox.isChecked()]
         save(self.user, self)
         self.close()
+
+    def select_all(self):
+        for checkbox in self.checkboxes:
+            checkbox.setChecked(True)
