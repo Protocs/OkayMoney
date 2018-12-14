@@ -41,9 +41,11 @@ class MainWindow(UIWindow):
         self.OnlyIncomes.clicked.connect(self.show_incomes)
         self.OnlyExpenses.clicked.connect(self.show_expenses)
 
-        self.fill_accounts()
-
         self.__update()
+
+    @property
+    def transactions(self):
+        return any([acc.transactions for acc in self.user.accounts])
 
     def fill_accounts(self):
         self.accounts_list.clear()
@@ -63,6 +65,9 @@ class MainWindow(UIWindow):
     def __update(self):
         self.pie_chart.upd()
         self._update_monthly()
+        self.OnlyIncomes.setEnabled(self.transactions)
+        self.OnlyExpenses.setEnabled(self.transactions)
+        self.fill_accounts()
 
     def _update_monthly(self):
         self.MonthlyIncomeMoney.setText(str(self.user.monthly_income) + ' ₽')
@@ -89,20 +94,19 @@ class MainWindow(UIWindow):
         self.add_transaction_dialog = TransactionAddDialog(self.user)
         self.add_transaction_dialog.exec()
         self.__update()
-        self.fill_accounts()
 
     def show_transactions_history_dialog(self):
-        if not any([acc.transactions for acc in self.user.accounts]):
+        if not self.transactions:
             information("У вас еще не совершено ни одной транзакции!", self)
             return
         self.transactions_history_dialog = TransactionsHistoryDialog(self.user, self)
         self.transactions_history_dialog.exec()
         self.__update()
-        self.fill_accounts()
 
     def show_settings_dialog(self, event):
         self.settings_dialog = SettingsDialog(self.user, self.login_window, self)
         self.settings_dialog.exec()
+        self.__update()
         self.update_user()
 
     def update_user(self):
