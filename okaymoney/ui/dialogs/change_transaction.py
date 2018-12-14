@@ -42,6 +42,6 @@ class TransactionChangeDialog(TransactionAddDialog):
             error("Баланс на вашем счету не должен содержать в себе более 15 цифр.", self)
             return
         self.account.remove_transaction(self.transaction, False)
-        acc.add_transaction(tr, self.user.negative_balance_information)
-        save(self.user, self)
-        self.close()
+        if acc.add_transaction(tr, self.user.negative_balance_information):
+            save(self.user, self)
+            self.close()

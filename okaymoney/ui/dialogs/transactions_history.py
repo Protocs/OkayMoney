@@ -55,13 +55,13 @@ class TransactionsHistoryDialog(UIDialog):
             + ("\n\nОписание:\n{}".format(transaction.note) if transaction.note else ""))
 
     def delete_transaction(self):
-        self.account.remove_transaction(self.transactions[self.history_transactions.currentRow()],
-                                        self.user.negative_balance_information)
-        self.change_transactions()
-        save(self.user, self)
-        self.main_window.pie_chart.upd()
-        self.main_window._update_monthly()
-        self.main_window.fill_accounts()
+        if self.account.remove_transaction(self.transactions[self.history_transactions.currentRow()],
+                                        self.user.negative_balance_information):
+            self.change_transactions()
+            save(self.user, self)
+            self.main_window.pie_chart.upd()
+            self.main_window._update_monthly()
+            self.main_window.fill_accounts()
 
     def show_transaction_change_dialog(self):
         self.transactions_change_dialog = \

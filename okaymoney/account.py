@@ -30,10 +30,11 @@ class Account:
             confirm_dialog = ConfirmActionDialog(
                 "После совершения этой операции баланс на счете станет отрицательным.")
             if not confirm_dialog.exec():
-                return
+                return False
         self.transactions.append(tr)
         self.money += tr.delta
         self.transactions.sort(key=lambda e: e.date, reverse=True)
+        return True
 
     def remove_transaction(self, tr, negative_balance_information):
         if tr not in self.transactions:
@@ -42,7 +43,8 @@ class Account:
             confirm_dialog = ConfirmActionDialog(
                 "После удаления этой транзакции баланс на счете станет отрицательным.")
             if not confirm_dialog.exec():
-                return
+                return False
         self.transactions.remove(tr)
         self.money -= tr.delta
         self.transactions.sort(key=lambda e: e.date, reverse=True)
+        return True

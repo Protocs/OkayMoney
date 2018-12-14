@@ -65,6 +65,6 @@ class TransactionAddDialog(UIDialog):
                 tr.delta + acc.money)) > 15:
             error("Баланс на вашем счету не должен содержать в себе более 15 цифр.", self)
             return
-        acc.add_transaction(tr, self.user.negative_balance_information)
-        save(self.user, self)
-        self.close()
+        if acc.add_transaction(tr, self.user.negative_balance_information):
+            save(self.user, self)
+            self.close()
