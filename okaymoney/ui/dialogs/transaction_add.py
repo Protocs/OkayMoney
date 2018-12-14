@@ -1,7 +1,7 @@
 from datetime import datetime
 from decimal import Decimal
 
-from PyQt5.QtCore import QDate
+from PyQt5.QtCore import QDate, QDateTime, QTime
 
 from .ui_dialog import UIDialog
 from ...transaction import Transaction
@@ -48,8 +48,11 @@ class TransactionAddDialog(UIDialog):
             category = self.categories_box.currentText()
             account_name = self.accounts_box.currentText()
 
-            transaction_sum = -abs(transaction_sum) if self.spend_radio.isChecked() else abs(transaction_sum)
-            transaction = Transaction(category, transaction_sum, date, note)
+            transaction_sum = -abs(transaction_sum) if self.spend_radio.isChecked() else abs(
+                transaction_sum)
+            now = datetime.now()
+            transaction = Transaction(category, transaction_sum,
+                                      QDateTime(date, QTime(now.hour, now.minute, now.second)), note)
 
             account = [acc for acc in self.user.accounts if acc.name == account_name][0]
             self.add_transaction(transaction, account)
@@ -58,6 +61,9 @@ class TransactionAddDialog(UIDialog):
             error('Ошибка, попробуйте еще раз.', self)
 
     def add_transaction(self, tr, acc):
-        acc.add_transaction(tr, self.user.negative_balance_information)
-        save(self.user, self)
-        self.close()
+        try:
+            acc.add_transaction(tr, self.user.negative_balance_information)
+            save(self.user, self)
+            self.close()
+        except Exception as e:
+            print(e)

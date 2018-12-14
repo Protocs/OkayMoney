@@ -25,7 +25,7 @@ class User:
 
     def _monthly(self, tr_type):
         transactions = sum((a.transactions for a in self.accounts if a.checked), [])
-        month_transactions = (t for t in transactions if t.date.month() == datetime.now().month)
+        month_transactions = (t for t in transactions if t.date.date().month() == datetime.now().month)
         return abs(sum(m.delta for m in month_transactions if m.type == tr_type))
 
     @property
