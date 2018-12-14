@@ -300,6 +300,9 @@ background-color: rgb(136, 136, 136);
               <height>50</height>
              </size>
             </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
            </widget>
           </item>
           <item>
