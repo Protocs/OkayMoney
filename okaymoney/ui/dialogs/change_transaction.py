@@ -33,6 +33,7 @@ class TransactionChangeDialog(TransactionAddDialog):
             self.user.income_categories.index(self.transaction.category)
             if self.transaction.type == INCOME else self.user.spend_categories.index(
                 self.transaction.category))
+        self.ok_btn.setText("Изменить")
 
     def add_transaction(self, tr, acc):
         self.account.remove_transaction(self.transaction, self.user.negative_balance_information)
