@@ -36,7 +36,7 @@ color: white;</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>0</number>
+      <number>1</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -154,6 +154,12 @@ color: white;</string>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QPushButton" name="add_spend_category_btn">
+             <property name="tabletTracking">
+              <bool>false</bool>
+             </property>
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Добавить</string>
              </property>
@@ -161,6 +167,9 @@ color: white;</string>
            </item>
            <item>
             <widget class="QPushButton" name="delete_spend_category_btn">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Удалить</string>
              </property>
@@ -202,6 +211,9 @@ color: white;</string>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
             <widget class="QPushButton" name="add_income_category_btn">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Добавить</string>
              </property>
@@ -209,6 +221,9 @@ color: white;</string>
            </item>
            <item>
             <widget class="QPushButton" name="delete_income_category_btn">
+             <property name="focusPolicy">
+              <enum>Qt::StrongFocus</enum>
+             </property>
              <property name="text">
               <string>Удалить</string>
              </property>
@@ -240,7 +255,7 @@ color: white;</string>
      <item>
       <widget class="QPushButton" name="ok_btn">
        <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
+        <enum>Qt::StrongFocus</enum>
        </property>
        <property name="text">
         <string>Сохранить</string>
@@ -250,7 +265,7 @@ color: white;</string>
      <item>
       <widget class="QPushButton" name="cancel_btn">
        <property name="focusPolicy">
-        <enum>Qt::TabFocus</enum>
+        <enum>Qt::StrongFocus</enum>
        </property>
        <property name="text">
         <string>Отмена</string>
