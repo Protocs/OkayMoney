@@ -30,6 +30,9 @@ class NewAccountDialog(UIDialog):
             if name in [acc.name for acc in self.user.accounts]:
                 error("Счет с таким названием уже существует", self)
                 return
+            if len(name) > 25:
+                error("Длина названия счета не должна превышать 25 символов", self)
+                return
 
             account = Account(name, balance)
             self.user.accounts.append(account)
