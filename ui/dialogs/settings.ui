@@ -59,6 +59,12 @@ color: white;</string>
         <layout class="QGridLayout" name="gridLayout">
          <item row="4" column="1">
           <widget class="QPushButton" name="delete_user_btn">
+           <property name="tabletTracking">
+            <bool>false</bool>
+           </property>
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
            <property name="text">
             <string>Удалить аккаунт</string>
            </property>
@@ -69,6 +75,9 @@ color: white;</string>
          </item>
          <item row="1" column="1">
           <widget class="QPushButton" name="choose_avatar">
+           <property name="focusPolicy">
+            <enum>Qt::NoFocus</enum>
+           </property>
            <property name="text">
             <string>Выбрать...</string>
            </property>
@@ -103,6 +112,9 @@ color: white;</string>
          </item>
          <item row="2" column="0" colspan="2">
           <widget class="QCheckBox" name="negative_balance_information">
+           <property name="focusPolicy">
+            <enum>Qt::TabFocus</enum>
+           </property>
            <property name="text">
             <string>Предупреждать меня об отрицательном балансе</string>
            </property>
@@ -227,6 +239,9 @@ color: white;</string>
      </item>
      <item>
       <widget class="QPushButton" name="ok_btn">
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
        <property name="text">
         <string>Сохранить</string>
        </property>
@@ -234,6 +249,9 @@ color: white;</string>
      </item>
      <item>
       <widget class="QPushButton" name="cancel_btn">
+       <property name="focusPolicy">
+        <enum>Qt::TabFocus</enum>
+       </property>
        <property name="text">
         <string>Отмена</string>
        </property>
