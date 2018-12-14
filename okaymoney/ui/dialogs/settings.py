@@ -102,14 +102,13 @@ class SettingsDialog(UIDialog):
 
     def add_category(self, categories, categories_list, del_button, fill_function):
         if categories_list:
-            spend_item = categories.item(len(categories_list) - 1)
-            if not spend_item.text():
-                error("Нельзя добавлять пустые категории.", self)
-                return
-            if categories.isPersistentEditorOpen(spend_item):
-                categories.closePersistentEditor(spend_item)
-                categories_list[-1] = spend_item.text()
-                fill_function()
+            last_item = categories.item(len(categories_list) - 1)
+            if categories.isPersistentEditorOpen(last_item):
+                if not self.check_empty_category(categories, categories_list, last_item):
+                    categories_list[-1] = last_item.text()
+                    fill_function()
+                else:
+                    return
         item = QListWidgetItem()
         if len(categories_list) < 10:
             categories.addItem(item)
@@ -120,6 +119,15 @@ class SettingsDialog(UIDialog):
         else:
             error("Максимальное допустимое количество категорий - 10", self)
 
+    def check_empty_category(self, categories, categories_list, item):
+        categories.closePersistentEditor(item)
+        item = categories.item(len(categories_list) - 1)
+        if not item.text():
+            error("Нельзя добавлять пустые категории.", self)
+            categories.openPersistentEditor(item)
+            return True
+        return False
+
     def delete_category(self, categories_list, categories, fill_function):
         categories_list.pop(categories.currentRow())
         fill_function()
@@ -127,9 +135,10 @@ class SettingsDialog(UIDialog):
     def apply_changes(self):
         last_spend_item = self.spend_categories.item(len(self.spend_categories_list) - 1)
         last_income_item = self.income_categories.item(len(self.income_categories_list) - 1)
-        if (last_spend_item and not last_spend_item.text()) \
-                or (last_income_item and not last_income_item.text()):
-            error("Нельзя добавлять пустые категории!", self)
+        if self.check_empty_category(self.spend_categories,
+                                     self.spend_categories_list, last_spend_item) \
+                or self.check_empty_category(self.income_categories,
+                                             self.income_categories_list, last_income_item):
             return
 
         remove(self.user, self)
