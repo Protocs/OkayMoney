@@ -12,10 +12,11 @@ class TransactionsHistoryDialog(UIDialog):
 
     ui_path = 'ui/dialogs/transactions_history.ui'
 
-    def __init__(self, user):
+    def __init__(self, user, main_window):
         super().__init__()
 
         self.user = user
+        self.main_window = main_window
 
         self.accounts_box.addItems([account.name for account in self.user.accounts])
         self.accounts_box.currentIndexChanged.connect(self.change_transactions)
@@ -58,6 +59,8 @@ class TransactionsHistoryDialog(UIDialog):
                                         self.user.negative_balance_information)
         self.change_transactions()
         save(self.user, self)
+        self.main_window.pie_chart.upd()
+        self.main_window._update_monthly()
 
     def show_transaction_change_dialog(self):
         self.transactions_change_dialog = \
@@ -66,3 +69,5 @@ class TransactionsHistoryDialog(UIDialog):
                                     self.account)
         self.transactions_change_dialog.exec()
         self.change_transactions()
+        self.main_window.pie_chart.upd()
+        self.main_window._update_monthly()

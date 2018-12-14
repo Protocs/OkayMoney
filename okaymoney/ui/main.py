@@ -95,7 +95,7 @@ class MainWindow(UIWindow):
         if not any([acc.transactions for acc in self.user.accounts]):
             information("У вас еще не совершено ни одной транзакции!", self)
             return
-        self.transactions_history_dialog = TransactionsHistoryDialog(self.user)
+        self.transactions_history_dialog = TransactionsHistoryDialog(self.user, self)
         self.transactions_history_dialog.exec()
         self.__update()
         self.fill_accounts()

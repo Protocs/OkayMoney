@@ -27,7 +27,7 @@ class TransactionChangeDialog(TransactionAddDialog):
         self.spend_radio.setChecked(self.transaction.type != INCOME)
         self.change_categories()
         self.note_text.setText(self.transaction.note)
-        self.date.setDate(self.transaction.date)
+        self.date.setDate(self.transaction.date.date())
         self.accounts_box.setCurrentIndex(self.user.accounts.index(self.account))
         self.categories_box.setCurrentIndex(
             self.user.income_categories.index(self.transaction.category)
