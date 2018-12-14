@@ -29,7 +29,6 @@ class SettingsDialog(UIDialog):
         self.user_name.setText(self.user.name)
         self.choose_avatar.clicked.connect(self.get_avatar_path)
         self.negative_balance_information.setChecked(self.user.negative_balance_information)
-        self.negative_balance_information.stateChanged.connect(self.change_state)
         self.delete_user_btn.clicked.connect(self.delete_user)
 
         self.fill_income_categories()
@@ -53,9 +52,6 @@ class SettingsDialog(UIDialog):
         else:
             self.setMinimumSize(420, 280)
             self.resize(420, 280)
-
-    def change_state(self):
-        self.user.negative_balance_information = self.negative_balance_information.isChecked()
 
     def get_avatar_path(self):
         filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
@@ -114,6 +110,7 @@ class SettingsDialog(UIDialog):
         self.user.name = self.user_name.text()
         self.user.SAVE_PATH = self.user.name + '.okm'
         self.user.avatar = self.avatar
+        self.user.negative_balance_information = self.negative_balance_information.isChecked()
 
         save(self.user, self)
 
