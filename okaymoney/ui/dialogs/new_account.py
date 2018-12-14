@@ -25,7 +25,11 @@ class NewAccountDialog(UIDialog):
         try:
             balance = Decimal(balance)
             if not name:
-                raise Exception
+                error("Введите название счета", self)
+                return
+            if name in [acc.name for acc in self.user.accounts]:
+                error("Счет с таким названием уже существует", self)
+                return
 
             account = Account(name, balance)
             self.user.accounts.append(account)
