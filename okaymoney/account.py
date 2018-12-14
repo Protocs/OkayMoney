@@ -28,7 +28,7 @@ class Account:
         """
         if self.money + tr.delta < 0 and negative_balance_information:
             confirm_dialog = ConfirmActionDialog(
-                "После добавления этой транзакции баланс на счете станет отрицательным.")
+                "После совершения этой операции баланс на счете станет отрицательным.")
             if not confirm_dialog.exec():
                 return
         self.transactions.append(tr)

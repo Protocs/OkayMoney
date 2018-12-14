@@ -61,6 +61,7 @@ class TransactionsHistoryDialog(UIDialog):
         save(self.user, self)
         self.main_window.pie_chart.upd()
         self.main_window._update_monthly()
+        self.main_window.fill_accounts()
 
     def show_transaction_change_dialog(self):
         self.transactions_change_dialog = \
@@ -71,3 +72,4 @@ class TransactionsHistoryDialog(UIDialog):
         self.change_transactions()
         self.main_window.pie_chart.upd()
         self.main_window._update_monthly()
+        self.main_window.fill_accounts()
