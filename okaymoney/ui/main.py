@@ -50,7 +50,9 @@ class MainWindow(UIWindow):
     def fill_accounts(self):
         self.accounts_list.clear()
         for acc in self.user.accounts:
-            item = QListWidgetItem("{}\t{} ₽".format(shorten(acc.name, 13), str(acc.money)))
+            item = QListWidgetItem(
+                "{}{}{} ₽".format(shorten(acc.name, 12), ' ' * (12 - len(acc.name)) + '\t',
+                                  str(acc.money)))
             item.setToolTip(acc.name)
             self.accounts_list.addItem(item)
 
