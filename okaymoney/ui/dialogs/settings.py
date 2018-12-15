@@ -42,8 +42,26 @@ class SettingsDialog(UIDialog):
         self.add_spend_category_btn.clicked.connect(self.get_categories)
         self.add_income_category_btn.clicked.connect(self.get_categories)
 
+        self.accounts.addItems([acc.name for acc in self.user.accounts])
+        self.accounts.currentItemChanged.connect(lambda x: self.delete_acc_btn.setEnabled(True))
+        self.accounts_copy = self.user.accounts.copy()
+        self.delete_acc_btn.clicked.connect(self.delete_acc)
+        self.delete_acc_btn.setEnabled(False)
+
         self.ok_btn.clicked.connect(self.apply_changes)
         self.cancel_btn.clicked.connect(self.close)
+
+    def delete_acc(self):
+        self.accounts_copy.pop(self.accounts.currentRow())
+        self.fill_accounts()
+
+    def fill_accounts(self):
+        self.accounts.clear()
+        self.accounts.addItems([acc.name for acc in self.accounts_copy])
+        self.main_window.fill_accounts()
+        self.main_window.pie_chart.upd()
+        self.main_window._update_monthly()
+        self.delete_acc_btn.setEnabled(False)
 
     def change_window_size(self):
         if self.tabWidget.currentIndex() == 1:
@@ -111,6 +129,7 @@ class SettingsDialog(UIDialog):
         self.user.SAVE_PATH = self.user.name + '.okm'
         self.user.avatar = self.avatar
         self.user.negative_balance_information = self.negative_balance_information.isChecked()
+        self.user.accounts = self.accounts_copy
 
         save(self.user, self)
 

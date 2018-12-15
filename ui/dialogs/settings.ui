@@ -40,7 +40,7 @@ color: white;</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -236,6 +236,23 @@ color: white;</string>
           </layout>
          </item>
         </layout>
+       </item>
+      </layout>
+     </widget>
+     <widget class="QWidget" name="accounts_settings">
+      <attribute name="title">
+       <string>Счета</string>
+      </attribute>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <item>
+        <widget class="QListWidget" name="accounts"/>
+       </item>
+       <item>
+        <widget class="QPushButton" name="delete_acc_btn">
+         <property name="text">
+          <string>Удалить</string>
+         </property>
+        </widget>
        </item>
       </layout>
      </widget>
