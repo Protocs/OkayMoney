@@ -58,11 +58,9 @@ class MainWindow(UIWindow):
 
     def show_incomes(self):
         self.pie_chart.transaction_type = INCOME
-        self.pie_chart.upd()
 
     def show_expenses(self):
         self.pie_chart.transaction_type = SPEND
-        self.pie_chart.upd()
 
     def __update(self):
         self.pie_chart.upd()
