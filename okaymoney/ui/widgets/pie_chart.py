@@ -16,7 +16,7 @@ SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3'
 # Максимальная ширина разреза между секторами диараммы
 MAX_EXPLODE = 0.03
 # Текст обучения, который отображается, если доходов или расходов нет.
-NO_TRANSACTIONS = 'У вас еще нет {}\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
+NO_TRANSACTIONS = 'Нет {} за этот месяц'
 # Текст обучения, который отображается, если нет счетов.
 NO_ACCOUNTS = 'Нет счетов\n\nДобавьте первый счет с помощью кнопки "Добавить счёт"'
 
@@ -70,21 +70,23 @@ class PieChart:
         sum_ = float(sum(data))
         return [MAX_EXPLODE - MAX_EXPLODE * float(d) / sum_ for d in data]
 
-    def show_tutorial(self, transaction_type):
+    def show_tutorial(self, transaction_type, month, year):
         self.axes.pie(())
         text = NO_ACCOUNTS if not self.user.accounts else \
-            NO_TRANSACTIONS.format('расходов' if transaction_type == SPEND else 'доходов')
+            (NO_TRANSACTIONS.format('расходов' if transaction_type == SPEND else 'доходов')
+             + ('\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
+             if datetime.now().month == month and datetime.now().year == year else ''))
         self.axes.text(0, 0, text, horizontalalignment='center', verticalalignment='center',
                        fontsize=12, color='w')
         self.canvas.draw()
 
-    def update_chart(self, data):
+    def update_chart(self, data, month, year):
         """Создает или обновляет диаграмму."""
         self.axes.clear()
         self.set_title(self.titles[self.transaction_type])
 
         if not data:
-            self.show_tutorial(self.transaction_type)
+            self.show_tutorial(self.transaction_type, month, year)
             return
 
         labels = [d[0] + '\n' + str(d[1]) + ' ₽' for d in data]
@@ -120,4 +122,4 @@ class PieChart:
         for category, delta in pie_data:
             merged_pie_data[category] = merged_pie_data.get(category, Decimal()) + delta
 
-        self.update_chart(merged_pie_data.items())
+        self.update_chart(merged_pie_data.items(), month, year)
