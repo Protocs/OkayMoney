@@ -31,6 +31,8 @@ class SettingsDialog(UIDialog):
         self.negative_balance_information.setChecked(self.user.negative_balance_information)
         self.delete_user_btn.clicked.connect(self.delete_user)
 
+        self.spend_categories_copy = self.user.spend_categories.copy()
+        self.income_categories_copy = self.user.income_categories.copy()
         self.fill_income_categories()
         self.fill_spend_categories()
         self.spend_categories.currentItemChanged.connect(
@@ -89,25 +91,25 @@ class SettingsDialog(UIDialog):
 
     def fill_spend_categories(self):
         self.spend_categories.clear()
-        self.spend_categories.addItems(self.user.spend_categories)
+        self.spend_categories.addItems(self.spend_categories_copy)
         self.delete_spend_category_btn.setEnabled(False)
 
     def fill_income_categories(self):
         self.income_categories.clear()
-        self.income_categories.addItems(self.user.income_categories)
+        self.income_categories.addItems(self.income_categories_copy)
         self.delete_income_category_btn.setEnabled(False)
 
     def get_categories(self):
         obj = self.sender().objectName()
         if obj == "add_spend_category_btn":
-            self.add_category(self.user.spend_categories, self.fill_spend_categories)
+            self.add_category(self.spend_categories_copy, self.fill_spend_categories)
         elif obj == "add_income_category_btn":
-            self.add_category(self.user.income_categories, self.fill_income_categories)
+            self.add_category(self.income_categories_copy, self.fill_income_categories)
         elif obj == "delete_spend_category_btn":
-            self.delete_category(self.user.spend_categories, self.spend_categories,
+            self.delete_category(self.spend_categories_copy, self.spend_categories,
                                  self.fill_spend_categories)
         elif obj == "delete_income_category_btn":
-            self.delete_category(self.user.income_categories, self.income_categories,
+            self.delete_category(self.income_categories_copy, self.income_categories,
                                  self.fill_income_categories)
 
     def add_category(self, categories_list, fill_function):
@@ -130,6 +132,8 @@ class SettingsDialog(UIDialog):
         self.user.avatar = self.avatar
         self.user.negative_balance_information = self.negative_balance_information.isChecked()
         self.user.accounts = self.accounts_copy
+        self.user.spend_categories = self.spend_categories_copy
+        self.user.income_categories = self.income_categories_copy
 
         save(self.user, self)
 
