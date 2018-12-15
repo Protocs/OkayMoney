@@ -16,7 +16,7 @@ SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3'
 # Максимальная ширина разреза между секторами диараммы
 MAX_EXPLODE = 0.03
 # Текст обучения, который отображается, если доходов или расходов нет.
-NO_TRANSACTIONS = 'Нет транзакций этого типа\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
+NO_TRANSACTIONS = 'У вас еще нет {}\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
 # Текст обучения, который отображается, если нет счетов.
 NO_ACCOUNTS = 'Нет счетов\n\nДобавьте первый счет с помощью кнопки "Добавить счёт".\n' \
               'Затем, добавьте первую транзакцию \nс помощью кнопки "Новая транзакция".'
@@ -71,9 +71,10 @@ class PieChart:
         sum_ = float(sum(data))
         return [MAX_EXPLODE - MAX_EXPLODE * float(d) / sum_ for d in data]
 
-    def show_tutorial(self):
+    def show_tutorial(self, transaction_type):
         self.axes.pie(())
-        text = NO_ACCOUNTS if not self.user.accounts else NO_TRANSACTIONS
+        text = NO_ACCOUNTS if not self.user.accounts else \
+            NO_TRANSACTIONS.format('расходов' if transaction_type == SPEND else 'доходов')
         self.axes.text(0, 0, text, horizontalalignment='center', verticalalignment='center',
                        fontsize=12, color='w')
         self.canvas.draw()
@@ -84,7 +85,7 @@ class PieChart:
         self.set_title(self.titles[self.transaction_type])
 
         if not data:
-            self.show_tutorial()
+            self.show_tutorial(self.transaction_type)
             return
 
         labels = [d[0] + '\n' + str(d[1]) + ' ₽' for d in data]
