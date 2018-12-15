@@ -85,7 +85,7 @@ class MainWindow(UIWindow):
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
         self.add_account_dialog.exec()
-        self.fill_accounts()
+        self.__update()
 
     def show_accounts_filter_dialog(self):
         if not self.user.accounts:
