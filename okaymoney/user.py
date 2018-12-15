@@ -23,18 +23,23 @@ class User:
 
         self.SAVE_PATH = name + '.okm'
 
-    def _monthly(self, tr_type):
+    def _monthly(self, tr_type, month, year):
+        now = datetime.now()
+        if month is None:
+            month = now.month
+        if year is None:
+            year = now.year
+
         transactions = sum((a.transactions for a in self.accounts if a.checked), [])
-        month_transactions = (t for t in transactions if t.date.date().month() == datetime.now().month)
+        month_transactions = (t for t in transactions
+                              if t.date.date().month() == month and t.date.date().year() == year)
         return abs(sum(m.delta for m in month_transactions if m.type == tr_type))
 
-    @property
-    def monthly_income(self):
-        return self._monthly(INCOME)
+    def get_monthly_income(self, month=None, year=None):
+        return self._monthly(INCOME, month, year)
 
-    @property
-    def monthly_spend(self):
-        return self._monthly(SPEND)
+    def get_monthly_spend(self, month=None, year=None):
+        return self._monthly(SPEND, month, year)
 
 
 def get_user_names_in_current_dir():

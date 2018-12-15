@@ -1,4 +1,5 @@
 from decimal import Decimal
+from datetime import datetime
 
 import matplotlib.pyplot as plt
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
@@ -44,7 +45,7 @@ class PieChart:
 
         # Что отображать - доходы или расходы
         self._transaction_type = None
-        self.transaction_type = INCOME
+        self.set_transaction_type(INCOME)
 
     # noinspection PyMethodMayBeStatic
     def set_title(self, text):
@@ -55,10 +56,9 @@ class PieChart:
     def transaction_type(self):
         return self._transaction_type
 
-    @transaction_type.setter
-    def transaction_type(self, tp):
+    def set_transaction_type(self, tp, month=None, year=None):
         self._transaction_type = tp
-        self.upd()
+        self.upd(month, year)
 
     @property
     def checked_accounts(self):
@@ -98,13 +98,22 @@ class PieChart:
         self.axes.legend(patches, labels, loc='best', fontsize=8)
         self.canvas.draw()
 
-    def upd(self):
+    def upd(self, month=None, year=None):
         """Вызывает :meth:`update_chart` с подготовленными данными пользователя."""
+        now = datetime.now()
+        if month is None:
+            month = now.month
+        if year is None:
+            year = now.year
+
         all_transactions = sum((a.transactions for a in self.checked_accounts), [])
         # Только доходы или расходы
         transactions_of_type = (t for t in all_transactions if t.type == self.transaction_type)
+        # Транзакции указанного месяца
+        transactions_of_month = (t for t in transactions_of_type
+                                 if t.date.date().month() == month and t.date.date().year() == year)
         # Данные транзакций для диаграммы
-        pie_data = (t.to_pie_data() for t in transactions_of_type)
+        pie_data = (t.to_pie_data() for t in transactions_of_month)
 
         # Слитие транзакций по категориям в большие, по одной на категорию
         merged_pie_data = {}

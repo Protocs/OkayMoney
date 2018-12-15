@@ -1,3 +1,9 @@
+from datetime import datetime
+
+from PyQt5.QtGui import QImage, QPixmap
+from PyQt5.QtCore import QByteArray
+from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QListWidgetItem
+
 from ..util import INCOME, SPEND
 from .messagebox import information
 from .ui_window import UIWindow
@@ -7,9 +13,6 @@ from .dialogs.accounts_filter import AccountsFilterDialog
 from .dialogs.transaction_add import TransactionAddDialog
 from .dialogs.transactions_history import TransactionsHistoryDialog
 from .dialogs.settings import SettingsDialog
-from PyQt5.QtGui import QImage, QPixmap
-from PyQt5.QtCore import QByteArray
-from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QListWidgetItem
 from ..util import shorten
 
 
@@ -41,6 +44,13 @@ class MainWindow(UIWindow):
         self.OnlyIncomes.clicked.connect(self.show_incomes)
         self.OnlyExpenses.clicked.connect(self.show_expenses)
 
+        self.year = datetime.now().year
+        self.month = datetime.now().month
+
+        self.previousMonth.clicked.connect(self.show_prev_month)
+        self.nextMonth.clicked.connect(self.show_next_month)
+        self.toToday.clicked.connect(self.show_today)
+
         self.__update()
 
     @property
@@ -57,19 +67,20 @@ class MainWindow(UIWindow):
             self.accounts_list.addItem(item)
 
     def show_incomes(self):
-        self.pie_chart.transaction_type = INCOME
+        self.pie_chart.set_transaction_type(INCOME, self.month, self.year)
 
     def show_expenses(self):
-        self.pie_chart.transaction_type = SPEND
+        self.pie_chart.set_transaction_type(SPEND, self.month, self.year)
 
     def __update(self):
-        self.pie_chart.upd()
+        self.pie_chart.upd(self.month, self.year)
         self._update_monthly()
         self.fill_accounts()
+        self.dateLabel.setText(f'{str(self.month).zfill(2)}.{self.year}')
 
     def _update_monthly(self):
-        self.MonthlyIncomeMoney.setText(str(self.user.monthly_income) + ' ₽')
-        self.MonthlyExpensesMoney.setText(str(self.user.monthly_spend) + ' ₽')
+        self.MonthlyIncomeMoney.setText(str(self.user.get_monthly_income(self.month, self.year)) + ' ₽')
+        self.MonthlyExpensesMoney.setText(str(self.user.get_monthly_spend(self.month, self.year)) + ' ₽')
 
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
@@ -120,3 +131,26 @@ class MainWindow(UIWindow):
         self.close()
         self.login_window.show()
         self.login_window.fill_users()
+
+    def show_prev_month(self):
+        self.month -= 1
+        if self.month == 0:
+            self.month = 12
+            self.year -= 1
+        self.__update()
+
+    def show_next_month(self):
+        now = datetime.now()
+        if (self.month, self.year) == (now.month, now.year):
+            return
+
+        self.month += 1
+        if self.month == 13:
+            self.month = 1
+            self.year += 1
+        self.__update()
+
+    def show_today(self):
+        now = datetime.now()
+        self.month, self.year = now.month, now.year
+        self.__update()
