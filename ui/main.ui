@@ -82,176 +82,6 @@ color: rgb(255, 255, 255);</string>
         <property name="sizeConstraint">
          <enum>QLayout::SetFixedSize</enum>
         </property>
-        <item row="1" column="0">
-         <spacer name="horizontalSpacer">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Minimum</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>13</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="0" column="4">
-         <spacer name="horizontalSpacer_3">
-          <property name="orientation">
-           <enum>Qt::Horizontal</enum>
-          </property>
-          <property name="sizeType">
-           <enum>QSizePolicy::Minimum</enum>
-          </property>
-          <property name="sizeHint" stdset="0">
-           <size>
-            <width>13</width>
-            <height>20</height>
-           </size>
-          </property>
-         </spacer>
-        </item>
-        <item row="3" column="3">
-         <layout class="QVBoxLayout" name="verticalLayout">
-          <property name="sizeConstraint">
-           <enum>QLayout::SetDefaultConstraint</enum>
-          </property>
-          <item>
-           <widget class="QLabel" name="label">
-            <property name="font">
-             <font>
-              <family>Gotham Pro Medium</family>
-              <pointsize>12</pointsize>
-             </font>
-            </property>
-            <property name="text">
-             <string>Мои счета</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QListWidget" name="accounts_list">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>300</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Gotham Pro Medium</family>
-              <pointsize>11</pointsize>
-             </font>
-            </property>
-            <property name="frameShape">
-             <enum>QFrame::NoFrame</enum>
-            </property>
-            <property name="frameShadow">
-             <enum>QFrame::Sunken</enum>
-            </property>
-            <property name="defaultDropAction">
-             <enum>Qt::CopyAction</enum>
-            </property>
-            <property name="selectionMode">
-             <enum>QAbstractItemView::NoSelection</enum>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="1" column="1">
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <property name="spacing">
-           <number>3</number>
-          </property>
-          <item>
-           <widget class="QPushButton" name="OnlyIncomes">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="minimumSize">
-             <size>
-              <width>100</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Gotham Pro Medium</family>
-              <pointsize>16</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">text-align:center;
-background-color: rgb(129, 129, 129);</string>
-            </property>
-            <property name="text">
-             <string>Доходы</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="OnlyExpenses">
-            <property name="minimumSize">
-             <size>
-              <width>0</width>
-              <height>35</height>
-             </size>
-            </property>
-            <property name="maximumSize">
-             <size>
-              <width>150</width>
-              <height>40</height>
-             </size>
-            </property>
-            <property name="font">
-             <font>
-              <family>Gotham Pro Medium</family>
-              <pointsize>16</pointsize>
-             </font>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">text-align:center;
-background-color: rgb(136, 136, 136);</string>
-            </property>
-            <property name="text">
-             <string>Расходы</string>
-            </property>
-           </widget>
-          </item>
-         </layout>
-        </item>
-        <item row="0" column="2" rowspan="4">
-         <widget class="QWidget" name="pie_place" native="true">
-          <property name="minimumSize">
-           <size>
-            <width>650</width>
-            <height>500</height>
-           </size>
-          </property>
-          <property name="maximumSize">
-           <size>
-            <width>650</width>
-            <height>535</height>
-           </size>
-          </property>
-         </widget>
-        </item>
         <item row="0" column="1">
          <layout class="QHBoxLayout" name="horizontalLayout_4">
           <property name="sizeConstraint">
@@ -489,12 +319,213 @@ background-color: rgb(136, 136, 136);
           </item>
          </layout>
         </item>
+        <item row="0" column="4">
+         <spacer name="horizontalSpacer_3">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="0" column="2" rowspan="4">
+         <widget class="QWidget" name="pie_place" native="true">
+          <property name="minimumSize">
+           <size>
+            <width>650</width>
+            <height>500</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>650</width>
+            <height>535</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0">
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeType">
+           <enum>QSizePolicy::Minimum</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>13</width>
+            <height>20</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item row="1" column="1">
+         <layout class="QVBoxLayout" name="verticalLayout_4">
+          <property name="spacing">
+           <number>3</number>
+          </property>
+          <item>
+           <widget class="QPushButton" name="OnlyIncomes">
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gotham Pro Medium</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Доходы</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="OnlyExpenses">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>35</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>178</width>
+              <height>40</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gotham Pro Medium</family>
+              <pointsize>16</pointsize>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
+            </property>
+            <property name="text">
+             <string>Расходы</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+        <item row="3" column="3">
+         <layout class="QVBoxLayout" name="verticalLayout">
+          <property name="sizeConstraint">
+           <enum>QLayout::SetDefaultConstraint</enum>
+          </property>
+          <item>
+           <widget class="QLabel" name="label">
+            <property name="font">
+             <font>
+              <family>Gotham Pro Medium</family>
+              <pointsize>12</pointsize>
+             </font>
+            </property>
+            <property name="text">
+             <string>Мои счета</string>
+            </property>
+            <property name="alignment">
+             <set>Qt::AlignCenter</set>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QListWidget" name="accounts_list">
+            <property name="minimumSize">
+             <size>
+              <width>0</width>
+              <height>300</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <family>Gotham Pro Medium</family>
+              <pointsize>11</pointsize>
+             </font>
+            </property>
+            <property name="frameShape">
+             <enum>QFrame::NoFrame</enum>
+            </property>
+            <property name="frameShadow">
+             <enum>QFrame::Sunken</enum>
+            </property>
+            <property name="defaultDropAction">
+             <enum>Qt::CopyAction</enum>
+            </property>
+            <property name="selectionMode">
+             <enum>QAbstractItemView::NoSelection</enum>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
         <item row="3" column="1">
          <layout class="QVBoxLayout" name="verticalLayout_5">
+          <property name="rightMargin">
+           <number>110</number>
+          </property>
           <item>
            <layout class="QHBoxLayout" name="horizontalLayout_5">
+            <property name="spacing">
+             <number>0</number>
+            </property>
+            <property name="sizeConstraint">
+             <enum>QLayout::SetDefaultConstraint</enum>
+            </property>
+            <property name="leftMargin">
+             <number>3</number>
+            </property>
+            <property name="rightMargin">
+             <number>0</number>
+            </property>
             <item>
              <widget class="QPushButton" name="previousMonth">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
+              </property>
               <property name="text">
                <string>←</string>
               </property>
@@ -502,6 +533,18 @@ background-color: rgb(136, 136, 136);
             </item>
             <item>
              <widget class="QLabel" name="dateLabel">
+              <property name="minimumSize">
+               <size>
+                <width>90</width>
+                <height>0</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>60</width>
+                <height>16777215</height>
+               </size>
+              </property>
               <property name="text">
                <string>01.2019</string>
               </property>
@@ -512,6 +555,22 @@ background-color: rgb(136, 136, 136);
             </item>
             <item>
              <widget class="QPushButton" name="nextMonth">
+              <property name="minimumSize">
+               <size>
+                <width>0</width>
+                <height>30</height>
+               </size>
+              </property>
+              <property name="maximumSize">
+               <size>
+                <width>50</width>
+                <height>16777215</height>
+               </size>
+              </property>
+              <property name="styleSheet">
+               <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
+              </property>
               <property name="text">
                <string>→</string>
               </property>
@@ -521,6 +580,28 @@ background-color: rgb(136, 136, 136);
           </item>
           <item>
            <widget class="QPushButton" name="toToday">
+            <property name="minimumSize">
+             <size>
+              <width>200</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="maximumSize">
+             <size>
+              <width>200</width>
+              <height>16777215</height>
+             </size>
+            </property>
+            <property name="font">
+             <font>
+              <weight>75</weight>
+              <bold>true</bold>
+             </font>
+            </property>
+            <property name="styleSheet">
+             <string notr="true">text-align:center;
+background-color: rgb(136, 136, 136);</string>
+            </property>
             <property name="text">
              <string>На сегодняшний месяц и год</string>
             </property>
@@ -530,6 +611,9 @@ background-color: rgb(136, 136, 136);
            <spacer name="verticalSpacer_3">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeType">
+             <enum>QSizePolicy::Expanding</enum>
             </property>
             <property name="sizeHint" stdset="0">
              <size>
@@ -707,7 +791,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1300</width>
-     <height>20</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
