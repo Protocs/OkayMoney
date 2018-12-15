@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>282</width>
-    <height>110</height>
+    <height>106</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
     <width>282</width>
-    <height>110</height>
+    <height>106</height>
    </size>
   </property>
   <property name="windowTitle">
@@ -39,7 +39,7 @@
       <string>Название категории</string>
      </property>
      <property name="alignment">
-      <set>Qt::AlignCenter</set>
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
      </property>
     </widget>
    </item>
