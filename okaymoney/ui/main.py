@@ -65,8 +65,6 @@ class MainWindow(UIWindow):
     def __update(self):
         self.pie_chart.upd()
         self._update_monthly()
-        self.OnlyIncomes.setEnabled(self.transactions)
-        self.OnlyExpenses.setEnabled(self.transactions)
         self.fill_accounts()
 
     def _update_monthly(self):

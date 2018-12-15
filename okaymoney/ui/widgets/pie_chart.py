@@ -14,6 +14,11 @@ INCOME_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71
 SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3', '#db0dca']
 # Максимальная ширина разреза между секторами диараммы
 MAX_EXPLODE = 0.03
+# Текст обучения, который отображается, если доходов или расходов нет.
+NO_TRANSACTIONS = 'Нет транзакций этого типа\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
+# Текст обучения, который отображается, если нет счетов.
+NO_ACCOUNTS = 'Нет счетов\n\nДобавьте первый счет с помощью кнопки "Добавить счёт".\n' \
+              'Затем, добавьте первую транзакцию \nс помощью кнопки "Новая транзакция".'
 
 
 class PieChart:
@@ -66,14 +71,25 @@ class PieChart:
         sum_ = float(sum(data))
         return [MAX_EXPLODE - MAX_EXPLODE * float(d) / sum_ for d in data]
 
+    def show_tutorial(self):
+        self.axes.pie(())
+        text = NO_ACCOUNTS if not self.user.accounts else NO_TRANSACTIONS
+        self.axes.text(0, 0, text, horizontalalignment='center', verticalalignment='center',
+                       fontsize=12, color='w')
+        self.canvas.draw()
+
     def update_chart(self, data):
         """Создает или обновляет диаграмму."""
+        self.axes.clear()
+        self.set_title(self.titles[self.transaction_type])
+
+        if not data:
+            self.show_tutorial()
+            return
+
         labels = [d[0] + '\n' + str(d[1]) + ' ₽' for d in data]
         values = [d[1] for d in data]
         explode = self.calculate_explodes(values)
-
-        self.axes.clear()
-        self.set_title(self.titles[self.transaction_type])
 
         colors = INCOME_COLORS if self.transaction_type == INCOME else SPEND_COLORS
         patches, texts = self.axes.pie(values, explode=explode, startangle=90,
