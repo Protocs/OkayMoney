@@ -1,2 +1,3 @@
 .idea
 *.okm
+__pycache__
