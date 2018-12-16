@@ -26,9 +26,10 @@ color: white;</string>
     <widget class="QLabel" name="label">
      <property name="font">
       <font>
-       <pointsize>9</pointsize>
-       <weight>75</weight>
-       <bold>true</bold>
+       <family>Calibri</family>
+       <pointsize>11</pointsize>
+       <weight>50</weight>
+       <bold>false</bold>
       </font>
      </property>
      <property name="text">
@@ -47,10 +48,22 @@ color: white;</string>
        <height>16777215</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
     </widget>
    </item>
    <item row="2" column="1" rowspan="2" colspan="2">
     <widget class="QLabel" name="details">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>11</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string/>
      </property>
@@ -69,6 +82,12 @@ color: white;</string>
          <height>0</height>
         </size>
        </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="text">
         <string>Изменить</string>
        </property>
@@ -81,6 +100,12 @@ color: white;</string>
          <width>105</width>
          <height>0</height>
         </size>
+       </property>
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>10</pointsize>
+        </font>
        </property>
        <property name="text">
         <string>Удалить</string>

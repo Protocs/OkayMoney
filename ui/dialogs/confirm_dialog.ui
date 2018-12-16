@@ -65,7 +65,8 @@ color: white;</string>
        </property>
        <property name="font">
         <font>
-         <family>Gotham Pro Medium</family>
+         <family>Calibri</family>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="text">
@@ -106,6 +107,12 @@ color: white;</string>
        </item>
        <item>
         <widget class="QPushButton" name="ok_btn">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Продолжить</string>
          </property>
@@ -113,6 +120,12 @@ color: white;</string>
        </item>
        <item>
         <widget class="QPushButton" name="cancel_btn">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Отмена</string>
          </property>

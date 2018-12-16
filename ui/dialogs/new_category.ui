@@ -35,6 +35,12 @@
        <height>20</height>
       </size>
      </property>
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Название категории</string>
      </property>
@@ -45,6 +51,12 @@
    </item>
    <item>
     <widget class="QLineEdit" name="category_name">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="focusPolicy">
       <enum>Qt::StrongFocus</enum>
      </property>
@@ -52,6 +64,12 @@
    </item>
    <item>
     <widget class="QPushButton" name="add_category_btn">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="text">
       <string>Добавить</string>
      </property>

@@ -30,6 +30,12 @@ color: white;</string>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <widget class="QTabWidget" name="tabWidget">
+     <property name="font">
+      <font>
+       <family>Calibri</family>
+       <pointsize>10</pointsize>
+      </font>
+     </property>
      <property name="styleSheet">
       <string notr="true">color: white;</string>
      </property>
@@ -40,7 +46,7 @@ color: white;</string>
       <enum>QTabWidget::Rounded</enum>
      </property>
      <property name="currentIndex">
-      <number>1</number>
+      <number>2</number>
      </property>
      <property name="elideMode">
       <enum>Qt::ElideNone</enum>
@@ -63,6 +69,12 @@ color: white;</string>
         <layout class="QGridLayout" name="gridLayout">
          <item row="4" column="1">
           <widget class="QPushButton" name="delete_user_btn">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="tabletTracking">
             <bool>false</bool>
            </property>
@@ -75,10 +87,23 @@ color: white;</string>
           </widget>
          </item>
          <item row="0" column="1">
-          <widget class="QLineEdit" name="user_name"/>
+          <widget class="QLineEdit" name="user_name">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
+          </widget>
          </item>
          <item row="1" column="1">
           <widget class="QPushButton" name="choose_avatar">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="focusPolicy">
             <enum>Qt::NoFocus</enum>
            </property>
@@ -89,6 +114,12 @@ color: white;</string>
          </item>
          <item row="0" column="0">
           <widget class="QLabel" name="label">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Имя пользователя</string>
            </property>
@@ -96,6 +127,12 @@ color: white;</string>
          </item>
          <item row="1" column="0">
           <widget class="QLabel" name="label_2">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Аватарка</string>
            </property>
@@ -116,6 +153,12 @@ color: white;</string>
          </item>
          <item row="2" column="0" colspan="2">
           <widget class="QCheckBox" name="negative_balance_information">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="focusPolicy">
             <enum>Qt::TabFocus</enum>
            </property>
@@ -143,6 +186,12 @@ color: white;</string>
         <layout class="QVBoxLayout" name="verticalLayout_4">
          <item>
           <widget class="QLabel" name="label_4">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Категории доходов</string>
            </property>
@@ -152,12 +201,25 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="income_categories"/>
+          <widget class="QListWidget" name="income_categories">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_3">
            <item>
             <widget class="QPushButton" name="add_income_category_btn">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="focusPolicy">
               <enum>Qt::StrongFocus</enum>
              </property>
@@ -168,6 +230,12 @@ color: white;</string>
            </item>
            <item>
             <widget class="QPushButton" name="delete_income_category_btn">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="focusPolicy">
               <enum>Qt::StrongFocus</enum>
              </property>
@@ -184,6 +252,12 @@ color: white;</string>
         <layout class="QVBoxLayout" name="verticalLayout_3">
          <item>
           <widget class="QLabel" name="label_3">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>10</pointsize>
+            </font>
+           </property>
            <property name="text">
             <string>Категории расходов</string>
            </property>
@@ -193,12 +267,25 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QListWidget" name="spend_categories"/>
+          <widget class="QListWidget" name="spend_categories">
+           <property name="font">
+            <font>
+             <family>Calibri</family>
+             <pointsize>11</pointsize>
+            </font>
+           </property>
+          </widget>
          </item>
          <item>
           <layout class="QHBoxLayout" name="horizontalLayout_2">
            <item>
             <widget class="QPushButton" name="add_spend_category_btn">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="tabletTracking">
               <bool>false</bool>
              </property>
@@ -212,6 +299,12 @@ color: white;</string>
            </item>
            <item>
             <widget class="QPushButton" name="delete_spend_category_btn">
+             <property name="font">
+              <font>
+               <family>Calibri</family>
+               <pointsize>10</pointsize>
+              </font>
+             </property>
              <property name="focusPolicy">
               <enum>Qt::StrongFocus</enum>
              </property>
@@ -245,10 +338,23 @@ color: white;</string>
       </attribute>
       <layout class="QVBoxLayout" name="verticalLayout_5">
        <item>
-        <widget class="QListWidget" name="accounts"/>
+        <widget class="QListWidget" name="accounts">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>11</pointsize>
+          </font>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QPushButton" name="delete_acc_btn">
+         <property name="font">
+          <font>
+           <family>Calibri</family>
+           <pointsize>10</pointsize>
+          </font>
+         </property>
          <property name="text">
           <string>Удалить</string>
          </property>
@@ -275,6 +381,12 @@ color: white;</string>
      </item>
      <item>
       <widget class="QPushButton" name="ok_btn">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::StrongFocus</enum>
        </property>
@@ -285,6 +397,12 @@ color: white;</string>
      </item>
      <item>
       <widget class="QPushButton" name="cancel_btn">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>10</pointsize>
+        </font>
+       </property>
        <property name="focusPolicy">
         <enum>Qt::StrongFocus</enum>
        </property>

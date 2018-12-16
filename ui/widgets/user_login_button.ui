@@ -55,7 +55,8 @@
     <widget class="QLabel" name="name">
      <property name="font">
       <font>
-       <pointsize>20</pointsize>
+       <family>Calibri</family>
+       <pointsize>22</pointsize>
       </font>
      </property>
      <property name="cursor">

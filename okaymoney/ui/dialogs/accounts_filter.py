@@ -1,7 +1,6 @@
 from .ui_dialog import UIDialog
 from PyQt5.QtWidgets import QListWidgetItem, QCheckBox
 from ...user_save_load import save
-from PyQt5.Qt import QFont
 
 
 class AccountsFilterDialog(UIDialog):
@@ -24,7 +23,6 @@ class AccountsFilterDialog(UIDialog):
             item = QListWidgetItem()
             self.accounts_list.addItem(item)
             checkbox = QCheckBox(account.name + '\t\t' + str(account.money) + ' ₽', self)
-            checkbox.setFont(QFont("Gotham Pro Medium"))
             checkbox.setChecked(account.checked)
             self.checkboxes.append(checkbox)
             self.accounts_list.setItemWidget(item, checkbox)

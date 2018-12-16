@@ -29,7 +29,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="select_all_btn">
      <property name="font">
       <font>
-       <family>Gotham Pro Medium</family>
+       <family>Calibri</family>
+       <pointsize>10</pointsize>
       </font>
      </property>
      <property name="text">
@@ -41,8 +42,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QListWidget" name="accounts_list">
      <property name="font">
       <font>
-       <family>Gotham Pro Medium</family>
-       <pointsize>9</pointsize>
+       <family>Calibri</family>
+       <pointsize>11</pointsize>
       </font>
      </property>
     </widget>
@@ -51,7 +52,7 @@ color: rgb(255, 255, 255);</string>
     <widget class="QPushButton" name="choose_accounts_btn">
      <property name="font">
       <font>
-       <family>Gotham Pro Medium</family>
+       <family>Calibri</family>
       </font>
      </property>
      <property name="text">

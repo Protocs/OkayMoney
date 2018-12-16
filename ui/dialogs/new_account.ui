@@ -48,7 +48,8 @@ color: white</string>
         <widget class="QLabel" name="label">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Calibri</family>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="text">
@@ -60,7 +61,8 @@ color: white</string>
         <widget class="QLabel" name="label_2">
          <property name="font">
           <font>
-           <pointsize>10</pointsize>
+           <family>Calibri</family>
+           <pointsize>11</pointsize>
           </font>
          </property>
          <property name="text">
@@ -108,7 +110,8 @@ color: white</string>
      </property>
      <property name="font">
       <font>
-       <pointsize>10</pointsize>
+       <family>Calibri</family>
+       <pointsize>11</pointsize>
       </font>
      </property>
      <property name="text">
