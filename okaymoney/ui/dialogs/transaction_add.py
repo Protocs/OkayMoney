@@ -2,12 +2,13 @@ from datetime import datetime
 from decimal import Decimal
 
 from PyQt5.QtCore import QDate, QDateTime, QTime
+from PyQt5.QtGui import QIcon
 
 from .ui_dialog import UIDialog
 from ...transaction import Transaction
 from ..messagebox import error
 from ...user_save_load import save
-from ...util import SPEND
+from ...util import SPEND, SPEND_ICONS, INCOME_ICONS
 
 
 class TransactionAddDialog(UIDialog):
@@ -25,8 +26,8 @@ class TransactionAddDialog(UIDialog):
 
         self.spend_radio.setChecked(True)
 
-        self.categories_box.addItems(self.user.spend_categories)
         self.accounts_box.addItems([account.name for account in self.user.accounts])
+        self.change_categories()
 
         self.date.setDate(QDate(datetime.now().year, datetime.now().month, datetime.now().day))
 
@@ -38,8 +39,12 @@ class TransactionAddDialog(UIDialog):
 
     def change_categories(self):
         self.categories_box.clear()
-        self.categories_box.addItems(self.user.spend_categories if self.spend_radio.isChecked()
-                                     else self.user.income_categories)
+        categories = self.user.spend_categories if self.spend_radio.isChecked() \
+            else self.user.income_categories
+        icons = SPEND_ICONS if self.spend_radio.isChecked() else INCOME_ICONS
+        for i in range(len(categories)):
+            self.categories_box.addItem(categories[i])
+            self.categories_box.setItemIcon(i, QIcon(icons[categories[i]]))
 
     def get_transaction(self):
         try:
