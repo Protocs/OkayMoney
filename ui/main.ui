@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1300</width>
-    <height>670</height>
+    <width>1370</width>
+    <height>683</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -18,8 +18,14 @@
   </property>
   <property name="minimumSize">
    <size>
-    <width>1300</width>
-    <height>670</height>
+    <width>1370</width>
+    <height>683</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>1370</width>
+    <height>683</height>
    </size>
   </property>
   <property name="font">
@@ -223,7 +229,7 @@ background-color: rgb(136, 136, 136);</string>
              <number>3</number>
             </property>
             <property name="rightMargin">
-             <number>0</number>
+             <number>30</number>
             </property>
             <item>
              <widget class="QPushButton" name="previousMonth">
@@ -796,8 +802,8 @@ color: rgb(198, 40, 40);</string>
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1300</width>
-     <height>18</height>
+     <width>1370</width>
+     <height>26</height>
     </rect>
    </property>
   </widget>
