@@ -6,16 +6,10 @@ import matplotlib.font_manager as fm
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QVBoxLayout
 
-from ...util import INCOME, SPEND
+from ...util import INCOME, SPEND, THEMES
 
 # Цвет фона окна
 BACKGROUND_GRAY = str(55 / 255)
-# Стандартные цвета диграммы
-STANDARD_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50', '#f39c12', '#f9d9f4', '#00ffea']
-# Цвета "легкой" темы диаграммы
-LIGHT_COLORS = ['#e90060', '#34edff', '#e1fb00', '#ff9767', '#00bff8', '#f9a0c4', '#f9a0c4', '#fdde26', '#fdde26', '#fdde26']
-# Цвета "тяжелой" темы диаграммы
-HARD_COLORS = ['#b9003c', '#1078f8', '#1078f8', '#ff3823', '#ff3823', '#d95b77', '#d95b77', '#d95b77', '#d95b77', '#d95b77']
 # Максимальная ширина разреза между секторами диараммы
 MAX_EXPLODE = 0.03
 # Текст обучения, который отображается, если доходов или расходов нет.
@@ -98,7 +92,7 @@ class PieChart:
         values = [d[1] for d in data]
         explode = self.calculate_explodes(values)
 
-        colors = STANDARD_COLORS
+        colors = THEMES[self.user.theme]
         patches, texts = self.axes.pie(values, explode=explode, startangle=90,
                                        colors=colors)
 
