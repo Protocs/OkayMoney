@@ -69,11 +69,11 @@ class SettingsDialog(UIDialog):
 
     def change_window_size(self):
         if self.tabWidget.currentIndex() == 1:
-            self.setMinimumSize(600, 350)
-            self.resize(600, 350)
+            self.setMinimumHeight(350)
+            self.setFixedHeight(350)
         else:
-            self.setMinimumSize(420, 280)
-            self.resize(420, 280)
+            self.setMinimumHeight(280)
+            self.setFixedHeight(280)
 
     def get_avatar_path(self):
         filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
