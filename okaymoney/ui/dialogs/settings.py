@@ -53,6 +53,11 @@ class SettingsDialog(UIDialog):
         self.ok_btn.clicked.connect(self.apply_changes)
         self.cancel_btn.clicked.connect(self.close)
 
+        self.standard_radio.setChecked(self.user.theme == 'standard')
+        self.light_radio.setChecked(self.user.theme == 'light')
+        self.hard_radio.setChecked(self.user.theme == 'hard')
+
+
     def delete_acc(self):
         self.accounts_copy.pop(self.accounts.currentRow())
         self.fill_accounts()
@@ -124,6 +129,12 @@ class SettingsDialog(UIDialog):
     def apply_changes(self):
         remove(self.user, self)
 
+        if self.standard_radio.isChecked():
+            theme = 'standard'
+        elif self.light_radio.isChecked():
+            theme = 'light'
+        else:
+            theme = 'hard'
         self.user.name = self.user_name.text()
         self.user.SAVE_PATH = self.user.name + '.okm'
         self.user.avatar = self.avatar
@@ -131,6 +142,7 @@ class SettingsDialog(UIDialog):
         self.user.accounts = self.accounts_copy
         self.user.spend_categories = self.spend_categories_copy
         self.user.income_categories = self.income_categories_copy
+        self.user.theme = theme
 
         save(self.user, self)
 
