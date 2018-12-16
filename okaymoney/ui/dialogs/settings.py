@@ -60,9 +60,6 @@ class SettingsDialog(UIDialog):
     def fill_accounts(self):
         self.accounts.clear()
         self.accounts.addItems([acc.name for acc in self.accounts_copy])
-        self.main_window.fill_accounts()
-        self.main_window.pie_chart.upd()
-        self.main_window._update_monthly()
         self.delete_acc_btn.setEnabled(False)
 
     def change_window_size(self):
