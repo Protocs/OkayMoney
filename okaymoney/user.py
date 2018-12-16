@@ -16,6 +16,7 @@ class User:
         self.accounts = []
         self.avatar = avatar
         self.negative_balance_information = True
+        self.theme = 'standard'
 
         # Категории доходов и расходов
         self.income_categories = ['Заработная плата', 'Денежный перевод']
