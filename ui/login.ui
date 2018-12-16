@@ -25,6 +25,8 @@
   <property name="font">
    <font>
     <pointsize>10</pointsize>
+    <weight>75</weight>
+    <bold>true</bold>
    </font>
   </property>
   <property name="windowTitle">
@@ -49,8 +51,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Gotham Pro Medium</family>
-      <pointsize>9</pointsize>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -82,8 +84,8 @@
     </property>
     <property name="font">
      <font>
-      <family>Gotham Pro Medium</family>
-      <pointsize>9</pointsize>
+      <family>Calibri</family>
+      <pointsize>11</pointsize>
      </font>
     </property>
     <property name="styleSheet">
@@ -126,10 +128,10 @@
       <widget class="QLabel" name="label_2">
        <property name="font">
         <font>
-         <family>Gotham Pro Black</family>
-         <pointsize>12</pointsize>
-         <weight>50</weight>
-         <bold>false</bold>
+         <family>Calibri</family>
+         <pointsize>14</pointsize>
+         <weight>75</weight>
+         <bold>true</bold>
         </font>
        </property>
        <property name="styleSheet">
