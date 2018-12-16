@@ -23,7 +23,7 @@
    </size>
   </property>
   <property name="windowTitle">
-   <string>Внимание</string>
+   <string>Внимание!</string>
   </property>
   <property name="windowIcon">
    <iconset>
