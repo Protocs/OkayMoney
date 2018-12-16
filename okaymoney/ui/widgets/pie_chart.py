@@ -2,6 +2,7 @@ from decimal import Decimal
 from datetime import datetime
 
 import matplotlib.pyplot as plt
+import matplotlib.font_manager as fm
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QVBoxLayout
 
@@ -19,7 +20,8 @@ MAX_EXPLODE = 0.03
 NO_TRANSACTIONS = 'Нет {} за этот месяц'
 # Текст обучения, который отображается, если нет счетов.
 NO_ACCOUNTS = 'Нет счетов\n\nДобавьте первый счет с помощью кнопки "Добавить счёт"'
-
+# Шрифт, установленный на диаграмме
+FONT = fm.FontProperties(family="Calibri", size=10, style="normal")
 
 class PieChart:
     """Круговая диаграмма, отрисовывающаяся на выбранном виджете."""
@@ -49,7 +51,7 @@ class PieChart:
     # noinspection PyMethodMayBeStatic
     def set_title(self, text):
         title = plt.title(text)
-        plt.setp(title, color='w')
+        plt.setp(title, color='w', fontfamily="Calibri", fontsize=18)
 
     @property
     def transaction_type(self):
@@ -77,7 +79,7 @@ class PieChart:
              + ('\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
              if datetime.now().month == month and datetime.now().year == year else ''))
         self.axes.text(0, 0, text, horizontalalignment='center', verticalalignment='center',
-                       fontsize=12, color='w')
+                    fontfamily="Calibri",fontsize=14, color='w')
         self.canvas.draw()
 
     def update_chart(self, data, month, year):
@@ -97,7 +99,7 @@ class PieChart:
         patches, texts = self.axes.pie(values, explode=explode, startangle=90,
                                        colors=colors)
 
-        self.axes.legend(patches, labels, loc='best', fontsize=8)
+        self.axes.legend(patches, labels, loc='best', prop=FONT)
         self.canvas.draw()
 
     def upd(self, month=None, year=None):
