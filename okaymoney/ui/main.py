@@ -140,10 +140,6 @@ class MainWindow(UIWindow):
         self.__update()
 
     def show_next_month(self):
-        now = datetime.now()
-        if (self.month, self.year) == (now.month, now.year):
-            return
-
         self.month += 1
         if self.month == 13:
             self.month = 1
