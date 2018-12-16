@@ -44,7 +44,8 @@ class TransactionAddDialog(UIDialog):
         icons = SPEND_ICONS if self.spend_radio.isChecked() else INCOME_ICONS
         for i in range(len(categories)):
             self.categories_box.addItem(categories[i])
-            self.categories_box.setItemIcon(i, QIcon(icons[categories[i]]))
+            if categories[i] in icons:
+                self.categories_box.setItemIcon(i, QIcon(icons[categories[i]]))
 
     def get_transaction(self):
         try:
