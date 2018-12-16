@@ -6,13 +6,19 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>417</width>
+    <width>500</width>
     <height>281</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>417</width>
+    <width>500</width>
+    <height>281</height>
+   </size>
+  </property>
+  <property name="maximumSize">
+   <size>
+    <width>500</width>
     <height>281</height>
    </size>
   </property>
@@ -317,19 +323,6 @@ color: white;</string>
          </item>
         </layout>
        </item>
-       <item>
-        <spacer name="horizontalSpacer_2">
-         <property name="orientation">
-          <enum>Qt::Horizontal</enum>
-         </property>
-         <property name="sizeHint" stdset="0">
-          <size>
-           <width>40</width>
-           <height>20</height>
-          </size>
-         </property>
-        </spacer>
-       </item>
       </layout>
      </widget>
      <widget class="QWidget" name="accounts_settings">
@@ -370,7 +363,7 @@ color: white;</string>
        <item>
         <layout class="QVBoxLayout" name="verticalLayout_6">
          <item>
-          <widget class="QRadioButton" name="radioButton">
+          <widget class="QRadioButton" name="standard_radio">
            <property name="font">
             <font>
              <family>Calibri</family>
@@ -383,7 +376,7 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_2">
+          <widget class="QRadioButton" name="light_radio">
            <property name="font">
             <font>
              <family>Calibri</family>
@@ -396,7 +389,7 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QRadioButton" name="radioButton_3">
+          <widget class="QRadioButton" name="hard_radio">
            <property name="font">
             <font>
              <family>Calibri</family>
@@ -416,7 +409,7 @@ color: white;</string>
           <number>4</number>
          </property>
          <item>
-          <widget class="QLabel" name="label_6">
+          <widget class="QLabel" name="standard_label">
            <property name="minimumSize">
             <size>
              <width>280</width>
@@ -435,7 +428,7 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_5">
+          <widget class="QLabel" name="light_label">
            <property name="minimumSize">
             <size>
              <width>280</width>
@@ -454,7 +447,7 @@ color: white;</string>
           </widget>
          </item>
          <item>
-          <widget class="QLabel" name="label_7">
+          <widget class="QLabel" name="hard_label">
            <property name="minimumSize">
             <size>
              <width>280</width>
