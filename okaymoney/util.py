@@ -18,10 +18,10 @@ INCOME = 'i'
 SPEND = 's'
 THEMES = {'standard': ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50',
                        '#f39c12', '#f9d9f4', '#00ffea'],
-          'light': ['#e90060', '#34edff', '#e1fb00', '#ff9767', '#00bff8', '#f9a0c4', '#f9a0c4',
-                    '#fdde26', '#fdde26', '#fdde26'],
-          'hard': ['#b9003c', '#1078f8', '#1078f8', '#ff3823', '#ff3823', '#d95b77', '#d95b77',
-                   '#d95b77', '#d95b77', '#d95b77']}
+          'light': ['#f8007c', '#34edff', '#e1fb00', '#ff9767', '#00bff8', '#f9a0c4', '#f91cf5',
+                    '#fdde26', '#fef9fe', '#00ffcf'],
+          'hard': ['#b9003c', '#1078f8', '#68ad00', '#ff3823', '#004d9c', '#d95b77', '#a1088d',
+                   '#cd650c', '#e09ed0', '#00ff3f']}
 
 
 def mix_dicts(dicts):
