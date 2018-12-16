@@ -571,7 +571,7 @@ background-color: rgb(136, 136, 136);
 </string>
             </property>
             <property name="text">
-             <string>Добавить счет</string>
+             <string>Добавить счёт</string>
             </property>
            </widget>
           </item>
@@ -803,7 +803,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1370</width>
-     <height>26</height>
+     <height>18</height>
     </rect>
    </property>
   </widget>
