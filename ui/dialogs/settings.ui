@@ -397,7 +397,7 @@ color: white;</string>
             </font>
            </property>
            <property name="text">
-            <string>ХАРД</string>
+            <string>Хард</string>
            </property>
           </widget>
          </item>
@@ -425,6 +425,9 @@ color: white;</string>
            <property name="text">
             <string/>
            </property>
+           <property name="pixmap">
+            <pixmap>../pictures/themes/standard.png</pixmap>
+           </property>
           </widget>
          </item>
          <item>
@@ -444,6 +447,9 @@ color: white;</string>
            <property name="text">
             <string/>
            </property>
+           <property name="pixmap">
+            <pixmap>../pictures/themes/light.png</pixmap>
+           </property>
           </widget>
          </item>
          <item>
@@ -462,6 +468,9 @@ color: white;</string>
            </property>
            <property name="text">
             <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../pictures/themes/hard.png</pixmap>
            </property>
           </widget>
          </item>
