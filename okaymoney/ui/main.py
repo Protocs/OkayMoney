@@ -61,7 +61,8 @@ class MainWindow(UIWindow):
         self.accounts_list.clear()
         for acc in self.user.accounts:
             item = QListWidgetItem(
-                "{}{}{} ₽".format(shorten(acc.name, 12), ' ' * (12 - len(acc.name)) + '\t',
+                "{}{}{} ₽".format(shorten(acc.name, 10), ' ' * (10 - len(shorten(acc.name, 10)))
+                                  + '\t' * (1 if 3 < len(acc.name) else 2),
                                   str(acc.money)))
             item.setToolTip(acc.name)
             self.accounts_list.addItem(item)
