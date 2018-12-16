@@ -10,10 +10,12 @@ from ...util import INCOME, SPEND
 
 # Цвет фона окна
 BACKGROUND_GRAY = str(55 / 255)
-# Цвета диграммы доходов
-INCOME_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50']
-# Цвета диаграммы расходов
-SPEND_COLORS = ['#EA005E', '#19B5FE', '#a0e300', '#ff5736', '#0078D7', '#f78fb3', '#db0dca']
+# Стандартные цвета диграммы
+STANDARD_COLORS = ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50', '#f39c12', '#f9d9f4', '#00ffea']
+# Цвета "легкой" темы диаграммы
+LIGHT_COLORS = ['#e90060', '#34edff', '#e1fb00', '#ff9767', '#00bff8', '#f9a0c4', '#f9a0c4', '#fdde26', '#fdde26', '#fdde26']
+# Цвета "тяжелой" темы диаграммы
+HARD_COLORS = ['#b9003c', '#1078f8', '#1078f8', '#ff3823', '#ff3823', '#d95b77', '#d95b77', '#d95b77', '#d95b77', '#d95b77']
 # Максимальная ширина разреза между секторами диараммы
 MAX_EXPLODE = 0.03
 # Текст обучения, который отображается, если доходов или расходов нет.
@@ -96,7 +98,7 @@ class PieChart:
         values = [d[1] for d in data]
         explode = self.calculate_explodes(values)
 
-        colors = INCOME_COLORS if self.transaction_type == INCOME else SPEND_COLORS
+        colors = STANDARD_COLORS
         patches, texts = self.axes.pie(values, explode=explode, startangle=90,
                                        colors=colors)
 
