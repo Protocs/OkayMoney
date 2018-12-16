@@ -74,10 +74,11 @@ class PieChart:
 
     def show_tutorial(self, transaction_type, month, year):
         self.axes.pie(())
+        now_month, now_year, now_day = datetime.now().month, datetime.now().year, datetime.now().day
         text = NO_ACCOUNTS if not self.user.accounts else \
             (NO_TRANSACTIONS.format('расходов' if transaction_type == SPEND else 'доходов')
              + ('\n\nДобавьте первую транзакцию с помощью кнопки "Новая транзакция".'
-             if datetime.now().month == month and datetime.now().year == year else ''))
+             if datetime(now_year, now_month, now_day) <= datetime(year, month, now_day) else ''))
         self.axes.text(0, 0, text, horizontalalignment='center', verticalalignment='center',
                     fontfamily="Calibri",fontsize=14, color='w')
         self.canvas.draw()
