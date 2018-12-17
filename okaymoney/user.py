@@ -45,4 +45,5 @@ class User:
 
 def get_user_names_in_current_dir():
     """Возвращает имена всех созданных пользователей (те, что в текущей папке)."""
-    return [file.split('.')[0] for file in os.listdir('.') if file.endswith('.okm')]
+    return list(sorted((file.split('.')[0] for file in os.listdir('.') if file.endswith('.okm')),
+                       key=lambda f: os.stat(f + '.okm').st_mtime, reverse=True))
