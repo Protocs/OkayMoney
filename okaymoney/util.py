@@ -17,7 +17,7 @@ def shorten(text, max_length):
 INCOME = 'i'
 SPEND = 's'
 
-THEMES = {'standard': ['#EA005E', '#3498db', '#8e44ad', '#f39c12', '#16a085', '#2ecc71', '#2c3e50',
+THEMES = {'standard': ['#EA005E', '#19b5fe', '#a0e300', '#ff5736', '#0078d7', '#f78fb3', '#db0dca',
                        '#f39c12', '#f9d9f4', '#00ffea'],
           'light': ['#f8007c', '#34edff', '#e1fb00', '#ff9767', '#00bff8', '#f9a0c4', '#f91cf5',
                     '#fdde26', '#fef9fe', '#00ffcf'],
