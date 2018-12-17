@@ -318,7 +318,7 @@ background-color: rgb(136, 136, 136);</string>
             <property name="font">
              <font>
               <family>Calibri</family>
-              <pointsize>9</pointsize>
+              <pointsize>10</pointsize>
               <weight>50</weight>
               <bold>false</bold>
              </font>
@@ -328,7 +328,7 @@ background-color: rgb(136, 136, 136);</string>
 background-color: rgb(136, 136, 136);</string>
             </property>
             <property name="text">
-             <string>На сегодняшний месяц и год</string>
+             <string>За текущий месяц</string>
             </property>
            </widget>
           </item>
@@ -803,7 +803,7 @@ color: rgb(198, 40, 40);</string>
      <x>0</x>
      <y>0</y>
      <width>1370</width>
-     <height>18</height>
+     <height>26</height>
     </rect>
    </property>
   </widget>
