@@ -80,8 +80,10 @@ class MainWindow(UIWindow):
         self.dateLabel.setText(f'{str(self.month).zfill(2)}.{self.year}')
 
     def _update_monthly(self):
-        self.MonthlyIncomeMoney.setText(str(self.user.get_monthly_income(self.month, self.year)) + ' ₽')
-        self.MonthlyExpensesMoney.setText(str(self.user.get_monthly_spend(self.month, self.year)) + ' ₽')
+        self.MonthlyIncomeMoney.setText(
+            str(self.user.get_monthly_income(self.month, self.year)) + ' ₽')
+        self.MonthlyExpensesMoney.setText(
+            str(self.user.get_monthly_spend(self.month, self.year)) + ' ₽')
 
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)

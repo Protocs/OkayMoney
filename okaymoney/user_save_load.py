@@ -17,7 +17,8 @@ def save(acc, obj):
         with open(acc.SAVE_PATH, 'wb') as f:
             pickle.dump(acc, f, pickle.HIGHEST_PROTOCOL)
     except OSError as e:
-        messagebox.error(f'Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})', obj)
+        messagebox.error(f'Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})',
+                         obj)
 
 
 def load(path, obj):

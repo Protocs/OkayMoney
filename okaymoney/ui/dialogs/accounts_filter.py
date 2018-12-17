@@ -30,7 +30,8 @@ class AccountsFilterDialog(UIDialog):
     def choose_accounts(self):
         for account in self.user.accounts:
             account.checked = account.name in ['\t\t'.join(checkbox.text().split('\t\t')[:-1])
-                                               for checkbox in self.checkboxes if checkbox.isChecked()]
+                                               for checkbox in self.checkboxes if
+                                               checkbox.isChecked()]
         save(self.user, self)
         self.close()
 

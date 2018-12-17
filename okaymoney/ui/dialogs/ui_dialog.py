@@ -10,7 +10,7 @@ class UIDialog(QDialog):
     Пример::
 
         class TransactionAddDialog(UIDialog):
-            ui_path = 'ui/login.ui'
+            ui_path = 'ui/transaction_add.ui'
             ...
     """
 
