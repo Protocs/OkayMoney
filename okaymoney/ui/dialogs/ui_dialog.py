@@ -1,6 +1,8 @@
 from PyQt5.QtWidgets import QDialog
 from PyQt5 import uic
 
+from ...util import find_data_file
+
 
 class UIDialog(QDialog):
     """
@@ -16,4 +18,4 @@ class UIDialog(QDialog):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        uic.loadUi(self.ui_path, self)
+        uic.loadUi(find_data_file(self.ui_path), self)

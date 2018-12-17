@@ -2,6 +2,8 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
 
+from ...util import find_data_file
+
 
 class UIWidget(QWidget):
     """
@@ -17,4 +19,4 @@ class UIWidget(QWidget):
 
     def __init__(self, parent=None, flags=Qt.WindowFlags()):
         super().__init__(parent, flags)
-        uic.loadUi(self.ui_path, self)
+        uic.loadUi(find_data_file(self.ui_path), self)

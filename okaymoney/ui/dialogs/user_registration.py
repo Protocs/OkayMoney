@@ -1,6 +1,7 @@
 from PIL import Image
 from PyQt5.QtWidgets import QFileDialog
 
+from ...util import find_data_file
 from ..messagebox import error
 from .ui_dialog import UIDialog
 from ...user import User, get_user_names_in_current_dir
@@ -17,7 +18,7 @@ class UserRegistrationDialog(UIDialog):
 
     def __init__(self):
         super().__init__()
-        with open('ui/default.png', 'rb') as default:
+        with open(find_data_file('ui/default.png'), 'rb') as default:
             self.avatar = default.read()
 
         self.ok_button.clicked.connect(self.get_user_name)
