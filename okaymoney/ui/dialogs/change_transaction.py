@@ -1,7 +1,7 @@
-from ...user_save_load import save
-from .transaction_add import TransactionAddDialog
-from ...util import INCOME, SPEND
-from ..messagebox import error
+from okaymoney.user_save_load import save
+from okaymoney.util import INCOME, SPEND
+from okaymoney.ui.messagebox import error
+from okaymoney.ui.dialogs.transaction_add import TransactionAddDialog
 
 
 class TransactionChangeDialog(TransactionAddDialog):

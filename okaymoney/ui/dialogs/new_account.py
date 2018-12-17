@@ -1,8 +1,9 @@
-from .ui_dialog import UIDialog
-from ..messagebox import error
 from decimal import Decimal
-from ...account import Account
-from ...user_save_load import save
+
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.ui.messagebox import error
+from okaymoney.account import Account
+from okaymoney.user_save_load import save
 
 
 class NewAccountDialog(UIDialog):

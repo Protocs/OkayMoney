@@ -1,10 +1,11 @@
-from .ui_dialog import UIDialog
-from .user_registration import add_avatar
 from PyQt5.QtWidgets import QFileDialog
-from ...user_save_load import remove, save
-from ..messagebox import error
-from .confirm import ConfirmActionDialog
-from .new_category import NewCategoryDialog
+
+from okaymoney.user_save_load import remove, save
+from okaymoney.ui.messagebox import error
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.ui.dialogs.user_registration import add_avatar
+from okaymoney.ui.dialogs.confirm import ConfirmActionDialog
+from okaymoney.ui.dialogs.new_category import NewCategoryDialog
 
 
 class SettingsDialog(UIDialog):

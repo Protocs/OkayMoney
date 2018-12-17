@@ -1,4 +1,4 @@
-from .ui_widget import UIWidget
+from okaymoney.ui.widgets.ui_widget import UIWidget
 
 
 class GreetingWidget(UIWidget):

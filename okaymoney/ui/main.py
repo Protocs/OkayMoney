@@ -4,16 +4,15 @@ from PyQt5.QtGui import QImage, QPixmap
 from PyQt5.QtCore import QByteArray
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene, QListWidgetItem
 
-from ..util import INCOME, SPEND
-from .messagebox import information
-from .ui_window import UIWindow
-from .widgets.pie_chart import PieChart
-from .dialogs.new_account import NewAccountDialog
-from .dialogs.accounts_filter import AccountsFilterDialog
-from .dialogs.transaction_add import TransactionAddDialog
-from .dialogs.transactions_history import TransactionsHistoryDialog
-from .dialogs.settings import SettingsDialog
-from ..util import shorten
+from okaymoney.util import INCOME, SPEND, shorten
+from okaymoney.ui.messagebox import information
+from okaymoney.ui.ui_window import UIWindow
+from okaymoney.ui.widgets.pie_chart import PieChart
+from okaymoney.ui.dialogs.new_account import NewAccountDialog
+from okaymoney.ui.dialogs.accounts_filter import AccountsFilterDialog
+from okaymoney.ui.dialogs.transaction_add import TransactionAddDialog
+from okaymoney.ui.dialogs.transactions_history import TransactionsHistoryDialog
+from okaymoney.ui.dialogs.settings import SettingsDialog
 
 
 class MainWindow(UIWindow):

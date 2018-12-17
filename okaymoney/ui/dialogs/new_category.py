@@ -1,6 +1,6 @@
-from .ui_dialog import UIDialog
-from ..messagebox import error
-from ...user_save_load import save
+from okaymoney.user_save_load import save
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.ui.messagebox import error
 
 
 class NewCategoryDialog(UIDialog):

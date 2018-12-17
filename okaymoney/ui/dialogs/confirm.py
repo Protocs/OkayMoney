@@ -1,4 +1,4 @@
-from .ui_dialog import UIDialog
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
 
 
 class ConfirmActionDialog(UIDialog):

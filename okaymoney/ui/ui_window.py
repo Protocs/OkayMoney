@@ -1,7 +1,7 @@
 from PyQt5.QtWidgets import QMainWindow
 from PyQt5 import uic
 
-from ..util import find_data_file
+from okaymoney.util import find_data_file
 
 
 class UIWindow(QMainWindow):

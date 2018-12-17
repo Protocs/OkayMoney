@@ -1,9 +1,9 @@
-from .ui_window import UIWindow
-from .dialogs.user_registration import UserRegistrationDialog
-from .dialogs.more_users import MoreUsersDialog
-from ..user import get_user_names_in_current_dir
-from .widgets.user_login_button import UserLoginButton
-from .widgets.greeting import GreetingWidget
+from okaymoney.user import get_user_names_in_current_dir
+from okaymoney.ui.ui_window import UIWindow
+from okaymoney.ui.dialogs.user_registration import UserRegistrationDialog
+from okaymoney.ui.dialogs.more_users import MoreUsersDialog
+from okaymoney.ui.widgets.user_login_button import UserLoginButton
+from okaymoney.ui.widgets.greeting import GreetingWidget
 
 
 # noinspection PyAttributeOutsideInit

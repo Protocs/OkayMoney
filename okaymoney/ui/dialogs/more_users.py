@@ -1,7 +1,7 @@
-from ..main import MainWindow
-from ...user import get_user_names_in_current_dir
-from .ui_dialog import UIDialog
-from ... import user_save_load
+from okaymoney.ui.main import MainWindow
+from okaymoney.user import get_user_names_in_current_dir
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.util import user_save_load
 
 
 class MoreUsersDialog(UIDialog):

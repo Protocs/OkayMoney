@@ -1,5 +1,5 @@
-from .ui.dialogs.confirm import ConfirmActionDialog
-from .util import SPEND
+from okaymoney.ui.dialogs.confirm import ConfirmActionDialog
+from okaymoney.util import SPEND
 
 
 class Account:

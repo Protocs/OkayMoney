@@ -1,11 +1,11 @@
 from PIL import Image
 from PyQt5.QtWidgets import QFileDialog
 
-from ...util import find_data_file
-from ..messagebox import error
-from .ui_dialog import UIDialog
-from ...user import User, get_user_names_in_current_dir
-from ...user_save_load import save
+from okaymoney.util import find_data_file
+from okaymoney.user import User, get_user_names_in_current_dir
+from okaymoney.user_save_load import save
+from okaymoney.ui.messagebox import error
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
 
 
 class UserRegistrationDialog(UIDialog):

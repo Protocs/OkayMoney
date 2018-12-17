@@ -1,6 +1,7 @@
-from .ui_dialog import UIDialog
 from PyQt5.QtWidgets import QListWidgetItem, QCheckBox
-from ...user_save_load import save
+
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.user_save_load import save
 
 
 class AccountsFilterDialog(UIDialog):

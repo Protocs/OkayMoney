@@ -4,11 +4,11 @@ from decimal import Decimal
 from PyQt5.QtCore import QDate, QDateTime, QTime
 from PyQt5.QtGui import QIcon
 
-from .ui_dialog import UIDialog
-from ...transaction import Transaction
-from ..messagebox import error
-from ...user_save_load import save
-from ...util import SPEND, SPEND_ICONS, INCOME_ICONS
+from okaymoney.transaction import Transaction
+from okaymoney.util import SPEND, SPEND_ICONS, INCOME_ICONS
+from okaymoney.user_save_load import save
+from okaymoney.ui.messagebox import error
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
 
 
 class TransactionAddDialog(UIDialog):

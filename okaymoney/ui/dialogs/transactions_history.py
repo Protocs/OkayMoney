@@ -1,7 +1,7 @@
-from .ui_dialog import UIDialog
-from ...util import INCOME
-from .change_transaction import TransactionChangeDialog
-from ...user_save_load import save
+from okaymoney.util import INCOME
+from okaymoney.user_save_load import save
+from okaymoney.ui.dialogs.ui_dialog import UIDialog
+from okaymoney.ui.dialogs.change_transaction import TransactionChangeDialog
 
 
 class TransactionsHistoryDialog(UIDialog):

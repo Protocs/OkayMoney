@@ -2,7 +2,7 @@ from PyQt5.QtWidgets import QWidget
 from PyQt5 import uic
 from PyQt5.QtCore import Qt
 
-from ...util import find_data_file
+from okaymoney.util import find_data_file
 
 
 class UIWidget(QWidget):

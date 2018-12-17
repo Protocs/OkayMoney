@@ -1,6 +1,7 @@
 import pickle
-from .ui import messagebox
 import os
+
+from okaymoney.ui import messagebox
 
 
 def save(acc, obj):

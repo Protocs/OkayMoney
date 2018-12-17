@@ -6,7 +6,7 @@ import matplotlib.font_manager as fm
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from PyQt5.QtWidgets import QVBoxLayout
 
-from ...util import INCOME, SPEND, THEMES
+from okaymoney.util import INCOME, SPEND, THEMES
 
 # Цвет фона окна
 BACKGROUND_GRAY = str(55 / 255)

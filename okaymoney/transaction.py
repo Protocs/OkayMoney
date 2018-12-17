@@ -1,4 +1,4 @@
-from .util import INCOME, SPEND
+from okaymoney.util import INCOME, SPEND
 
 
 class Transaction:
