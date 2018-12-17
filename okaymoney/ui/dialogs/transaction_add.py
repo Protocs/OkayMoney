@@ -8,7 +8,7 @@ from .ui_dialog import UIDialog
 from ...transaction import Transaction
 from ..messagebox import error
 from ...user_save_load import save
-from ...util import SPEND, SPEND_ICONS, INCOME_ICONS
+from ...util import SPEND, SPEND_ICONS, INCOME_ICONS, OTHER_ICON
 
 
 class TransactionAddDialog(UIDialog):
@@ -46,6 +46,8 @@ class TransactionAddDialog(UIDialog):
             self.categories_box.addItem(categories[i])
             if categories[i] in icons:
                 self.categories_box.setItemIcon(i, QIcon(icons[categories[i]]))
+            else:
+                self.categories_box.setItemIcon(i, QIcon(OTHER_ICON))
 
     def get_transaction(self):
         try:

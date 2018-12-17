@@ -29,6 +29,7 @@ SPEND_ICONS = {"Одежда": "ui/icons/clothes.png", "Развлечения":
                "Дом": "ui/icons/house.png", "Транспорт": "ui/icons/transport.png",
                "Продукты": "ui/icons/foodstuff.png"}
 INCOME_ICONS = {"Денежный перевод": "ui/icons/card.png", "Заработная плата": "ui/icons/salary.png"}
+OTHER_ICON = "ui/icons/other.png"
 
 
 def mix_dicts(dicts):
