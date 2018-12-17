@@ -1,3 +1,7 @@
+import sys
+import os.path
+
+
 def shorten(text, max_length):
     """Сокращает текст таким образом, чтобы его длина не превышала ``max_length``.
 
@@ -24,12 +28,6 @@ THEMES = {'standard': ['#EA005E', '#19b5fe', '#a0e300', '#ff5736', '#0078d7', '#
           'hard': ['#b9003c', '#1078f8', '#68ad00', '#ff3823', '#004d9c', '#d95b77', '#a1088d',
                    '#cd650c', '#e09ed0', '#00ff3f']}
 
-SPEND_ICONS = {"Одежда": "ui/icons/clothes.png", "Развлечения": "ui/icons/entertainment.png",
-               "Еда": "ui/icons/food.png",
-               "Дом": "ui/icons/house.png", "Транспорт": "ui/icons/transport.png",
-               "Продукты": "ui/icons/foodstuff.png"}
-INCOME_ICONS = {"Денежный перевод": "ui/icons/card.png", "Заработная плата": "ui/icons/salary.png"}
-
 
 def mix_dicts(dicts):
     """Сливает словари из итератора в один и возвращает его."""
@@ -37,3 +35,30 @@ def mix_dicts(dicts):
     for d in dicts:
         big.update(d)
     return big
+
+
+def find_data_file(filename):
+    if getattr(sys, 'frozen', False):
+        # The application is frozen
+        datadir = os.path.dirname(sys.executable)
+    else:
+        # The application is not frozen
+        # Change this bit to match where you store your data files:
+        datadir = os.path.dirname(__file__)
+
+    return os.path.join(datadir, filename)
+
+
+SPEND_ICONS = {
+    "Одежда": "clothes",
+    "Развлечения": "entertainment",
+    "Еда": "food",
+    "Дом": "house",
+    "Транспорт": "transport",
+    "Продукты": "foodstuff"
+}
+INCOME_ICONS = {"Денежный перевод": "card", "Заработная плата": "salary"}
+
+for icons_dict in (SPEND_ICONS, INCOME_ICONS):
+    for k, v in icons_dict.items():
+        icons_dict[k] = find_data_file('ui/icons/' + v + '.png')
