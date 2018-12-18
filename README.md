@@ -1,6 +1,52 @@
 # OkayMoney
 
-Наш проект - приложение для контроля доходов и расходов.  
+Наш проект - приложение для контроля доходов и расходов.
+
+В современном обществе люди часто сталкиваются с проблемой контроля собственных финансов. Приложение, позволяющее следить за расходами и доходами, значительно упрощает эту задачу.
+
+## Авторы
+- [Protocs (Уткин Никита)](https://github.com/Protocs)
+- [makeitokay (Васильев Андрей)](https://github.com/makeitokay)
+- [nikitakosatka (Усатов Никита)](https://github.com/nikitakosatka)
+
+## Основные классы
+### Логика
+```
+Account 
+Transaction 
+User
+```
+
+### Окна
+```
+LoginWindow 
+MainWindow 
+```
+### Диалоги
+```
+AccountsFilterDialog 
+TransactionChangeDialog 
+ConfirmActionDialog 
+MoreUsersDialog 
+NewAccountDialog 
+NewCategoryDialog 
+SettingsDialog 
+TransactionDialog
+TransactionsHistoryDialog 
+UserRegistrationDialog
+```
+
+### Виджеты
+```
+GreetingWidget 
+PieChart 
+UserLoginButton
+```
+
+## Использованные библиотеки
+- **PyQt5**
+- **Matplotlib** - для создания круговой диаграммы
+- **Pillow** - работа с аватаркой
 
 ## Возможности
 - Добавление нескольких пользователей. Пользователь может выбрать себе аватарку.  
@@ -18,9 +64,3 @@
 ![Прошлые месяцы](demo/pictures/PrevMonths.png)
 - Выбор тем диаграммы.  
 ![Темы](demo/pictures/Themes.png)
-
-
-## Использованные библиотеки
-- **PyQt5**
-- **Matplotlib** - для создания круговой диаграммы
-- **Pillow** - работа с аватаркой
