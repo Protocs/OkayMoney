@@ -1,3 +1,5 @@
+import json
+
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QDialog
@@ -8,6 +10,10 @@ class SignInWindow(QDialog):
 
     def __init__(self):
         super().__init__()
+
+        self.user_id = None
+        self.access_token = None
+
         self.setFixedSize(800, 600)
         self.web_engine = QWebEngineView(self)
         self.web_engine.resize(self.width(), self.height())
@@ -17,9 +23,19 @@ class SignInWindow(QDialog):
               "&response_type=code" \
               "&v=5.95"
         self.web_engine.setUrl(QUrl(url))
-        self.web_engine.urlChanged.connect(self.check_url)
-        self.exec()
+        self.web_engine.loadFinished.connect(self.check_user_id)
 
-    def check_url(self, url):
-        if url.toString().startswith("http://okaymoney.pythonanywhere.com/vk"):
-            self.close()
+    def check_user_id(self):
+        if self.web_engine.url().toString().startswith(
+                "http://okaymoney.pythonanywhere.com/vk"):
+            self.web_engine.page().toPlainText(self.get_plain_text)
+
+    def get_plain_text(self, text):
+        response = json.loads(text)
+        self.user_id = response.get("user_id")
+        self.access_token = response.get("access_token")
+        self.close()
+
+    def exec(self):
+        super().exec()
+        return self.user_id, self.access_token

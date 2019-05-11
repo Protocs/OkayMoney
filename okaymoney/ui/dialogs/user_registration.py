@@ -6,6 +6,7 @@ from .ui_dialog import UIDialog
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
 from ..signin import SignInWindow
+from ...util import get_vk_user_info, get_avatar_from_url
 
 
 class UserRegistrationDialog(UIDialog):
@@ -37,7 +38,11 @@ class UserRegistrationDialog(UIDialog):
 
     def login_with_vk(self):
         self.vw = SignInWindow()
-
+        user_id, token = self.vw.exec()
+        user_info = get_vk_user_info(user_id, token)
+        avatar = get_avatar_from_url(user_info["photo_100"])
+        name = " ".join([user_info["first_name"], user_info["last_name"]])
+        create_user(self, name, avatar)
 
 def create_user(obj, name, avatar):
     """Создает пользователя name с аватаркой avatar в родительском виджете obj"""
