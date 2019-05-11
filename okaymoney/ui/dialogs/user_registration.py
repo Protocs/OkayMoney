@@ -5,6 +5,7 @@ from ..messagebox import error
 from .ui_dialog import UIDialog
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
+from ..signin import SignInWindow
 
 
 class UserRegistrationDialog(UIDialog):
@@ -23,6 +24,7 @@ class UserRegistrationDialog(UIDialog):
         self.ok_button.clicked.connect(self.get_user_name)
         self.cancel_button.clicked.connect(self.close)
         self.add_avatar_btn.clicked.connect(self.get_avatar_path)
+        self.login_vk.clicked.connect(self.login_with_vk)
 
     def get_user_name(self):
         name = self.name.text()
@@ -32,6 +34,9 @@ class UserRegistrationDialog(UIDialog):
         filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
         if filename[0]:
             add_avatar(self, filename[0], self.avatar_name)
+
+    def login_with_vk(self):
+        self.vw = SignInWindow()
 
 
 def create_user(obj, name, avatar):
