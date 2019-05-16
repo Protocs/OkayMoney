@@ -1,6 +1,8 @@
 import pickle
 from .ui import messagebox
 import os
+import requests
+import base64
 
 
 def save(acc, obj):
@@ -19,6 +21,10 @@ def save(acc, obj):
     except OSError as e:
         messagebox.error(f'Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})',
                          obj)
+    if acc.vk_id:
+        account_pickle = pickle.dumps(acc, pickle.HIGHEST_PROTOCOL)
+        account_base64 = base64.b64encode(account_pickle)
+        requests.post("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id), account_base64)
 
 
 def load(path, obj):
@@ -41,6 +47,8 @@ def load(path, obj):
 
 def remove(acc, obj):
     """Удаляет файл пользователя acc"""
+    if acc.vk_id:
+        requests.delete("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id))
     try:
         os.remove(acc.SAVE_PATH)
     except Exception as e:

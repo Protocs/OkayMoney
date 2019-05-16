@@ -7,14 +7,16 @@ from .util import INCOME, SPEND
 class User:
     """Класс пользователя, который содержит всю информацию о пользователе."""
 
-    def __init__(self, name, avatar):
+    def __init__(self, name, avatar, vk_id):
         """
         :param name: имя пользователя.
         :param avatar: аватарка в виде массива байтов.
+        :param vk_id: ID пользователя в ВКонтакте.
         """
         self.name = name
         self.accounts = []
         self.avatar = avatar
+        self.vk_id = vk_id
         self.negative_balance_information = True
         self.theme = 'standard'
 

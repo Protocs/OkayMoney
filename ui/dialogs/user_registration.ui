@@ -39,7 +39,7 @@ color: rgb(255, 255, 255);</string>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
     <layout class="QGridLayout" name="gridLayout">
-     <item row="1" column="1">
+     <item row="2" column="1">
       <widget class="QPushButton" name="add_avatar_btn">
        <property name="minimumSize">
         <size>
@@ -70,23 +70,7 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QLabel" name="avatar_name">
-       <property name="font">
-        <font>
-         <family>Calibri</family>
-         <pointsize>8</pointsize>
-        </font>
-       </property>
-       <property name="text">
-        <string>(размер аватарки должен быть 128x128)</string>
-       </property>
-       <property name="alignment">
-        <set>Qt::AlignCenter</set>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
+     <item row="3" column="1">
       <layout class="QHBoxLayout" name="horizontalLayout">
        <item>
         <widget class="QPushButton" name="ok_button">
@@ -140,7 +124,23 @@ color: rgb(255, 255, 255);</string>
        </item>
       </layout>
      </item>
-     <item row="1" column="0">
+     <item row="1" column="1">
+      <widget class="QLabel" name="avatar_name">
+       <property name="font">
+        <font>
+         <family>Calibri</family>
+         <pointsize>8</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>(размер аватарки должен быть 128x128)</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="0">
       <widget class="QLineEdit" name="name">
        <property name="minimumSize">
         <size>
@@ -156,7 +156,7 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item row="0" column="0">
+     <item row="1" column="0">
       <widget class="QLabel" name="label">
        <property name="font">
         <font>
@@ -172,40 +172,12 @@ color: rgb(255, 255, 255);</string>
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <layout class="QVBoxLayout" name="verticalLayout_2">
-       <item>
-        <widget class="QLabel" name="label_2">
-         <property name="styleSheet">
-          <string notr="true"/>
-         </property>
-         <property name="text">
-          <string>Войти через</string>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <layout class="QHBoxLayout" name="horizontalLayout_2">
-         <item>
-          <widget class="QPushButton" name="login_google">
-           <property name="text">
-            <string>Google</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="login_vk">
-           <property name="text">
-            <string>VK</string>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </item>
-      </layout>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="login_vk">
+       <property name="text">
+        <string>Войти через VK</string>
+       </property>
+      </widget>
      </item>
     </layout>
    </item>
