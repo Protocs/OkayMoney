@@ -5,6 +5,7 @@ import requests
 from PIL import Image
 from PyQt5.QtWidgets import QFileDialog
 
+from ui import messagebox
 from .ui_dialog import UIDialog
 from ..messagebox import error
 from ..signin import SignInWindow
@@ -43,7 +44,11 @@ class UserRegistrationDialog(UIDialog):
     def login_with_vk(self):
         self.vw = SignInWindow()
         user_id, token = self.vw.exec()
-        user_info = get_vk_user_info(user_id, token)
+        try:
+            user_info = get_vk_user_info(user_id, token)
+        except requests.RequestException:
+            messagebox.error("Не удалось получить ваши данные. Проверьте подключение к сети.")
+            return
         avatar = get_avatar_from_url(user_info["photo_100"])
         name = " ".join([user_info["first_name"], user_info["last_name"]])
         create_user(self, name, avatar, user_id)

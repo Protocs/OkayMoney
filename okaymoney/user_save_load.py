@@ -24,7 +24,10 @@ def save(acc, obj):
     if acc.vk_id:
         account_pickle = pickle.dumps(acc, pickle.HIGHEST_PROTOCOL)
         account_base64 = base64.b64encode(account_pickle)
-        requests.post("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id), account_base64)
+        try:
+            requests.post("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id), account_base64)
+        except requests.RequestException:
+            messagebox.warning("Не удалось синхронизировать ваш аккаунт с сервером. Проверьте подключение к сети.")
 
 
 def load(path, obj):
@@ -48,7 +51,12 @@ def load(path, obj):
 def remove(acc, obj):
     """Удаляет файл пользователя acc"""
     if acc.vk_id:
-        requests.delete("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id))
+        try:
+            requests.delete("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id))
+        except requests.RequestException:
+            messagebox.warning("Не удалось удалить ваш аккаунт с сервера. "
+                               "Чтобы удалить аккаунт с сервера, проверьте подключение к сети, "
+                               "затем снова войдите в аккаунт через ВК и повторите удаление.")
     try:
         os.remove(acc.SAVE_PATH)
     except Exception as e:
