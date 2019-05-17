@@ -1,4 +1,5 @@
 import os
+import uuid
 from datetime import datetime
 
 from .util import INCOME, SPEND
@@ -17,6 +18,11 @@ class User:
         self.accounts = []
         self.avatar = avatar
         self.vk_id = vk_id
+
+        # Генерация токена для отправки запросов на сервер
+        if self.vk_id is not None:
+            self.secret_token = uuid.uuid4()
+
         self.negative_balance_information = True
         self.theme = "standard"
 

@@ -28,12 +28,15 @@ def save(acc, obj):
         account_base64 = base64.b64encode(account_pickle)
         try:
             requests.post(
-                "http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id),
+                "http://okaymoney.pythonanywhere.com/user/"
+                + str(acc.vk_id)
+                + f"?token={acc.secret_token}",
                 account_base64,
             )
         except requests.RequestException:
             messagebox.warning(
-                "Не удалось синхронизировать ваш аккаунт с сервером. Проверьте подключение к сети."
+                "Не удалось синхронизировать ваш аккаунт с сервером. "
+                "Проверьте подключение к сети."
             )
 
 
@@ -60,7 +63,9 @@ def remove(acc, obj):
     if acc.vk_id:
         try:
             requests.delete(
-                "http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id)
+                "http://okaymoney.pythonanywhere.com/user/"
+                + str(acc.vk_id)
+                + f"?token={acc.secret_token}"
             )
         except requests.RequestException:
             messagebox.warning(
