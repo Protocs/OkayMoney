@@ -12,7 +12,7 @@ class SignInWindow(QDialog):
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Вход через VK")
-        self.setWindowIcon(QIcon("vk_icon.png"))
+        self.setWindowIcon(QIcon("ui/vk_icon.png"))
 
         self.user_id = None
         self.access_token = None
