@@ -61,6 +61,7 @@ class MainWindow(UIWindow):
 
     def fill_accounts(self):
         self.accounts_list.clear()
+        money_sum = 0
         for acc in self.user.accounts:
             item = QListWidgetItem(
                 "{}{}{} ₽".format(
@@ -72,6 +73,8 @@ class MainWindow(UIWindow):
             )
             item.setToolTip(acc.name)
             self.accounts_list.addItem(item)
+            money_sum += acc.money
+        self.accounts_list.addItem(f"Всего: {money_sum} ₽")
 
     def show_incomes(self):
         self.pie_chart.set_transaction_type(INCOME, self.month, self.year)
