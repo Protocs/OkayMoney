@@ -67,24 +67,24 @@ class TransactionsHistoryDialog(UIDialog):
 
     def delete_transaction(self):
         transaction = self.transactions[self.history_transactions.currentRow()]
-        month, year = transaction.date.date().month(), transaction.date.date().year()
+        # month, year = transaction.date.date().month(), transaction.date.date().year()
         if self.account.remove_transaction(
             transaction, self.user.negative_balance_information
         ):
             self.change_transactions()
             save(self.user, self)
-            self.main_window.pie_chart.upd(month, year)
+            # self.main_window.pie_chart.upd(month, year)
             self.main_window._update_monthly()
             self.main_window.fill_accounts()
 
     def show_transaction_change_dialog(self):
         transaction = self.transactions[self.history_transactions.currentRow()]
-        month, year = transaction.date.date().month(), transaction.date.date().year()
+        # month, year = transaction.date.date().month(), transaction.date.date().year()
         self.transactions_change_dialog = TransactionChangeDialog(
             self.user, transaction, self.account
         )
         self.transactions_change_dialog.exec()
         self.change_transactions()
-        self.main_window.pie_chart.upd(month, year)
+        # self.main_window.pie_chart.upd(month, year)
         self.main_window._update_monthly()
         self.main_window.fill_accounts()
