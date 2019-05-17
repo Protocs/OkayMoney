@@ -18,13 +18,20 @@ class User:
         self.avatar = avatar
         self.vk_id = vk_id
         self.negative_balance_information = True
-        self.theme = 'standard'
+        self.theme = "standard"
 
         # Категории доходов и расходов
-        self.income_categories = ['Заработная плата', 'Денежный перевод']
-        self.spend_categories = ['Продукты', 'Одежда', 'Дом', 'Развлечения', 'Транспорт', 'Еда']
+        self.income_categories = ["Заработная плата", "Денежный перевод"]
+        self.spend_categories = [
+            "Продукты",
+            "Одежда",
+            "Дом",
+            "Развлечения",
+            "Транспорт",
+            "Еда",
+        ]
 
-        self.SAVE_PATH = name + '.okm'
+        self.SAVE_PATH = name + ".okm"
 
     def _monthly(self, tr_type, month, year):
         now = datetime.now()
@@ -34,8 +41,11 @@ class User:
             year = now.year
 
         transactions = sum((a.transactions for a in self.accounts if a.checked), [])
-        month_transactions = (t for t in transactions
-                              if t.date.date().month() == month and t.date.date().year() == year)
+        month_transactions = (
+            t
+            for t in transactions
+            if t.date.date().month() == month and t.date.date().year() == year
+        )
         return abs(sum(m.delta for m in month_transactions if m.type == tr_type))
 
     def get_monthly_income(self, month=None, year=None):
@@ -47,5 +57,10 @@ class User:
 
 def get_user_names_in_current_dir():
     """Возвращает имена всех созданных пользователей (те, что в текущей папке)."""
-    return list(sorted((file.split('.')[0] for file in os.listdir('.') if file.endswith('.okm')),
-                       key=lambda f: os.stat(f + '.okm').st_mtime, reverse=True))
+    return list(
+        sorted(
+            (file.split(".")[0] for file in os.listdir(".") if file.endswith(".okm")),
+            key=lambda f: os.stat(f + ".okm").st_mtime,
+            reverse=True,
+        )
+    )

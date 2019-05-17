@@ -7,7 +7,7 @@ class ConfirmActionDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/confirm_dialog.ui``
     """
 
-    ui_path = 'ui/dialogs/confirm_dialog.ui'
+    ui_path = "ui/dialogs/confirm_dialog.ui"
 
     def __init__(self, msg):
         super().__init__()

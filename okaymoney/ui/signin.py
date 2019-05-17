@@ -17,17 +17,22 @@ class SignInWindow(QDialog):
         self.setFixedSize(800, 600)
         self.web_engine = QWebEngineView(self)
         self.web_engine.resize(self.width(), self.height())
-        url = "https://oauth.vk.com/authorize?" \
-              "client_id=6975005" \
-              "&redirect_uri=http://okaymoney.pythonanywhere.com/vk" \
-              "&response_type=code" \
-              "&v=5.95"
+        url = (
+            "https://oauth.vk.com/authorize?"
+            "client_id=6975005"
+            "&redirect_uri=http://okaymoney.pythonanywhere.com/vk"
+            "&response_type=code"
+            "&v=5.95"
+        )
         self.web_engine.setUrl(QUrl(url))
         self.web_engine.loadFinished.connect(self.check_user_id)
 
     def check_user_id(self):
-        if self.web_engine.url().toString().startswith(
-                "http://okaymoney.pythonanywhere.com/vk"):
+        if (
+            self.web_engine.url()
+            .toString()
+            .startswith("http://okaymoney.pythonanywhere.com/vk")
+        ):
             self.web_engine.page().toPlainText(self.get_plain_text)
 
     def get_plain_text(self, text):

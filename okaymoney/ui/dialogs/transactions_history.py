@@ -10,7 +10,7 @@ class TransactionsHistoryDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/transactions_history.ui``
     """
 
-    ui_path = 'ui/dialogs/transactions_history.ui'
+    ui_path = "ui/dialogs/transactions_history.ui"
 
     def __init__(self, user, main_window):
         super().__init__()
@@ -31,15 +31,25 @@ class TransactionsHistoryDialog(UIDialog):
             self.change_transactions()
 
     def change_transactions(self):
-        self.account = \
-            [acc for acc in self.user.accounts if acc.name == self.accounts_box.currentText()][0]
-        self.transactions = [acc.transactions for acc in self.user.accounts
-                             if self.account.name == acc.name][0]
+        self.account = [
+            acc
+            for acc in self.user.accounts
+            if acc.name == self.accounts_box.currentText()
+        ][0]
+        self.transactions = [
+            acc.transactions
+            for acc in self.user.accounts
+            if self.account.name == acc.name
+        ][0]
         self.history_transactions.clear()
         for transaction in self.transactions:
             self.history_transactions.addItem(
-                "{}{}\t{}".format('+' if transaction.type == INCOME else '', str(transaction.delta),
-                                  transaction.date.toString("ddd dd MMM yyyy")))
+                "{}{}\t{}".format(
+                    "+" if transaction.type == INCOME else "",
+                    str(transaction.delta),
+                    transaction.date.toString("ddd dd MMM yyyy"),
+                )
+            )
         self.change_btn.setEnabled(False)
         self.delete_btn.setEnabled(False)
 
@@ -52,12 +62,15 @@ class TransactionsHistoryDialog(UIDialog):
         transaction = self.transactions[self.history_transactions.currentRow()]
         self.details.setText(
             "Категория:\n{}".format(transaction.category)
-            + ("\n\nОписание:\n{}".format(transaction.note) if transaction.note else ""))
+            + ("\n\nОписание:\n{}".format(transaction.note) if transaction.note else "")
+        )
 
     def delete_transaction(self):
         transaction = self.transactions[self.history_transactions.currentRow()]
         month, year = transaction.date.date().month(), transaction.date.date().year()
-        if self.account.remove_transaction(transaction, self.user.negative_balance_information):
+        if self.account.remove_transaction(
+            transaction, self.user.negative_balance_information
+        ):
             self.change_transactions()
             save(self.user, self)
             self.main_window.pie_chart.upd(month, year)
@@ -67,8 +80,9 @@ class TransactionsHistoryDialog(UIDialog):
     def show_transaction_change_dialog(self):
         transaction = self.transactions[self.history_transactions.currentRow()]
         month, year = transaction.date.date().month(), transaction.date.date().year()
-        self.transactions_change_dialog = TransactionChangeDialog(self.user, transaction,
-                                                                  self.account)
+        self.transactions_change_dialog = TransactionChangeDialog(
+            self.user, transaction, self.account
+        )
         self.transactions_change_dialog.exec()
         self.change_transactions()
         self.main_window.pie_chart.upd(month, year)

@@ -9,7 +9,7 @@ class AccountsFilterDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/accounts_filter_dialog.ui``
     """
 
-    ui_path = 'ui/dialogs/accounts_filter_dialog.ui'
+    ui_path = "ui/dialogs/accounts_filter_dialog.ui"
 
     def __init__(self, user):
         super().__init__()
@@ -22,16 +22,20 @@ class AccountsFilterDialog(UIDialog):
         for account in user.accounts:
             item = QListWidgetItem()
             self.accounts_list.addItem(item)
-            checkbox = QCheckBox(account.name + '\t\t' + str(account.money) + ' ₽', self)
+            checkbox = QCheckBox(
+                account.name + "\t\t" + str(account.money) + " ₽", self
+            )
             checkbox.setChecked(account.checked)
             self.checkboxes.append(checkbox)
             self.accounts_list.setItemWidget(item, checkbox)
 
     def choose_accounts(self):
         for account in self.user.accounts:
-            account.checked = account.name in ['\t\t'.join(checkbox.text().split('\t\t')[:-1])
-                                               for checkbox in self.checkboxes if
-                                               checkbox.isChecked()]
+            account.checked = account.name in [
+                "\t\t".join(checkbox.text().split("\t\t")[:-1])
+                for checkbox in self.checkboxes
+                if checkbox.isChecked()
+            ]
         save(self.user, self)
         self.close()
 

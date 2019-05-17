@@ -13,7 +13,7 @@ class SettingsDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/settings.ui``
     """
 
-    ui_path = 'ui/dialogs/settings.ui'
+    ui_path = "ui/dialogs/settings.ui"
 
     def __init__(self, user, login_window, main_window):
         super().__init__()
@@ -28,7 +28,9 @@ class SettingsDialog(UIDialog):
 
         self.user_name.setText(self.user.name)
         self.choose_avatar.clicked.connect(self.get_avatar_path)
-        self.negative_balance_information.setChecked(self.user.negative_balance_information)
+        self.negative_balance_information.setChecked(
+            self.user.negative_balance_information
+        )
         self.delete_user_btn.clicked.connect(self.delete_user)
 
         self.spend_categories_copy = self.user.spend_categories.copy()
@@ -36,16 +38,20 @@ class SettingsDialog(UIDialog):
         self.fill_income_categories()
         self.fill_spend_categories()
         self.spend_categories.currentItemChanged.connect(
-            lambda x: self.delete_spend_category_btn.setEnabled(True))
+            lambda x: self.delete_spend_category_btn.setEnabled(True)
+        )
         self.income_categories.currentItemChanged.connect(
-            lambda x: self.delete_income_category_btn.setEnabled(True))
+            lambda x: self.delete_income_category_btn.setEnabled(True)
+        )
         self.delete_spend_category_btn.clicked.connect(self.get_categories)
         self.delete_income_category_btn.clicked.connect(self.get_categories)
         self.add_spend_category_btn.clicked.connect(self.get_categories)
         self.add_income_category_btn.clicked.connect(self.get_categories)
 
         self.accounts.addItems([acc.name for acc in self.user.accounts])
-        self.accounts.currentItemChanged.connect(lambda x: self.delete_acc_btn.setEnabled(True))
+        self.accounts.currentItemChanged.connect(
+            lambda x: self.delete_acc_btn.setEnabled(True)
+        )
         self.accounts_copy = self.user.accounts.copy()
         self.delete_acc_btn.clicked.connect(self.delete_acc)
         self.delete_acc_btn.setEnabled(False)
@@ -53,10 +59,9 @@ class SettingsDialog(UIDialog):
         self.ok_btn.clicked.connect(self.apply_changes)
         self.cancel_btn.clicked.connect(self.close)
 
-        self.standard_radio.setChecked(self.user.theme == 'standard')
-        self.light_radio.setChecked(self.user.theme == 'light')
-        self.hard_radio.setChecked(self.user.theme == 'hard')
-
+        self.standard_radio.setChecked(self.user.theme == "standard")
+        self.light_radio.setChecked(self.user.theme == "light")
+        self.hard_radio.setChecked(self.user.theme == "hard")
 
     def delete_acc(self):
         self.accounts_copy.pop(self.accounts.currentRow())
@@ -76,14 +81,15 @@ class SettingsDialog(UIDialog):
             self.setFixedHeight(280)
 
     def get_avatar_path(self):
-        filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
+        filename = QFileDialog.getOpenFileName(self, "Выбрать аватар")
         if filename[0]:
             add_avatar(self, filename[0], self.choose_avatar)
 
     def delete_user(self):
         self.confirm_dialog = ConfirmActionDialog(
-            f'Вы действительно хотите удалить аккаунт пользователя '
-            f'"{self.user.name}"?\nВсе данные будут стерты без возможности восстановления!')
+            f"Вы действительно хотите удалить аккаунт пользователя "
+            f'"{self.user.name}"?\nВсе данные будут стерты без возможности восстановления!'
+        )
         if self.confirm_dialog.exec():
             remove(self.user, self)
             self.close()
@@ -108,11 +114,17 @@ class SettingsDialog(UIDialog):
         elif obj == "add_income_category_btn":
             self.add_category(self.income_categories_copy, self.fill_income_categories)
         elif obj == "delete_spend_category_btn":
-            self.delete_category(self.spend_categories_copy, self.spend_categories,
-                                 self.fill_spend_categories)
+            self.delete_category(
+                self.spend_categories_copy,
+                self.spend_categories,
+                self.fill_spend_categories,
+            )
         elif obj == "delete_income_category_btn":
-            self.delete_category(self.income_categories_copy, self.income_categories,
-                                 self.fill_income_categories)
+            self.delete_category(
+                self.income_categories_copy,
+                self.income_categories,
+                self.fill_income_categories,
+            )
 
     def add_category(self, categories_list, fill_function):
         if len(categories_list) < 10:
@@ -130,15 +142,17 @@ class SettingsDialog(UIDialog):
         remove(self.user, self)
 
         if self.standard_radio.isChecked():
-            theme = 'standard'
+            theme = "standard"
         elif self.light_radio.isChecked():
-            theme = 'light'
+            theme = "light"
         else:
-            theme = 'hard'
+            theme = "hard"
         self.user.name = self.user_name.text()
-        self.user.SAVE_PATH = self.user.name + '.okm'
+        self.user.SAVE_PATH = self.user.name + ".okm"
         self.user.avatar = self.avatar
-        self.user.negative_balance_information = self.negative_balance_information.isChecked()
+        self.user.negative_balance_information = (
+            self.negative_balance_information.isChecked()
+        )
         self.user.accounts = self.accounts_copy
         self.user.spend_categories = self.spend_categories_copy
         self.user.income_categories = self.income_categories_copy

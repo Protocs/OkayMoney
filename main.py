@@ -8,7 +8,7 @@ from okaymoney.ui.login import LoginWindow
 FIRST_WINDOW = LoginWindow
 
 # Стиль приложения
-STYLE = 'Fusion'
+STYLE = "Fusion"
 
 app = QApplication(sys.argv)
 
@@ -16,7 +16,7 @@ st = QStyleFactory.create(STYLE)
 app.setStyle(st)
 
 # Установка листа стилей (Style Sheet)
-with open('ui/app.qss') as ss:
+with open("ui/app.qss") as ss:
     app.setStyleSheet(ss.read())
 
 w = FIRST_WINDOW()

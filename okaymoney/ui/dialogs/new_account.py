@@ -11,7 +11,7 @@ class NewAccountDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/new_account.ui``
     """
 
-    ui_path = 'ui/dialogs/new_account.ui'
+    ui_path = "ui/dialogs/new_account.ui"
 
     def __init__(self, user):
         super().__init__()
@@ -41,4 +41,4 @@ class NewAccountDialog(UIDialog):
             self.close()
 
         except Exception:
-            error('Ошибка, попробуйте еще раз.', self)
+            error("Ошибка, попробуйте еще раз.", self)

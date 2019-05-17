@@ -27,9 +27,16 @@ class Account:
         >>> acc.transactions
         {0: <Transaction object at ...>}
         """
-        if self.money + tr.delta < 0 and negative_balance_information and tr.type == SPEND:
-            msg = "После совершения этой операции баланс на счете станет отрицательным" \
-                if self.money >= 0 else "Баланс вашего счета отрицательный"
+        if (
+            self.money + tr.delta < 0
+            and negative_balance_information
+            and tr.type == SPEND
+        ):
+            msg = (
+                "После совершения этой операции баланс на счете станет отрицательным"
+                if self.money >= 0
+                else "Баланс вашего счета отрицательный"
+            )
             confirm_dialog = ConfirmActionDialog(msg)
             if not confirm_dialog.exec():
                 return False
@@ -40,10 +47,17 @@ class Account:
 
     def remove_transaction(self, tr, negative_balance_information):
         if tr not in self.transactions:
-            raise ValueError('Транзакции не существует')
-        if self.money - tr.delta < 0 and negative_balance_information and tr.type == SPEND:
-            msg = "После удаления этой транзакции баланс на счете станет отрицательным" \
-                if self.money >= 0 else "Баланс вашего счета отрицательный"
+            raise ValueError("Транзакции не существует")
+        if (
+            self.money - tr.delta < 0
+            and negative_balance_information
+            and tr.type == SPEND
+        ):
+            msg = (
+                "После удаления этой транзакции баланс на счете станет отрицательным"
+                if self.money >= 0
+                else "Баланс вашего счета отрицательный"
+            )
             confirm_dialog = ConfirmActionDialog(msg)
             if not confirm_dialog.exec():
                 return False

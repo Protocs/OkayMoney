@@ -13,7 +13,7 @@ class LoginWindow(UIWindow):
     *Файл интерфейса:* ``ui/login.ui``
     """
 
-    ui_path = 'ui/login.ui'
+    ui_path = "ui/login.ui"
 
     def __init__(self):
         super().__init__()

@@ -22,7 +22,7 @@ class MainWindow(UIWindow):
     *Файл интерфейса:* ``ui/main.ui``
     """
 
-    ui_path = 'ui/main.ui'
+    ui_path = "ui/main.ui"
 
     def __init__(self, user, login_window):
         super().__init__()
@@ -33,7 +33,9 @@ class MainWindow(UIWindow):
         self.add_account_btn.clicked.connect(self.show_add_account_dialog)
         self.accounts_filter_btn.clicked.connect(self.show_accounts_filter_dialog)
         self.new_transaction_btn.clicked.connect(self.show_add_transaction_dialog)
-        self.transactions_history_btn.clicked.connect(self.show_transactions_history_dialog)
+        self.transactions_history_btn.clicked.connect(
+            self.show_transactions_history_dialog
+        )
         self.settings_btn.mousePressEvent = self.show_settings_dialog
         self.logout_btn.mousePressEvent = self.logout
 
@@ -61,9 +63,13 @@ class MainWindow(UIWindow):
         self.accounts_list.clear()
         for acc in self.user.accounts:
             item = QListWidgetItem(
-                "{}{}{} ₽".format(shorten(acc.name, 10), ' ' * (10 - len(shorten(acc.name, 10)))
-                                  + '\t' * (1 if 3 < len(acc.name) else 2),
-                                  str(acc.money)))
+                "{}{}{} ₽".format(
+                    shorten(acc.name, 10),
+                    " " * (10 - len(shorten(acc.name, 10)))
+                    + "\t" * (1 if 3 < len(acc.name) else 2),
+                    str(acc.money),
+                )
+            )
             item.setToolTip(acc.name)
             self.accounts_list.addItem(item)
 
@@ -77,13 +83,15 @@ class MainWindow(UIWindow):
         self.pie_chart.upd(self.month, self.year)
         self._update_monthly()
         self.fill_accounts()
-        self.dateLabel.setText(f'{str(self.month).zfill(2)}.{self.year}')
+        self.dateLabel.setText(f"{str(self.month).zfill(2)}.{self.year}")
 
     def _update_monthly(self):
         self.MonthlyIncomeMoney.setText(
-            str(self.user.get_monthly_income(self.month, self.year)) + ' ₽')
+            str(self.user.get_monthly_income(self.month, self.year)) + " ₽"
+        )
         self.MonthlyExpensesMoney.setText(
-            str(self.user.get_monthly_spend(self.month, self.year)) + ' ₽')
+            str(self.user.get_monthly_spend(self.month, self.year)) + " ₽"
+        )
 
     def show_add_account_dialog(self):
         self.add_account_dialog = NewAccountDialog(self.user)
@@ -100,8 +108,11 @@ class MainWindow(UIWindow):
 
     def show_add_transaction_dialog(self):
         if not self.user.accounts:
-            information("У вас еще нет ни одного счета, на который можно было бы "
-                        "добавить транзакцию.", self)
+            information(
+                "У вас еще нет ни одного счета, на который можно было бы "
+                "добавить транзакцию.",
+                self,
+            )
             return
         self.add_transaction_dialog = TransactionAddDialog(self.user)
         self.add_transaction_dialog.exec()

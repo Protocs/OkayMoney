@@ -10,7 +10,7 @@ class MoreUsersDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/more_users_dialog.ui``
     """
 
-    ui_path = 'ui/dialogs/more_users_dialog.ui'
+    ui_path = "ui/dialogs/more_users_dialog.ui"
 
     def __init__(self, login_window):
         super().__init__()
@@ -25,7 +25,9 @@ class MoreUsersDialog(UIDialog):
 
     def choose_user(self):
         username = self.listWidget.currentItem().text()
-        self.main = MainWindow(user_save_load.load(username + '.okm', self), self.login_window)
+        self.main = MainWindow(
+            user_save_load.load(username + ".okm", self), self.login_window
+        )
         self.main.show()
         self.close()
         self.login_window.close()

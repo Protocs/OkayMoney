@@ -10,7 +10,7 @@ class Transaction:
         :param delta: изменение баланса. Положительное число - доход, отрицательное - расход.
         """
         if not delta:
-            raise ValueError('бесполезная транзакция: дельта == 0')
+            raise ValueError("бесполезная транзакция: дельта == 0")
 
         self.category = category
         self.delta = delta
@@ -32,6 +32,6 @@ class Transaction:
     def __add__(self, other):
         """Сливает транзакции в одну."""
         if self.category != other.category:
-            raise ValueError('невозможно слить транзакции разных категорий')
+            raise ValueError("невозможно слить транзакции разных категорий")
 
         return Transaction(self.category, self.delta + other.delta, None, None)

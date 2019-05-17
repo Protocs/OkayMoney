@@ -7,5 +7,4 @@ class GreetingWidget(UIWidget):
     *Файл интерфейса:* ``ui/widgets/greeting.ui``
     """
 
-    ui_path = 'ui/widgets/greeting.ui'
-
+    ui_path = "ui/widgets/greeting.ui"

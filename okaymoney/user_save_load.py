@@ -16,18 +16,25 @@ def save(acc, obj):
     True
     """
     try:
-        with open(acc.SAVE_PATH, 'wb') as f:
+        with open(acc.SAVE_PATH, "wb") as f:
             pickle.dump(acc, f, pickle.HIGHEST_PROTOCOL)
     except OSError as e:
-        messagebox.error(f'Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})',
-                         obj)
+        messagebox.error(
+            f"Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})",
+            obj,
+        )
     if acc.vk_id:
         account_pickle = pickle.dumps(acc, pickle.HIGHEST_PROTOCOL)
         account_base64 = base64.b64encode(account_pickle)
         try:
-            requests.post("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id), account_base64)
+            requests.post(
+                "http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id),
+                account_base64,
+            )
         except requests.RequestException:
-            messagebox.warning("Не удалось синхронизировать ваш аккаунт с сервером. Проверьте подключение к сети.")
+            messagebox.warning(
+                "Не удалось синхронизировать ваш аккаунт с сервером. Проверьте подключение к сети."
+            )
 
 
 def load(path, obj):
@@ -40,24 +47,30 @@ def load(path, obj):
     <User object at ...>
     """
     try:
-        with open(path, 'rb') as f:
+        with open(path, "rb") as f:
             return pickle.load(f)
     except OSError as e:
-        messagebox.error(f'Невозможно открыть файл профиля: {path}\n({e})', obj)
+        messagebox.error(f"Невозможно открыть файл профиля: {path}\n({e})", obj)
     except pickle.PickleError as e:
-        messagebox.error(f'Ошибка загрузки профиля: {path}\n({e})', obj)
+        messagebox.error(f"Ошибка загрузки профиля: {path}\n({e})", obj)
 
 
 def remove(acc, obj):
     """Удаляет файл пользователя acc"""
     if acc.vk_id:
         try:
-            requests.delete("http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id))
+            requests.delete(
+                "http://okaymoney.pythonanywhere.com/user/" + str(acc.vk_id)
+            )
         except requests.RequestException:
-            messagebox.warning("Не удалось удалить ваш аккаунт с сервера. "
-                               "Чтобы удалить аккаунт с сервера, проверьте подключение к сети, "
-                               "затем снова войдите в аккаунт через ВК и повторите удаление.")
+            messagebox.warning(
+                "Не удалось удалить ваш аккаунт с сервера. "
+                "Чтобы удалить аккаунт с сервера, проверьте подключение к сети, "
+                "затем снова войдите в аккаунт через ВК и повторите удаление."
+            )
     try:
         os.remove(acc.SAVE_PATH)
     except Exception as e:
-        messagebox.error(f'Невозможно удалить файл по пути: {acc.SAVE_PATH}\n({e})', obj)
+        messagebox.error(
+            f"Невозможно удалить файл по пути: {acc.SAVE_PATH}\n({e})", obj
+        )

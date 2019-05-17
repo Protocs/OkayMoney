@@ -10,7 +10,7 @@ class TransactionChangeDialog(TransactionAddDialog):
     *Файл интерфейса:* ``ui/dialogs/transaction_add.ui``
     """
 
-    ui_path = 'ui/dialogs/transaction_add.ui'
+    ui_path = "ui/dialogs/transaction_add.ui"
 
     def __init__(self, user, transaction, account):
         super().__init__(user)
@@ -32,14 +32,23 @@ class TransactionChangeDialog(TransactionAddDialog):
         self.accounts_box.setCurrentIndex(self.user.accounts.index(self.account))
         self.categories_box.setCurrentIndex(
             self.user.income_categories.index(self.transaction.category)
-            if self.transaction.type == INCOME else self.user.spend_categories.index(
-                self.transaction.category))
+            if self.transaction.type == INCOME
+            else self.user.spend_categories.index(self.transaction.category)
+        )
         self.ok_btn.setText("Изменить")
 
     def add_transaction(self, tr, acc):
-        if len(str(tr.delta + acc.money)[1:] if tr.type == SPEND else str(
-                tr.delta + acc.money)) > 15:
-            error("Баланс на вашем счету не должен содержать в себе более 15 цифр.", self)
+        if (
+            len(
+                str(tr.delta + acc.money)[1:]
+                if tr.type == SPEND
+                else str(tr.delta + acc.money)
+            )
+            > 15
+        ):
+            error(
+                "Баланс на вашем счету не должен содержать в себе более 15 цифр.", self
+            )
             return
         self.account.remove_transaction(self.transaction, False)
         if acc.add_transaction(tr, self.user.negative_balance_information):

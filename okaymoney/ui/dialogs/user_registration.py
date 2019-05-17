@@ -5,9 +5,8 @@ import requests
 from PIL import Image
 from PyQt5.QtWidgets import QFileDialog
 
-from ui import messagebox
+from ...ui import messagebox
 from .ui_dialog import UIDialog
-from ..messagebox import error
 from ..signin import SignInWindow
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
@@ -20,11 +19,11 @@ class UserRegistrationDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/user_registration.ui``
     """
 
-    ui_path = 'ui/dialogs/user_registration.ui'
+    ui_path = "ui/dialogs/user_registration.ui"
 
     def __init__(self):
         super().__init__()
-        with open('ui/default.png', 'rb') as default:
+        with open("ui/default.png", "rb") as default:
             self.avatar = default.read()
 
         self.ok_button.clicked.connect(self.get_user_name)
@@ -37,7 +36,7 @@ class UserRegistrationDialog(UIDialog):
         create_user(self, name, self.avatar)
 
     def get_avatar_path(self):
-        filename = QFileDialog.getOpenFileName(self, 'Выбрать аватар')
+        filename = QFileDialog.getOpenFileName(self, "Выбрать аватар")
         if filename[0]:
             add_avatar(self, filename[0], self.avatar_name)
 
@@ -47,7 +46,9 @@ class UserRegistrationDialog(UIDialog):
         try:
             user_info = get_vk_user_info(user_id, token)
         except requests.RequestException:
-            messagebox.error("Не удалось получить ваши данные. Проверьте подключение к сети.")
+            messagebox.error(
+                "Не удалось получить ваши данные. Проверьте подключение к сети."
+            )
             return
         avatar = get_avatar_from_url(user_info["photo_100"])
         name = " ".join([user_info["first_name"], user_info["last_name"]])
@@ -58,10 +59,12 @@ def create_user(obj, name, avatar, vk_id=None):
     """Создает пользователя name с аватаркой avatar в родительском виджете obj"""
     if name:
         if name in get_user_names_in_current_dir():
-            error('Пользователь с таким именем уже существует', obj)
+            messagebox.error("Пользователь с таким именем уже существует", obj)
             return
         if vk_id:
-            request = requests.get("http://okaymoney.pythonanywhere.com/user/" + str(vk_id))
+            request = requests.get(
+                "http://okaymoney.pythonanywhere.com/user/" + str(vk_id)
+            )
             if request.content:
                 acc_pickle = base64.b64decode(request.content)
                 acc = pickle.loads(acc_pickle)
@@ -73,7 +76,7 @@ def create_user(obj, name, avatar, vk_id=None):
 
         obj.close()
     else:
-        error('Введите имя пользователя', obj)
+        messagebox.error("Введите имя пользователя", obj)
 
 
 def add_avatar(obj, avatar_path, avatar_name_widget):
@@ -84,10 +87,10 @@ def add_avatar(obj, avatar_path, avatar_name_widget):
     try:
         image = Image.open(avatar_path)
         if image.size[0] == 128 and image.size[1] == 128:
-            with open(avatar_path, 'rb') as avatar:
+            with open(avatar_path, "rb") as avatar:
                 obj.avatar = avatar.read()
-            avatar_name_widget.setText(avatar_path.split('/')[-1])
+            avatar_name_widget.setText(avatar_path.split("/")[-1])
         else:
             raise Exception
     except Exception:
-        error('Ошибка, попробуйте загрузить картинку снова.', obj)
+        messagebox.error("Ошибка, попробуйте загрузить картинку снова.", obj)

@@ -9,7 +9,7 @@ class NewCategoryDialog(UIDialog):
     *Файл интерфейса:* ``ui/dialogs/new_category.ui``
     """
 
-    ui_path = 'ui/dialogs/new_category.ui'
+    ui_path = "ui/dialogs/new_category.ui"
 
     def __init__(self, categories_list, user):
         super().__init__()
@@ -37,4 +37,4 @@ class NewCategoryDialog(UIDialog):
             self.close()
 
         except Exception:
-            error('Ошибка, попробуйте еще раз.', self)
+            error("Ошибка, попробуйте еще раз.", self)
