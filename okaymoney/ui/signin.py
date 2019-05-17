@@ -1,5 +1,6 @@
 import json
 
+from PyQt5.QtGui import QIcon
 from PyQt5.QtWebEngineWidgets import QWebEngineView
 from PyQt5.QtCore import QUrl
 from PyQt5.QtWidgets import QDialog
@@ -10,6 +11,8 @@ class SignInWindow(QDialog):
 
     def __init__(self):
         super().__init__()
+        self.setWindowTitle("Вход через VK")
+        self.setWindowIcon(QIcon("vk_icon.png"))
 
         self.user_id = None
         self.access_token = None
