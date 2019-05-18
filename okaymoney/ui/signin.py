@@ -27,6 +27,7 @@ class SignInWindow(QDialog):
             "&redirect_uri=http://okaymoney.pythonanywhere.com/vk"
             "&response_type=code"
             "&v=5.95"
+            "&revoke=1"
         )
         self.web_engine.setUrl(QUrl(url))
         self.web_engine.loadFinished.connect(self.check_user_id)
