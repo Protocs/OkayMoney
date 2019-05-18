@@ -3,6 +3,7 @@ from .ui import messagebox
 import os
 import requests
 import base64
+from .util import get_app_token
 
 
 def save(acc, obj):
@@ -26,11 +27,12 @@ def save(acc, obj):
     if acc.vk_id:
         account_pickle = pickle.dumps(acc, pickle.HIGHEST_PROTOCOL)
         account_base64 = base64.b64encode(account_pickle)
+        app_token = get_app_token(acc.vk_id)
         try:
             requests.post(
                 "http://okaymoney.pythonanywhere.com/user/"
                 + str(acc.vk_id)
-                + f"?token={acc.secret_token}",
+                + f"?token={app_token}",
                 account_base64,
             )
         except requests.RequestException:
@@ -61,11 +63,12 @@ def load(path, obj):
 def remove(acc, obj):
     """Удаляет файл пользователя acc"""
     if acc.vk_id:
+        app_token = get_app_token(acc.vk_id)
         try:
             requests.delete(
                 "http://okaymoney.pythonanywhere.com/user/"
                 + str(acc.vk_id)
-                + f"?token={acc.secret_token}"
+                + f"?token={app_token}"
             )
         except requests.RequestException:
             messagebox.warning(

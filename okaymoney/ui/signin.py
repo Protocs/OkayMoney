@@ -16,6 +16,7 @@ class SignInWindow(QDialog):
 
         self.user_id = None
         self.access_token = None
+        self.app_token = None
 
         self.setFixedSize(800, 600)
         self.web_engine = QWebEngineView(self)
@@ -42,8 +43,9 @@ class SignInWindow(QDialog):
         response = json.loads(text)
         self.user_id = response.get("user_id")
         self.access_token = response.get("access_token")
+        self.app_token = response.get("app_token")
         self.close()
 
     def exec(self):
         super().exec()
-        return self.user_id, self.access_token
+        return self.user_id, self.access_token, self.app_token

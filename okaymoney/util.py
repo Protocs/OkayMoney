@@ -102,3 +102,19 @@ def get_vk_user_info(user_id, token):
 def get_avatar_from_url(url):
     response = requests.get(url)
     return response.content
+
+
+def save_app_token(token, user_id):
+    with open("users.json", "w+", encoding="utf-8") as f:
+        if f.read():
+            json_data = json.load(f)
+            json_data.update({user_id: token})
+        else:
+            json_data = {user_id: token}
+        json.dump(json_data, f)
+
+
+def get_app_token(user_id):
+    with open("users.json", encoding="utf-8") as f:
+        json_data = json.load(f)
+        return json_data.get(str(user_id))

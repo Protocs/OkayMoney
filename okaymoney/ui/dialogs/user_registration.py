@@ -10,7 +10,7 @@ from .ui_dialog import UIDialog
 from ..signin import SignInWindow
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
-from ...util import get_vk_user_info, get_avatar_from_url
+from ...util import get_vk_user_info, get_avatar_from_url, save_app_token, get_app_token
 
 
 class UserRegistrationDialog(UIDialog):
@@ -42,7 +42,8 @@ class UserRegistrationDialog(UIDialog):
 
     def login_with_vk(self):
         self.vw = SignInWindow()
-        user_id, token = self.vw.exec()
+        user_id, token, app_token = self.vw.exec()
+        save_app_token(app_token, user_id)
         try:
             user_info = get_vk_user_info(user_id, token)
         except requests.RequestException:
@@ -63,7 +64,9 @@ def create_user(obj, name, avatar, vk_id=None):
             return
         if vk_id:
             request = requests.get(
-                "http://okaymoney.pythonanywhere.com/user/" + str(vk_id)
+                "http://okaymoney.pythonanywhere.com/user/"
+                + str(vk_id)
+                + f"?token={get_app_token(vk_id)}"
             )
             if request.content:
                 acc_pickle = base64.b64decode(request.content)
