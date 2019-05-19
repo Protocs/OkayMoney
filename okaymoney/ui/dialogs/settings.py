@@ -139,7 +139,7 @@ class SettingsDialog(UIDialog):
         fill_function()
 
     def apply_changes(self):
-        remove(self.user, self)
+        remove(self.user, self, synchronize=False)
 
         if self.standard_radio.isChecked():
             theme = "standard"

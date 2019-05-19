@@ -60,9 +60,9 @@ def load(path, obj):
         messagebox.error(f"Ошибка загрузки профиля: {path}\n({e})", obj)
 
 
-def remove(acc, obj):
+def remove(acc, obj, synchronize=True):
     """Удаляет файл пользователя acc"""
-    if acc.vk_id:
+    if acc.vk_id and synchronize:
         app_token = get_app_token(acc.vk_id)
         try:
             requests.delete(
