@@ -1,4 +1,6 @@
+import base64
 import json
+import pickle
 
 import requests
 
@@ -118,3 +120,15 @@ def get_app_token(user_id):
     with open("users.json", encoding="utf-8") as f:
         json_data = json.load(f)
         return json_data.get(str(user_id))
+
+
+def get_user_from_server(vk_id):
+    request = requests.get(
+        "http://okaymoney.pythonanywhere.com/user/"
+        + str(vk_id)
+        + f"?token={get_app_token(vk_id)}"
+    )
+    if request.content:
+        acc_pickle = base64.b64decode(request.content)
+        acc = pickle.loads(acc_pickle)
+        return acc

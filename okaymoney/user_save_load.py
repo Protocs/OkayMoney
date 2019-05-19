@@ -6,7 +6,7 @@ import base64
 from .util import get_app_token
 
 
-def save(acc, obj):
+def save(acc, obj, synchronize=True):
     """Сохраняет ``acc`` в файл по пути :attribute:`~okaymoney.account.User.SAVE_PATH`.
 
     >>> from okaymoney.user import User
@@ -24,7 +24,7 @@ def save(acc, obj):
             f"Невозможно создать файл для сохранения профиля: {acc.SAVE_PATH}\n({e})",
             obj,
         )
-    if acc.vk_id:
+    if acc.vk_id and synchronize:
         account_pickle = pickle.dumps(acc, pickle.HIGHEST_PROTOCOL)
         account_base64 = base64.b64encode(account_pickle)
         app_token = get_app_token(acc.vk_id)

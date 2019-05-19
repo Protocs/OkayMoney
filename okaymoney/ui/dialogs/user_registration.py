@@ -1,6 +1,3 @@
-import base64
-import pickle
-
 import requests
 from PIL import Image
 from PyQt5.QtWidgets import QFileDialog
@@ -10,7 +7,7 @@ from .ui_dialog import UIDialog
 from ..signin import SignInWindow
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
-from ...util import get_vk_user_info, get_avatar_from_url, save_app_token, get_app_token
+from ...util import get_vk_user_info, get_avatar_from_url, save_app_token, get_user_from_server
 
 
 class UserRegistrationDialog(UIDialog):
@@ -63,15 +60,8 @@ def create_user(obj, name, avatar, vk_id=None):
             messagebox.error("Пользователь с таким именем уже существует", obj)
             return
         if vk_id:
-            request = requests.get(
-                "http://okaymoney.pythonanywhere.com/user/"
-                + str(vk_id)
-                + f"?token={get_app_token(vk_id)}"
-            )
-            if request.content:
-                acc_pickle = base64.b64decode(request.content)
-                acc = pickle.loads(acc_pickle)
-            else:
+            acc = get_user_from_server(vk_id)
+            if acc is None:
                 acc = User(name, avatar, vk_id)
         else:
             acc = User(name, avatar, vk_id)

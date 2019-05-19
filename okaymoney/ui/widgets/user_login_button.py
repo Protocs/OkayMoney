@@ -3,9 +3,10 @@ from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
 from PyQt5.Qt import QByteArray
 
 from ...util import shorten
-from ...user_save_load import load
+from ...user_save_load import load, save
 from ..main import MainWindow
 from .ui_widget import UIWidget
+from ...util import get_user_from_server
 
 
 class UserLoginButton(UIWidget):
@@ -20,6 +21,11 @@ class UserLoginButton(UIWidget):
         super().__init__()
 
         self.user = load(path + ".okm", login_window)
+        if self.user.vk_id:
+            from_server = get_user_from_server(self.user.vk_id)
+            if from_server:
+                save(from_server, self, synchronize=False)
+                self.user = load(path + ".okm", login_window)
         self.name.setText(shorten(self.user.name, 10))
         self.name.setToolTip(self.user.name)
 
