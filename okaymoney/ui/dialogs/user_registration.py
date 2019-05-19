@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QFileDialog
 
 from ...ui import messagebox
 from .ui_dialog import UIDialog
-from ..signin import SignInWindow
+from .signin import SignInDialog
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
 from ...util import get_vk_user_info, get_avatar_from_url, save_app_token, get_user_from_server
@@ -38,7 +38,7 @@ class UserRegistrationDialog(UIDialog):
             add_avatar(self, filename[0], self.avatar_name)
 
     def login_with_vk(self):
-        self.vw = SignInWindow()
+        self.vw = SignInDialog()
         user_id, token, app_token = self.vw.exec()
         save_app_token(app_token, user_id)
         try:
