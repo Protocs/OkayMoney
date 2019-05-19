@@ -42,7 +42,9 @@ class UserLoginButton(UIWidget):
             try:
                 from_server = get_user_from_server(self.user.vk_id)
             except RequestException:
-                messagebox.error("Невозможно получить ваши данные с сервера. Проверьте подключение к сети.")
+                messagebox.error(
+                    "Невозможно получить ваши данные с сервера. Проверьте подключение к сети."
+                )
                 return
             if from_server:
                 save(from_server, self, synchronize=False)

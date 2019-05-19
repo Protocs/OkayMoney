@@ -7,7 +7,12 @@ from .ui_dialog import UIDialog
 from .signin import SignInDialog
 from ...user import User, get_user_names_in_current_dir
 from ...user_save_load import save
-from ...util import get_vk_user_info, get_avatar_from_url, save_app_token, get_user_from_server
+from ...util import (
+    get_vk_user_info,
+    get_avatar_from_url,
+    save_app_token,
+    get_user_from_server,
+)
 
 
 class UserRegistrationDialog(UIDialog):
