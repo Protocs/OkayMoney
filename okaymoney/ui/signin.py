@@ -7,8 +7,6 @@ from PyQt5.QtWidgets import QDialog
 
 
 class SignInWindow(QDialog):
-    ui_path = "ui/dialogs/sign_in.ui"
-
     def __init__(self):
         super().__init__()
         self.setWindowTitle("Вход через VK")
