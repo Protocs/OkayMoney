@@ -2,11 +2,14 @@ from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
 from PyQt5.Qt import QByteArray
 
+from requests import RequestException
+
 from ...util import shorten
 from ...user_save_load import load, save
 from ..main import MainWindow
 from .ui_widget import UIWidget
 from ...util import get_user_from_server
+from .. import messagebox
 
 
 class UserLoginButton(UIWidget):
@@ -36,7 +39,11 @@ class UserLoginButton(UIWidget):
 
     def mousePressEvent(self, event):
         if self.user.vk_id:
-            from_server = get_user_from_server(self.user.vk_id)
+            try:
+                from_server = get_user_from_server(self.user.vk_id)
+            except RequestException:
+                messagebox.error("Невозможно получить ваши данные с сервера. Проверьте подключение к сети.")
+                return
             if from_server:
                 save(from_server, self, synchronize=False)
                 self.user = load(self.user.SAVE_PATH, self.login_window)
