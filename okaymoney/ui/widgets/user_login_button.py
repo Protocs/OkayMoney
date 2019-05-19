@@ -21,11 +21,6 @@ class UserLoginButton(UIWidget):
         super().__init__()
 
         self.user = load(path + ".okm", login_window)
-        if self.user.vk_id:
-            from_server = get_user_from_server(self.user.vk_id)
-            if from_server:
-                save(from_server, self, synchronize=False)
-                self.user = load(path + ".okm", login_window)
         self.name.setText(shorten(self.user.name, 10))
         self.name.setToolTip(self.user.name)
 
@@ -40,6 +35,11 @@ class UserLoginButton(UIWidget):
         self.icon.mousePressEvent = self.name.mousePressEvent = self.mousePressEvent
 
     def mousePressEvent(self, event):
+        if self.user.vk_id:
+            from_server = get_user_from_server(self.user.vk_id)
+            if from_server:
+                save(from_server, self, synchronize=False)
+                self.user = load(self.user.SAVE_PATH, self.login_window)
         self.main = MainWindow(self.user, self.login_window)
         self.main.show()
         self.login_window.close()
