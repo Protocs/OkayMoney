@@ -89,7 +89,7 @@ class TransactionsHistoryDialog(UIDialog):
         transaction = self.transactions[self.history_transactions.currentRow()]
         # month, year = transaction.date.date().month(), transaction.date.date().year()
         if self.account.remove_transaction(
-                transaction, self.user.negative_balance_information
+            transaction, self.user.negative_balance_information
         ):
             self.change_transactions()
             save(self.user, self)
