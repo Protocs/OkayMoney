@@ -1,5 +1,5 @@
-requests
-matplotlib
-Pillow
-PyQt5
-PyQtWebEngine
+requests ~= 2.28
+matplotlib ~= 3.6
+Pillow ~= 9.4
+PyQt5 ~= 5.15
+PyQtWebEngine ~= 5.15
