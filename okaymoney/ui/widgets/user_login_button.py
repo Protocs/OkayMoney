@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
-from PyQt5.QtCore import QByteArray
+from PyQt5.QtCore import QByteArray, Qt
 
 from requests import RequestException
 
@@ -24,8 +24,9 @@ class UserLoginButton(UIWidget):
         super().__init__()
 
         self.user = load(path + ".okm", login_window)
-        self.name.setText(shorten(self.user.name, 10))
+        self.name.setText(shorten(self.user.name, 40))
         self.name.setToolTip(self.user.name)
+        self.verticalLayout.setAlignment(Qt.AlignCenter)
 
         scene = QGraphicsScene()
         self.icon.setScene(scene)
