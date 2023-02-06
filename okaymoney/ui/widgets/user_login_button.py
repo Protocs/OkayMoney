@@ -1,6 +1,6 @@
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QGraphicsPixmapItem, QGraphicsScene
-from PyQt5.Qt import QByteArray
+from PyQt5.QtCore import QByteArray
 
 from requests import RequestException
 
